@@ -26322,7 +26322,7 @@ try {
           __self: this,
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 37,
+            lineNumber: 38,
             columnNumber: 41
           }
         })
@@ -26333,7 +26333,7 @@ try {
           __self: this,
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 40,
+            lineNumber: 41,
             columnNumber: 13
           }
         }, selectedMovie ? /*#__PURE__*/_reactDefault.default.createElement(_movieViewMovieView.MovieView, {
@@ -26344,8 +26344,8 @@ try {
           __self: this,
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 42,
-            columnNumber: 23
+            lineNumber: 43,
+            columnNumber: 21
           }
         }) : movies.map(movie => /*#__PURE__*/_reactDefault.default.createElement(_movieCardMovieCard.MovieCard, {
           key: movie._id,
@@ -26356,7 +26356,7 @@ try {
           __self: this,
           __source: {
             fileName: _jsxFileName,
-            lineNumber: 44,
+            lineNumber: 50,
             columnNumber: 25
           }
         })))
@@ -28378,7 +28378,7 @@ try {
     // document.removeEventListener('keypress', this.keypressCallback);
     // }
     render() {
-      const {movieData, onBackClick} = this.props;
+      const {movie, onBackClick} = this.props;
       return (
         /*#__PURE__*/_reactDefault.default.createElement("div", {
           className: "movie-view",
@@ -28397,7 +28397,7 @@ try {
             columnNumber: 17
           }
         }, /*#__PURE__*/_reactDefault.default.createElement("img", {
-          src: movieData.ImagePath,
+          src: movie.ImagePath,
           __self: this,
           __source: {
             fileName: _jsxFileName,
@@ -28428,7 +28428,7 @@ try {
             lineNumber: 27,
             columnNumber: 21
           }
-        }, movieData.Title)), /*#__PURE__*/_reactDefault.default.createElement("div", {
+        }, movie.Title)), /*#__PURE__*/_reactDefault.default.createElement("div", {
           className: "movie-release",
           __self: this,
           __source: {
@@ -28452,7 +28452,7 @@ try {
             lineNumber: 31,
             columnNumber: 21
           }
-        }, movieData.ReleaseDate)), /*#__PURE__*/_reactDefault.default.createElement("div", {
+        }, movie.ReleaseDate)), /*#__PURE__*/_reactDefault.default.createElement("div", {
           className: "movie-director",
           __self: this,
           __source: {
@@ -28476,7 +28476,7 @@ try {
             lineNumber: 35,
             columnNumber: 21
           }
-        }, movieData.Director)), /*#__PURE__*/_reactDefault.default.createElement("div", {
+        }, movie.Director.Name)), /*#__PURE__*/_reactDefault.default.createElement("div", {
           className: "movie-genre",
           __self: this,
           __source: {
@@ -28500,7 +28500,7 @@ try {
             lineNumber: 39,
             columnNumber: 21
           }
-        }, movieData.Genre)), /*#__PURE__*/_reactDefault.default.createElement("div", {
+        }, movie.Genre.Name)), /*#__PURE__*/_reactDefault.default.createElement("div", {
           className: "movie-cast",
           __self: this,
           __source: {
@@ -28524,7 +28524,7 @@ try {
             lineNumber: 43,
             columnNumber: 21
           }
-        }, movieData.Actors)), /*#__PURE__*/_reactDefault.default.createElement("div", {
+        }, movie.Actors)), /*#__PURE__*/_reactDefault.default.createElement("div", {
           className: "movie-description",
           __self: this,
           __source: {
@@ -28548,7 +28548,7 @@ try {
             lineNumber: 47,
             columnNumber: 21
           }
-        }, movieData.Description)), /*#__PURE__*/_reactDefault.default.createElement("button", {
+        }, movie.Description)), /*#__PURE__*/_reactDefault.default.createElement("button", {
           onClick: () => {
             onBackClick(null);
           },
