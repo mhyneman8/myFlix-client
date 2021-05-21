@@ -1,45 +1,28 @@
 import React from 'react';
+import axios from 'axios';
+
 import { MovieCard } from '../movie-card/movie-card';
 import { MovieView } from '../movie-view/movie-view';
 
-class MainView extends React.Component {
+export class MainView extends React.Component {
     constructor() {
         super();
         this.state = {
-            movies: [
-                {
-                    _id: 1,
-                    Title: 'Frida',
-                    Description: 'An American biographical drama film which depicts the professional and private life of the surrealist Mexican artist Frida Kahlo.',
-                    ImagePath: 'https://upload.wikimedia.org/wikipedia/en/thumb/2/26/Fridaposter.jpg/220px-Fridaposter.jpg',
-                    ReleaseDate: '2002',
-                    Genre: 'Drama',
-                    Director: 'Julie Taymor',
-                    Cast: ['Salma Hayek', 'Alfred Molina', 'Geoffrey Rush']
-                },
-                {
-                    _id: 2,
-                    Title: 'Boyhood',
-                    Description: 'dThe life of Mason, from early childhood to his arrival at college.',
-                    ImagePath: 'https://upload.wikimedia.org/wikipedia/en/a/a6/Boyhood_%282014%29.png',
-                    ReleaseDate: '2033',
-                    Genre: 'Drama',
-                    Director: 'Richard Linklater',
-                    Cast: ['Ellar Coltrane', 'Patricia Arquette', 'Ethan Hawke']
-                },
-                {
-                    _id: 3,
-                    Title: 'Seven',
-                    Description: 'Two detectives, a rookie and a veteran, hunt a serial killer who uses the seven deadly sins as his motives.',
-                    ImagePath: 'https://upload.wikimedia.org/wikipedia/en/6/68/Seven_%28movie%29_poster.jpg',
-                    ReleaseDate: '1995',
-                    Genre: 'Drama',
-                    Director: 'David Fincher',
-                    Cast: ['Morgan Freeman', 'Brad Pitt', 'Kevin Spacey']
-                }
-            ],
+            movies: [],
             selectedMovie: null
-        };
+        }
+    }
+
+    componentDidMount() {
+        axios.get('https://myflix788.herokuapp.com/movies')
+            .then(response => {
+                this.setState({
+                    movies: response.data
+                });
+            })
+            .catch(error => {
+                console.log(error);
+            });
     }
 
     setSelectedMovie(newSelectedMovie) {
@@ -51,7 +34,7 @@ class MainView extends React.Component {
     render() {
         const { movies, selectedMovie } = this.state;
 
-        if (movies.length === 0) return <div className="main-view">The list is empty!</div>;
+        if (movies.length === 0) return <div className="main-view" />;
 
         return (
             <div className="main-view">
