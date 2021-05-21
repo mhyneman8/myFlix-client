@@ -28524,7 +28524,7 @@ try {
             lineNumber: 43,
             columnNumber: 21
           }
-        }, movie.Actors)), /*#__PURE__*/_reactDefault.default.createElement("div", {
+        }, movie.Cast.map(cast => cast))), /*#__PURE__*/_reactDefault.default.createElement("div", {
           className: "movie-description",
           __self: this,
           __source: {

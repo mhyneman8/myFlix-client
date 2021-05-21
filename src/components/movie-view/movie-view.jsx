@@ -40,7 +40,7 @@ export class MovieView extends React.Component {
                 </div>
                 <div className="movie-cast">
                     <span className="label">Cast: </span>
-                    <span className="value">{movie.Actors}</span>
+                    <span className="value">{movie.Cast.map((cast) => cast)}</span>
                 </div>
                 <div className="movie-description">
                     <span className="label">Description: </span>
