@@ -19,10 +19,10 @@ MovieCard.propTypes = {
         Cast: PropTypes.string.isRequired,
         ReleaseDate: PropTypes.number.isRequired,
         Director: PropTypes.shape({
-            Name: Proptypes.string.isRequired,
+            Name: PropTypes.string.isRequired,
             Bio: PropTypes.string.isRequired,
             Birth: PropTypes.number.isRequired,
-            Death: PropTypes.sting
+            Death: PropTypes.number
         }),
         Genre: PropTypes.shape({
             Name: PropTypes.string.isRequired,

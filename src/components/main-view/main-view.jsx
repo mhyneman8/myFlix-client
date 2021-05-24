@@ -2,9 +2,9 @@ import React from 'react';
 import axios from 'axios';
 
 import { LoginView } from '../login-view/login-view';
+import { RegistrationView } from '../registration-view/registration-view';
 import { MovieCard } from '../movie-card/movie-card';
 import { MovieView } from '../movie-view/movie-view';
-import { RegistrationView } from '../registration-view/registration-view';
 
 export class MainView extends React.Component {
     constructor() {
@@ -12,7 +12,8 @@ export class MainView extends React.Component {
         this.state = {
             movies: [],
             selectedMovie: null,
-            user: null
+            user: null,
+            register: null
         };
     }
 
@@ -29,12 +30,11 @@ export class MainView extends React.Component {
             });
     }
 
-    // onRegister(register) {
-    //     this.setState({
-    //         selectedMovie: newSelectedMovie,
-    //         register
-    //     })
-    // }
+    onRegister(register) {
+        this.setState({
+            register
+        })
+    }
     setSelectedMovie(movie) {
         this.setState({
             selectedMovie: movie
@@ -48,11 +48,12 @@ export class MainView extends React.Component {
     }
 
     render() {
-        const { movies, selectedMovie, user } = this.state;
+        const { movies, selectedMovie, user, register } = this.state;
+        console.log(movies)
         // login view if user not logged in
         if (!user) return <LoginView onLoggedIn={user => this.onLoggedIn(user)} />;
 
-        // if (!register) return <RegistrationView onRegister={(register) => this.onRegister(register)} />;
+        if (!register) return <RegistrationView onRegister={(register) => this.onRegister(register)} />;
 
         if (movies.length === 0) return <div className="main-view" />;
 
@@ -80,7 +81,3 @@ export class MainView extends React.Component {
         );
     }
 }
-
-// default allows no curly bracket when importing
-// can only use default once
-export default MainView;
