@@ -1,4 +1,100 @@
-.my-flix {
-  color: steelblue;
+.app-container {
+  background-color: #75b8c8;
+  width: 100%;
+  justify-content: center;
+  margin: 0 auto;
+  height: 100vh;
+  min-height: 100%;
+}
+
+html {
+  background-color: #75b8c8;
+}
+
+.text {
+  color: #260c1a !important;
+  font-weight: 650;
+}
+
+.navbar {
+  background-color: #260c1a;
+  color: #75b8c8 !important;
+  justify-content: center;
+}
+
+.nav-link {
+  color: #fa824c !important;
+}
+
+.btn-primary {
+  background-color: #fa824c !important;
+  color: #260c1a !important;
+  font-weight: 550 !important;
+  border: none !important;
+  width: 6.25rem;
+  margin-top: 2.5rem;
+}
+
+.btn-secondary {
+  background-color: #260c1a !important;
+  color: white !important;
+  border: none !important;
+  margin-top: 0.625rem;
+}
+
+.btn-outline-success {
+  border-color: #fa824c !important;
+  color: #fa824c !important;
+}
+
+h1 {
+  font-size: 1.5rem;
+}
+
+.card-title.h5 {
+  font-weight: 500;
+  text-align: center !important;
+}
+
+.navbar-toggler-icon {
+  flex-direction: row;
+  justify-content: flex-end;
+  background-color: #fa824c !important;
+  border-radius: 0.25rem;
+}
+
+div.card {
+  display: grid;
+  grid-template-rows: 1fr auto;
+}
+
+.card-body {
+  align-self: end;
+  justify-items: flex-end;
+  min-height: 400px;
+}
+
+.card-img-top {
+  height: 18.75rem;
+  padding: 10px;
+}
+
+.movie-poster {
+  display: inline;
+}
+
+.movie-view {
+  background-color: #260c1a;
+  color: white;
+}
+
+.movie-title {
+  font-weight: bold;
+  margin-bottom: 0.625rem;
+}
+
+img {
+  padding: 20px 10px;
+  display: inline;
 }
 /*# sourceMappingURL=index.d22b8a02.css.map */

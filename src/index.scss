@@ -1,5 +1,103 @@
-$color: steelblue;
+$primary: #75b8c8;
+$secondary: #260c1a;
+$tertiary:#fa824c;
 
-.my-flix {
-    color: $color;
+.app-container {
+	background-color: $primary;
+    width: 100%;
+    justify-content: center;
+    margin: 0 auto;
+    height: 100vh;
+    min-height: 100%;
+}
+
+html {
+    background-color: $primary;
+}
+
+.text {
+	color: $secondary !important;
+    font-weight: 650;
+}
+.navbar {
+	background-color: $secondary;
+	color: $primary !important;
+	justify-content: center;
+}
+
+.nav-link {
+    color: $tertiary !important;
+}
+
+.btn-primary {
+    background-color: $tertiary !important;
+    color: $secondary !important;
+    font-weight: 550 !important;
+    border: none !important;
+    width: 6.25rem;
+    margin-top: 2.5rem;
+}
+
+.btn-secondary {
+    background-color: $secondary !important;
+    color: white !important;
+    border: none !important;
+    margin-top: 0.625rem;
+}
+
+.btn-outline-success {
+    border-color: $tertiary !important;
+    color: $tertiary !important;
+}
+
+h1 {
+    font-size: 1.5rem;
+}
+
+.card-title.h5 {
+    font-weight: 500;
+    text-align: center !important;
+}
+
+.navbar-toggler-icon {
+    flex-direction: row;
+    justify-content: flex-end;
+    background-color: $tertiary !important;
+    border-radius: .25rem;
+}
+
+div.card {
+    display: grid;
+    grid-template-rows: 1fr auto;
+}
+
+
+.card-body {
+    align-self: end;
+    justify-items: flex-end;
+    min-height: 400px; 
+}
+
+.card-img-top {
+    height: 18.75rem;
+    padding: 10px;
+}
+
+.movie-poster {
+    display: inline;
+}
+
+.movie-view {
+    background-color: $secondary;
+    color: white;
+}
+
+.movie-title {
+    font-weight: bold;
+    margin-bottom: 0.625rem;
+}
+
+img {
+    padding: 20px 10px;
+    display: inline;
 }
