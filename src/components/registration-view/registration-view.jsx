@@ -25,37 +25,49 @@ export function RegistrationView(props) {
                     </Navbar>
                 </Col>
             </Row>
-            <Form className="px-5">
-                <Form.Group controlId="formUsername">
-                    <Form.Label className="text">
-                        Username:
-                    </Form.Label>
-                    <Form.Control type='text' onChange={e => setUsername(e.target.value)} />
-                </Form.Group>
+            <Row>
+                <Col >
+                    <h2>
+                        Register
+                    </h2>
+                </Col>
+            </Row>
+            <Row>
+                <Col>
+                    <Form className="px-5">
+                    <Form.Group controlId="formUsername">
+                        <Form.Label className="text">
+                            Username:
+                        </Form.Label>
+                        <Form.Control type='text' onChange={e => setUsername(e.target.value)} />
+                    </Form.Group>
 
-                <Form.Group controlId="formPassword">
-                    <Form.Label className="text">
-                        Password:
-                    </Form.Label>
-                    <Form.Control type='text' onChange={e => setPassword(e.target.value)} />
-                </Form.Group>
+                    <Form.Group controlId="formPassword">
+                        <Form.Label className="text">
+                            Password:
+                        </Form.Label>
+                        <Form.Control type='text' onChange={e => setPassword(e.target.value)} />
+                    </Form.Group>
 
-                <Form.Group controlId="formEmail">
-                    <Form.Label className="text">
-                        Email:
-                    </Form.Label>
-                    <Form.Control type='text' onChange={e => setEmail(e.target.value)} />
-                </Form.Group>
-                <Form.Group controlId="formBirthday">
-                    <Form.Label className="text">
-                        Birthday:
-                    </Form.Label>
-                    <Form.Control type='text' onChange={e => setBirthDate(e.target.value)} />
-                </Form.Group>
+                    <Form.Group controlId="formEmail">
+                        <Form.Label className="text">
+                            Email:
+                        </Form.Label>
+                        <Form.Control type='text' onChange={e => setEmail(e.target.value)} />
+                    </Form.Group>
+                    <Form.Group controlId="formBirthday">
+                        <Form.Label className="text">
+                            Birthday:
+                        </Form.Label>
+                        <Form.Control type='text' onChange={e => setBirthDate(e.target.value)} />
+                    </Form.Group>
 
-                <Button variant="primary" type='submit' onClick={handleSubmit}>Submit</Button>
+                    <Button variant="primary" type='submit' onClick={handleSubmit}>Submit</Button>
 
-            </Form>
+                </Form>
+                </Col>
+            </Row>
+            
         </div>
     )
 }

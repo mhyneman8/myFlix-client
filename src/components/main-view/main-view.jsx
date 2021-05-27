@@ -67,7 +67,7 @@ export class MainView extends React.Component {
                         <Navbar.Brand className="navbar" href="#home"><h1>myFlix</h1></Navbar.Brand>
                         <Navbar.Toggle aria-controls="basic-navbar-nav" />
                         <Navbar.Collapse id="basic-navbar-nav">
-                            <Nav className="mr-auto navbar">
+                            <Nav className="mr-auto">
                                 <Nav.Link className="" href="#home">Home</Nav.Link>
                                 <Nav.Link className="" href="#link">My Favorites</Nav.Link>
                                 <Nav.Link className="" href="#link">Logout</Nav.Link>
@@ -85,7 +85,7 @@ export class MainView extends React.Component {
                     {selectedMovie
                         ? 
                         (
-                        <Col md={8}>
+                        <Col sm={10}>
                             <MovieView movie={selectedMovie}
                                 onBackClick={newSelectedMovie => {
                                     this.setSelectedMovie(newSelectedMovie);
@@ -94,7 +94,7 @@ export class MainView extends React.Component {
                         </Col>
                     ) 
                     : movies.map(movie => (
-                            <Col md={4} className="mb-4">
+                            <Col sm={8} md={4} lg={3} xl={2} className="mb-4">
                                 <MovieCard
                                     key={movie._id}
                                     movieData={movie}

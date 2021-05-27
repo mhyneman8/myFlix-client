@@ -54,14 +54,23 @@ h1 {
     font-size: 1.5rem;
 }
 
+h2 {
+    color: $tertiary !important;
+    -webkit-text-stroke: 0.0375rem;
+    -webkit-text-stroke-color: $secondary;
+    margin: 1.875rem;
+    font-size: 2.5rem !important;
+}
+
 .card-title.h5 {
     font-weight: 500;
     text-align: center !important;
 }
 
 .navbar-toggler-icon {
-    flex-direction: row;
-    justify-content: flex-end;
+    position: absolute;
+    right: 2.5625rem;
+    top: 1.625rem;
     background-color: $tertiary !important;
     border-radius: .25rem;
 }
@@ -71,16 +80,15 @@ div.card {
     grid-template-rows: 1fr auto;
 }
 
-
 .card-body {
     align-self: end;
     justify-items: flex-end;
-    min-height: 400px; 
+    min-height: 25rem; 
 }
 
 .card-img-top {
     height: 18.75rem;
-    padding: 10px;
+    padding: 0.625rem;
 }
 
 .movie-poster {
@@ -98,6 +106,6 @@ div.card {
 }
 
 img {
-    padding: 20px 10px;
+    padding: 1.25rem 0.625rem;
     display: inline;
 }

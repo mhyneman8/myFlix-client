@@ -26,6 +26,11 @@ export function LoginView(props) {
             </Row>
             <Row>
                 <Col>
+                <h2>Welcome Back!</h2>
+                </Col>
+            </Row>
+            <Row>
+                <Col>
                     <Form className="px-5">
                     <Form.Group controlId="formUsername">
                         <Form.Label className="text">

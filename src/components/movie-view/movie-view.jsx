@@ -10,19 +10,19 @@ export class MovieView extends React.Component {
 
         return (
             <div>
-                <Row className="movie-view justify-content-sm-center">
-                    <Col md={6}>
-                        <div className="movie-poster">
-                            <img src={movie.ImageUrl} />
+                <Row className="movie-view">
+                    <Col md={6} className="justify-content-center">
+                        <div className="movie-poster mt-4">
+                            <img className="" src={movie.ImageUrl} />
                         </div>
                     </Col>
                 
                     <Col md={6} className="card-body">
-                        <div className="movie-title">
+                        <div className="movie-title pt-3">
                             <span className="label">Title: </span>
                             <span className="value">{movie.Title}</span>
                         </div>
-                        <div className="movie-release">
+                        <div className="movie-release pt-4">
                             <span className="label">Release Date: </span>
                             <span className="value">{movie.ReleaseDate}</span>
                         </div>
@@ -42,13 +42,11 @@ export class MovieView extends React.Component {
                             <span className="label">Description: </span>
                             <span className="value">{movie.Description}</span>
                         </div>
-                            
+     
                     </Col>
-
-                </Row>
-                <Row>
-                    <Col>
-                        <Button className="btn-primary mt-5" onClick={() => { onBackClick(null); }}>Back</Button>
+                    <Col sm={12} className="justify-content-center">
+                    
+                        <Button className="btn-primary ml-4 mb-4 justify-content-center" onClick={() => { onBackClick(null); }}>Back</Button>
                     </Col>
                 </Row>
 
