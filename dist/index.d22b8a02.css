@@ -83,6 +83,12 @@ div.card {
   align-self: end;
   justify-items: flex-end;
   min-height: 25rem;
+  display: flex;
+  flex-direction: column;
+}
+
+.card-body button {
+  margin-top: auto;
 }
 
 .card-img-top {
