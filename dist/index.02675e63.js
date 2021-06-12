@@ -46984,19 +46984,18 @@ try {
       Description: _propTypesDefault.default.string.isRequired,
       ImageUrl: _propTypesDefault.default.string.isRequired,
       Cast: _propTypesDefault.default.string.isRequiredc,
-      ReleaseDate: _propTypesDefault.default.number.isRequired,
+      ReleaseDate: _propTypesDefault.default.string.isRequired,
       Director: _propTypesDefault.default.shape({
         Name: _propTypesDefault.default.string.isRequired,
         Bio: _propTypesDefault.default.string.isRequired,
         Birth: _propTypesDefault.default.string.isRequired,
-        Death: _propTypesDefault.default.number
+        Death: _propTypesDefault.default.string
       }),
       Genre: _propTypesDefault.default.shape({
         Name: _propTypesDefault.default.string.isRequired,
         Description: _propTypesDefault.default.string.isRequired
       })
-    }).isRequired,
-    onMovieClick: _propTypesDefault.default.func.isRequired
+    }).isRequired
   };
   helpers.postlude(module);
 } finally {
