@@ -3,9 +3,13 @@ import PropTypes from 'prop-types';
 import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
 
+import { Link } from "react-router-dom";
+
+import '../../index.scss';
+
 export class MovieCard extends React.Component {
     render() {
-        const { movieData, onMovieClick } = this.props;
+        const { movieData } = this.props;
 
         return (
             <Card>
@@ -13,8 +17,17 @@ export class MovieCard extends React.Component {
                 <Card.Body>
                     <Card.Title>{movieData.Title}</Card.Title>
                     <Card.Text>{movieData.Description} </Card.Text>
-                    <Button className="btn-secondary" onClick={() => onMovieClick(movieData)}
-                        >Open</Button>
+                    <Link to={`/movies/${movieData._id}`}>
+                        <Button variant="link" className="btn-secondary">
+                            Open
+                        </Button>
+                    </Link>
+                    <Link to={`/directors/${movieData._id}`}>
+                        <Button className="mb-2" block variant="primary">Director</Button>
+                    </Link>
+                    <Link to={`/genres/${movieData.Genre.Name}`}>
+                        <Button className="mb-2" block variant="primary">Genre</Button>
+                    </Link>
                 </Card.Body>
             </Card>
         );
@@ -23,21 +36,6 @@ export class MovieCard extends React.Component {
 
 MovieCard.propTypes = {
     movie: PropTypes.shape({
-        Title: PropTypes.string.isRequired,
-        Description: PropTypes.string.isRequired,
-        ImagePath: PropTypes.string.isRequired,
-        Cast: PropTypes.string.isRequired,
-        ReleaseDate: PropTypes.number.isRequired,
-        Director: PropTypes.shape({
-            Name: PropTypes.string.isRequired,
-            Bio: PropTypes.string.isRequired,
-            Birth: PropTypes.number.isRequired,
-            Death: PropTypes.number
-        }),
-        Genre: PropTypes.shape({
-            Name: PropTypes.string.isRequired,
-            Description: PropTypes.string.isRequired
-        })
-    }).isRequired,
-    onMovieClick: PropTypes.func.isRequired
+        Title: PropTypes.string       
+    }).isRequired
 };

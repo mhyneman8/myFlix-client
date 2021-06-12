@@ -1,9 +1,15 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { Row, Col, Button } from 'react-bootstrap';
+import { Link } from "react-router-dom";
+// import axios from 'axios';
 import '../../index.scss';
 
 export class MovieView extends React.Component {
+    constructor() {
+        super();
+        this.state = {};
+    }
 
     render() {
         const { movie, onBackClick } = this.props;
@@ -13,7 +19,7 @@ export class MovieView extends React.Component {
                 <Row className="movie-view">
                     <Col md={6} className="justify-content-center">
                         <div className="movie-poster mt-4">
-                            <img className="" src={movie.ImageUrl} />
+                            <img src={movie.ImageUrl} />
                         </div>
                     </Col>
                 
@@ -28,11 +34,19 @@ export class MovieView extends React.Component {
                         </div>
                         <div className="movie-director">
                             <span className="label">Director: </span>
-                            <span className="value">{movie.Director.Name}</span>
+                            <span className="value">{movie.Director.Name}
+                                <Link className="link" to={`/directors/${movie.Director.Name}`}>
+                                    <Button className="link">Director</Button>
+                                </Link>
+                            </span>
                         </div>
                         <div className="movie-genre">
                             <span className="label">Genre: </span>
-                            <span className="value">{movie.Genre.Name}</span>
+                            <span className="value">{movie.Genre.Name}
+                            <Link className="link" to={`/genre/${movieData.Genre.Name}`}>
+                                <Button className="link">Genre</Button>
+                            </Link>
+                            </span>
                         </div>
                         <div className="movie-cast">
                             <span className="label">Cast: </span>
@@ -45,7 +59,7 @@ export class MovieView extends React.Component {
      
                     </Col>
                     <Col sm={12} className="justify-content-center">
-                    
+                        
                         <Button className="btn-primary ml-4 mb-4 justify-content-center" onClick={() => { onBackClick(null); }}>Back</Button>
                     </Col>
                 </Row>
@@ -62,7 +76,7 @@ MovieView.propTypes = {
         Description: PropTypes.string.isRequired,
         ImagePath: PropTypes.string.isRequired,
         Cast: PropTypes.string.isRequired,
-        ReleaseDate: PropTypes.number.isRequired,
+        ReleaseDate: PropTypes.string.isRequired,
         Director: PropTypes.shape({
             Name: PropTypes.string.isRequired,
             Bio: PropTypes.string.isRequired,
@@ -74,5 +88,5 @@ MovieView.propTypes = {
             Description: PropTypes.string.isRequired
         }),
     }).isRequired,
-    onMovieClick: PropTypes.func.isRequired
+    onBackClick: PropTypes.func.isRequired
 };
