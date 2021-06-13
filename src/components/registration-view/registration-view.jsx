@@ -1,9 +1,10 @@
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import { Row, Col, Form, Button } from 'react-bootstrap';
-import '../../index.scss';
 import axios from 'axios';
 import { Link } from 'react-router-dom';
+
+import '../../index.scss';
 
 export function RegistrationView(props) {
     const [username, setUsername] = useState('');
@@ -15,7 +16,7 @@ export function RegistrationView(props) {
     const [passwordError, setPasswordError] = useState({});
     const [emailError, setEmailError] = useState({});
 
-    const handleRegister = async (e) => {
+    const handleRegister = (e) => {
         e.preventDefault();
         console.log(username, password, email, birthDate);
         const isValid = formValidation();
@@ -30,7 +31,7 @@ export function RegistrationView(props) {
             .then(response => {
                 const data = response.data;
                 console.log(data);
-                windows.open('/', '_self'); // page will open in current tab
+                window.open('/', '_self'); // page will open in current tab
             })
             .catch(e => {
                 console.log('error registering the user')
@@ -126,9 +127,9 @@ export function RegistrationView(props) {
                             </Form.Label>
                             <Form.Control type='date' onChange={e => setBirthDate(e.target.value)} />
                         </Form.Group>
-                        <Link to={'/movies'}>
+                      
                             <Button variant="primary" type='submit' onClick={handleRegister}>Register</Button>
-                        </Link>
+                        
                         <Link to={`/`}>
                             <Button className="btn-primary">Login</Button>
                         </Link>
