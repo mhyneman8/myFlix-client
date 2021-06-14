@@ -1,31 +1,47 @@
 import React from 'react';
 import Button from 'react-bootstrap/Button';
+import PropTypes from 'prop-types';
 import Card from 'react-bootstrap/Card';
 import { Link } from 'react-router-dom';
 
+import '../../index.scss';
+import './director-view.scss';
+
 export class DirectorView extends React.Component {
     render() {
-        const { director, movies, onBackClick } = this.props;
+        const { directorData, onBackClick } = this.props;
+
         return (
-            <div className="director-view" style={{ marginTop: '70px', }} >
+            <div className="director-view" >
                 <div className="director-name">
                     <span className="label">Name: </span>
-                    <span className="value">{director.Name}</span>
+                    <span className="value">{directorData.Name}</span>
                 </div>
                 <div className="director-bio">
-                    <span className="label">Bio: </span>
-                    <span className="value">{director.Bio}</span>
+                    <span className="label body">Bio: </span>
+                    <span className="value">{directorData.Bio}</span>
                 </div>
                 <div className="director-birth">
-                    <span className="label">Birth: </span>
-                    <span className="value">{director.Birth}</span>
+                    <span className="label body">Birth: </span>
+                    <span className="value">{directorData.Birth}</span>
                 </div>
                 <div className="director-death">
-                    <span className="label">Death: </span>
-                    <span className="value">{director.Death}</span>
+                    <span className="body label">Death: </span>
+                    <span className="value">{directorData.Death}</span>
                 </div>
-                <Button variant="dark" onClick={() => { onBackClick(null) }}>Back</Button>
+                <div className="text-center">
+                    <Button variant="primary" onClick={() => { onBackClick(null) }}>Back</Button>
+                </div>
             </div>
         );
     }
 }
+
+DirectorView.propTypes = {
+    directorData: PropTypes.shape({
+        Name: PropTypes.string.isRequired,
+        Bio: PropTypes.string.isRequired,
+        Birth: PropTypes.string.isRequired,
+        Death: PropTypes.string
+    }).isRequired
+};

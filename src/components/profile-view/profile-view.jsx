@@ -1,12 +1,12 @@
 import React from 'react';
 // import PropTypes from 'prop-types';
 import { Button, Navbar, Row, Col, Form } from 'react-bootstrap/Button';
-
+import { FormControl } from 'react-bootstrap';
 import axios from 'axios';
 import { Link } from "react-router-dom";
 
 import '../../index.scss';
-import { FormControl } from 'react-bootstrap';
+import './profile-view.scss';
 
 
 export class ProfileView extends React.Component {

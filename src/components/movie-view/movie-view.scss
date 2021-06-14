@@ -1,0 +1,18 @@
+$primary: #75b8c8;
+$secondary: #260c1a;
+$tertiary:#fa824c;
+
+.movie-view {
+    background-color: $secondary;
+    color: white;
+}
+
+.movie-title {
+    font-weight: bold;
+    margin-bottom: 0.625rem;
+}
+
+img {
+    padding: 1.25rem 0.625rem;
+    display: inline;
+}

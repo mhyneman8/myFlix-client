@@ -5,6 +5,7 @@ import axios from 'axios';
 import { Link } from 'react-router-dom';
 
 import '../../index.scss';
+import './registration-view.scss';
 
 export function RegistrationView(props) {
     const [username, setUsername] = useState('');
@@ -68,7 +69,7 @@ export function RegistrationView(props) {
         <div>
             <Row>
                 <Col >
-                    <h2>
+                    <h2 className="text-center">
                         Register
                     </h2>
                 </Col>
@@ -127,12 +128,16 @@ export function RegistrationView(props) {
                             </Form.Label>
                             <Form.Control type='date' onChange={e => setBirthDate(e.target.value)} />
                         </Form.Group>
-                      
-                            <Button variant="primary" type='submit' onClick={handleRegister}>Register</Button>
+                        <div className="text-center block" >
+                            <Link to={`/movies`}>
+                                <Button className="btn-primary" size="lg" type='submit' onClick={handleRegister}>Register</Button>
+                            </Link>
+                            <br></br>
+                            <Link to={`/`}>
+                                <Button size="lg" className="btn-primary">Login</Button>
+                            </Link> 
+                        </div>
                         
-                        <Link to={`/`}>
-                            <Button className="btn-primary">Login</Button>
-                        </Link>
                     </Form>
                 </Col>
             </Row>

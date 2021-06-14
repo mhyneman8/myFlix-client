@@ -6,6 +6,7 @@ import Card from 'react-bootstrap/Card';
 import { Link } from "react-router-dom";
 
 import '../../index.scss';
+import './movie-card.scss';
 
 export class MovieCard extends React.Component {
     render() {
@@ -13,7 +14,9 @@ export class MovieCard extends React.Component {
 
         return (
             <Card>
-                <Card.Img variant="top" src={movieData.ImageUrl} />
+                <Link to={`/movies/${movieData._id}`}>
+                    <Card.Img variant="top" src={movieData.ImageUrl} />
+                </Link>
                 <Card.Body>
                     <Card.Title>{movieData.Title}</Card.Title>
                     <Card.Text>{movieData.Description} </Card.Text>
@@ -22,7 +25,7 @@ export class MovieCard extends React.Component {
                             Open
                         </Button>
                     </Link>
-                    <Link to={`/directors/${movieData._id}`}>
+                    <Link to={`/director/${movieData.Director.Name}`}>
                         <Button className="mb-2" block variant="primary">Director</Button>
                     </Link>
                     <Link to={`/genres/${movieData.Genre.Name}`}>
@@ -35,7 +38,7 @@ export class MovieCard extends React.Component {
 }
 
 MovieCard.propTypes = {
-    movie: PropTypes.shape({
+    movieData: PropTypes.shape({
         Title: PropTypes.string.isRequired,
         Description: PropTypes.string.isRequired,
         ImageUrl: PropTypes.string.isRequired,

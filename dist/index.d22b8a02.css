@@ -59,17 +59,25 @@ h2 {
   font-size: 2.5rem !important;
 }
 
-.card-title.h5 {
-  font-weight: 500;
-  text-align: center !important;
-}
-
 .navbar-toggler-icon {
   position: absolute;
   right: 2.5625rem;
   top: 1.625rem;
   background-color: #fa824c !important;
   border-radius: 0.25rem;
+}
+
+.btn-primary {
+  width: 40%;
+  max-width: 300px;
+}
+
+h2 {
+  font-weight: bold;
+}
+.card-title.h5 {
+  font-weight: 500;
+  text-align: center !important;
 }
 
 div.card {
@@ -91,7 +99,6 @@ div.card {
 .movie-poster {
   display: inline;
 }
-
 .movie-view {
   background-color: #260c1a;
   color: white;
@@ -106,4 +113,40 @@ img {
   padding: 1.25rem 0.625rem;
   display: inline;
 }
+.director-view {
+  background-color: #260c1a;
+  color: white;
+  padding: 30px 40px;
+}
+
+.director-name {
+  color: #fa824c;
+  font-size: 30px;
+  text-align: center;
+  padding-bottom: 20px;
+}
+
+.body {
+  font-weight: bold;
+  color: #75b8c8;
+}
+.genre-view {
+  background-color: #260c1a;
+  color: white;
+  padding: 30px 40px;
+}
+
+.genre-name {
+  color: #fa824c;
+  font-size: 30px;
+  text-align: center;
+  padding-bottom: 20px;
+}
+
+.body {
+  font-weight: bold;
+  color: #75b8c8;
+}
+
+
 /*# sourceMappingURL=index.d22b8a02.css.map */

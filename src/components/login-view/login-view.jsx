@@ -2,8 +2,11 @@ import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import { Link } from "react-router-dom";
 import { Navbar, Row, Col, Form, Button } from 'react-bootstrap';
-import '../../index.scss';
+
 import axios from 'axios';
+
+import '../../index.scss';
+import './login-view.scss';
 
 export function LoginView(props) {
     const [username, setUsername] = useState('');
