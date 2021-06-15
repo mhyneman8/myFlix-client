@@ -10,9 +10,19 @@ $tertiary:#fa824c;
 .movie-title {
     font-weight: bold;
     margin-bottom: 0.625rem;
+    font-size: 30px;
 }
 
 img {
-    padding: 1.25rem 0.625rem;
+    padding: 3.25rem 0.625rem;
     display: inline;
+    
+}
+
+.link {
+    color: $tertiary;
+} 
+
+.link:hover {
+    color: $primary;
 }

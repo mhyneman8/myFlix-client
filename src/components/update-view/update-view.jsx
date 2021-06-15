@@ -1,3 +1,21 @@
+
+                                {/* <Form.Group controlId="formPassword">
+                                    <Form.Label>Password: </Form.Label>
+                                    <FormControl size="sm"
+                                        type="password"
+                                        name="Password"
+                                        value={this.state.Password}
+                                        onChange={(e) => this.handleChange(e)}
+                                        placeholder="Enter your password or Change password" />
+                                    {Object.keys(PasswordError).map((key) => {
+                                        return (
+                                            <div key={key} style={{ color: "red" }}>
+                                                {PasswordError[key]}
+                                            </div>
+                                        );
+                                    })}
+                                </Form.Group> */}
+
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import { Row, Col, Form, Button } from 'react-bootstrap';
@@ -5,9 +23,9 @@ import axios from 'axios';
 import { Link } from 'react-router-dom';
 
 import '../../index.scss';
-import './registration-view.scss';
+import './update-view.scss';
 
-export function RegistrationView(props) {
+export function UpdateView(props) {
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
     const [email, setEmail] = useState('');
@@ -146,12 +164,11 @@ export function RegistrationView(props) {
     );
 }
 
-RegistrationView.propTypes = {
-    register: PropTypes.shape({
-        Username: PropTypes.string.isRequired,
-        Password: PropTypes.string.isRequired,
-        Email: PropTypes.string.isRequired,
-        BirthDate: PropTypes.date
+UpdateView.propTypes = {
+    update: PropTypes.shape({
+        Username: PropTypes.string,
+        Password: PropTypes.string,
+        Email: PropTypes.string
     }),
     onRegister: PropTypes.func,
 }

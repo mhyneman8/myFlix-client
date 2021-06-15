@@ -18,19 +18,12 @@ export class MovieCard extends React.Component {
                     <Card.Img variant="top" src={movieData.ImageUrl} />
                 </Link>
                 <Card.Body>
-                    <Card.Title>{movieData.Title}</Card.Title>
-                    <Card.Text>{movieData.Description} </Card.Text>
                     <Link to={`/movies/${movieData._id}`}>
-                        <Button variant="link" className="btn-secondary">
-                            Open
-                        </Button>
+                        <Card.Title className="link" >{movieData.Title}</Card.Title>
                     </Link>
-                    <Link to={`/director/${movieData.Director.Name}`}>
-                        <Button className="mb-2" block variant="primary">Director</Button>
-                    </Link>
-                    <Link to={`/genres/${movieData.Genre.Name}`}>
-                        <Button className="mb-2" block variant="primary">Genre</Button>
-                    </Link>
+
+                    <Card.Text className="text" >{movieData.Description} </Card.Text>
+                    
                 </Card.Body>
             </Card>
         );

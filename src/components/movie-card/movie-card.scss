@@ -15,7 +15,7 @@ div.card {
 .card-body {
     align-self: end;
     justify-items: flex-end;
-    min-height: 25rem; 
+    min-height: 23rem; 
 }
 
 .card-img-top {
@@ -25,4 +25,19 @@ div.card {
 
 .movie-poster {
     display: inline;
+}
+
+.link.card-title.h5 {
+    color: $tertiary;
+    font-size: 30px;
+} 
+
+.link.card-title.h5:hover {
+    color: $primary;
+    text-decoration: none;
+}
+
+.text {
+    font-weight: normal;
+    color: $secondary;
 }

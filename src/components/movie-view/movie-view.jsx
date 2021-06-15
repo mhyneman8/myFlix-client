@@ -19,8 +19,8 @@ export class MovieView extends React.Component {
         return (
             <div>
                 <Row className="movie-view">
-                    <Col md={6} className="justify-content-center">
-                        <div className="movie-poster mt-4">
+                    <Col md={6} className="text-center">
+                        <div className="movie-poster mt-5">
                             <img src={movieData.ImageUrl} />
                         </div>
                     </Col>
@@ -57,9 +57,9 @@ export class MovieView extends React.Component {
                         </div>
      
                     </Col>
-                    <Col sm={12} className="justify-content-center">
+                    <Col sm={12} className="text-center">
                         
-                        <Button className="btn-primary ml-4 mb-4 justify-content-center" onClick={() => { onBackClick(null); }}>Back</Button>
+                        <Button className="btn-primary mb-4 justify-content-center" onClick={() => { onBackClick(null); }}>Back</Button>
                     </Col>
                 </Row>
 

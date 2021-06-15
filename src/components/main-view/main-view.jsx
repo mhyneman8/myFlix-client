@@ -11,12 +11,14 @@ import { MovieCard } from '../movie-card/movie-card';
 import { MovieView } from '../movie-view/movie-view';
 import { DirectorView } from '../director-view/director-view';
 import { GenreView } from '../genre-view/genre-view';
-import { ProfileView } from '../profile-view/profile-view';
+import { ProfileView } from '../profile-view/profile-view'; 
+import { UpdateView } from '../update-view/update-view';
 
-import { Navbar, Nav, Row, Col, Form, FormControl, Button } from 'react-bootstrap'
+import { Navbar, Nav, Row, Col, Form, FormControl, Button, Dropdown, DropdownButton } from 'react-bootstrap'
 
 import '../../index.scss';
 import './main-view.scss';
+
 
 export class MainView extends React.Component {
     constructor() {
@@ -98,21 +100,21 @@ export class MainView extends React.Component {
                             <Nav className="mr-auto">
                                 <Nav.Link className="main-view" href="/">Home</Nav.Link>
                                 <Nav.Link className="" href="#link">My Favorites</Nav.Link>
-                                <Nav.Link href="/users/${user}">My Profile</Nav.Link>
+                                {/* <Nav.Link href="/users/${user}">{`${user}`}</Nav.Link> */}
 
-                                <Button className="btn-primary" onClick={() => this.onLoggedOut()} variant="dark">Logout</Button>
-
-                                {/* <Nav.Link className="" onClick={() => { onLoggedOut(null); history.push('/'); }}>Logout</Nav.Link> */}
                             </Nav>
                             <Form inline>
                                 <FormControl type="text" placeholder="Search" className="mr-sm-2" />
                                 <Button variant="outline-success">Search</Button>
                             </Form>
-                            <Link to={`/`}>
-                                <Button variant="link" className="navbar-link text-light" onClick={() => this.onLoggedOut()} >
+
+                            <DropdownButton id="dropdown-basic-button" title="`{${user}}`" >
+                                <Dropdown.Item as={Link} to={`/users/${this.props.user}`}>My Profile</Dropdown.Item>
+                                <Dropdown.Item className="logout" onClick={() => this.onLoggedOut()}>
                                     Logout
-                                </Button>
-                            </Link>
+                                </Dropdown.Item> 
+                            </DropdownButton>
+                        
                         </Navbar.Collapse>
                     </Navbar>
                     </Col>
@@ -179,6 +181,29 @@ export class MainView extends React.Component {
                             <GenreView genreData={movies.find(m => m.Genre.Name === match.params.name).Genre} movies={movies} onBackClick={() => history.goBack()} />
                         </Col>
                     }} />
+
+                    <Route path="/users/:username" render={({ history }) => {
+                        if (!user) return <Col md={6}>
+                            <LoginView onLoggedIn={user => this.onLoggedIn(user)} />
+                        </Col>
+
+                        if (movies.length ===0) return <div className="main-view" />;
+
+                        return <Col md={8}>
+                            <ProfileView movies={movies} user={user} onBackClick={() => history.goBack()} />
+                        </Col>
+                    }} />
+
+                    <Route path="/users/:Username" render={({ history }) => {
+                        if (!user) return <Col md={6}>
+                            <LoginView onLoggedIn={user => this.onLoggedIn(user)} />
+                        </Col>
+
+                        return <Col md={8}>
+                            <UpdateView movies={movies} user={user} onBackClick={() => history.goBack()} />
+                        </Col>
+                    }} />
+
                 </Row>
             </Router>
         );

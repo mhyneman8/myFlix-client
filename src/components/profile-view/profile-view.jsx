@@ -1,30 +1,49 @@
 import React from 'react';
-// import PropTypes from 'prop-types';
-import { Button, Navbar, Row, Col, Form } from 'react-bootstrap/Button';
-import { FormControl } from 'react-bootstrap';
+import PropTypes from 'prop-types';
+import { Button, Row, Col, Form, FormControl, Card } from 'react-bootstrap';
+import { MovieCard } from '../movie-card/movie-card';
+
 import axios from 'axios';
 import { Link } from "react-router-dom";
 
 import '../../index.scss';
 import './profile-view.scss';
 
-
 export class ProfileView extends React.Component {
 
     constructor() {
         super();
         this.state = {
-            username: "",
-            password: "",
-            email: "",
-            birthDate: "",
-            movies: ""
+            username: null,
+            password: null,
+            email: null,
+            birthDate: null,
+            favoriteMovies: [],
+            movies: []
         };
     }
 
     componentDidMount() {
         let accessToken = localStorage.getItem("token");
         this.getUser(accessToken);
+    }
+
+    getUser(token) {
+        let url = 'https://myflix788.herokuapp.com/users/' +
+            localStorage.getItem('user');
+        axios
+            .get(url, {
+                headers: { Authorization: `Bearer ${token}` },
+            })
+            .then((response) => {
+                this.setState({
+                    username: response.data.Username,
+                    password: response.data.Password,
+                    email: response.data.Email,
+                    birthDate: response.data.BirthDate,
+                    favoriteMovies: response.data.FavoriteMovies
+                });
+            });
     }
 
     handleDelete() {
@@ -75,6 +94,20 @@ export class ProfileView extends React.Component {
         }
     }
 
+    removeFavorite(movie) {
+        let token = localStorage.getItem('token');
+        let url = 'https://myflix788.herokuapp.com/users/' + localStorage.getItem('user')
+            + '/favorites/' + movie._id;
+        axios
+            .delete(url, {
+                headers: { Authorization: `Bearer ${token}`},
+            })
+            .then((response) => {
+                alert("Movie was removed");
+                this.componentDidMount();
+            });
+    }
+
     formValidation() {
         let UsernameError = {};
         let EmailError = {};
@@ -115,82 +148,32 @@ export class ProfileView extends React.Component {
     }
 
     render() {
-        const { movies, user, onBackClick } = this.props;
-        const { UsernameError, PasswordError, EmailError, BirthDateError } = this.state;
-        
+        const { movies, user, onBackClick, passwordError, usernameError, emailError, birthDateError } = this.props;
+        // const { UsernameError, PasswordError, EmailError, BirthDateError } = this.state;
+        const favoriteMovieList = movies.filter((movie) => {
+            return this.state.favoriteMovies.includes(movie._id);
+        });
+
         return (
             <div className="userProfile" style={{ display: "flex" }}>
-                <Container>
                     <Row className="justify-content-md-center">
                         <Col md={12}>
                             <Form className="justify-content-md-center mb-30">
-                                <h1 style={{ textAlign: "center" }}>Profile Details</h1>
+                                <h1 style={{ textAlign: "center" }}>{`${user}`}  Profile Details</h1>
 
                                 <Form.Group controlId="formUsername">
-                                    <Form.Label>Username: </Form.Label>
-                                    <FormControl size="sm"
-                                        type="text"
-                                        name="Username"
-                                        value={this.state.Username}
-                                        onChange={(e) => this.handleChange(e)}
-                                        placeholder="Change username" />
-                                        {Object.keys(UsernameError).map((key) => {
-                                            return (
-                                                <div key={key} style={{ color: "red" }}>
-                                                    {UsernameError[key]}
-                                                </div>
-                                            );
-                                        })}
+                                    <h4>Username:</h4>
+                                    <Form.Label>{this.state.username}</Form.Label>
+
                                 </Form.Group>
-                                <Form.Group controlId="formPassword">
-                                    <Form.Label>Password: </Form.Label>
-                                    <FormControl size="sm"
-                                        type="password"
-                                        name="Password"
-                                        value={this.state.Password}
-                                        onChange={(e) => this.handleChange(e)}
-                                        placeholder="Enter your password or Change password" />
-                                    {Object.keys(PasswordError).map((key) => {
-                                        return (
-                                            <div key={key} style={{ color: "red" }}>
-                                                {PasswordError[key]}
-                                            </div>
-                                        );
-                                    })}
+                                <Form.Group controlId="formBasicEmail">
+                                    <h4>Email:</h4>
+                                    <Form.Label>{this.state.email}</Form.Label>
                                 </Form.Group>
-                                <Form.Group>
-                                    <Form.Lable>Email: </Form.Lable>
-                                    <FormControl    
-                                        size="sm"
-                                        type="email"
-                                        name="Email"
-                                        value={this.state.Email}
-                                        onChange={(e) => this.handleChange(e)}
-                                        placeholder="Change Email" />
-                                    {Object.keys(EmailError).map((key) => {
-                                        return (
-                                            <div key={key} style={{ color: "red" }}>
-                                                {EmailError[key]}
-                                            </div>
-                                        );
-                                    })} 
-                                </Form.Group>
-                                <Form.Group controlId="formBirthDate">
-                                    <Form.Label>Birthday: </Form.Label>
-                                    <FormControl
-                                        size="sm"
-                                        type="date"
-                                        name="BirthDate"
-                                        value={this.state.BirthDate}
-                                        onChange={(e) => this.handleChange(e)}
-                                        placeholder="Change Birthday" />
-                                    {Object.keys(BirthDateError).map((key) => {
-                                        return (
-                                            <div key={key} style= {{ color: "red" }}>
-                                                {BirthDateError[key]}
-                                            </div>
-                                        );
-                                    })}
+
+                                <Form.Group controlId="formBasicDate">
+                                    <h4>Date of Birth:</h4>
+                                    <Form.Label>{this.state.birthDate}</Form.Label>
                                 </Form.Group>
 
                                 <Link to={`/users/${this.state.Username}`}>
@@ -199,7 +182,7 @@ export class ProfileView extends React.Component {
                                         size="md"
                                         block
                                         onClick={(e) => this.handleUpdate(e)} >
-                                            Save Changes
+                                            Update Information
                                     </Button>
                                 </Link>
 
@@ -208,19 +191,49 @@ export class ProfileView extends React.Component {
                                     onClick={() => this.handleDelete()} >
                                         Delete Account
                                     </Button>
-                                <Button variant="dark" onCLick={() => { onBackClick() }}>Back</Button>
+                                <Button variant="dark" onClick={() => { onBackClick() }}>Back</Button>
                             </Form>
                         </Col>
+
+                        <Col>
+                            <h5>Favorite Movies: </h5>
+                            {favoriteMovieList.map((movie) => {
+
+                                if (favoriteMovieList.length === 0) {
+                                    <p>You have no favorites yet.</p>
+                                }
+
+                                return (
+                                    <div>
+                                        <Card>
+                                            <Card.Img variant="top" src={movie.ImageUrl} />
+                                            <Card.Body>
+                                                <Link to={`/movies/${movie._id}`}>
+                                                    <Card.Title>{movie.Title}</Card.Title>
+                                                </Link>
+                                            </Card.Body>
+                                        </Card>
+                                        <div>
+                                            <Button variant="dark" onClick={() => this.removeFavorite(movie)}>
+                                                Remove
+                                            </Button>
+                                        </div>
+                                    </div>
+                                );
+                            })}
+                            
+                        </Col>
+
                     </Row>
-                </Container>
+                
             </div>
-        );
+        )
     }
 }
 
-// ProfileView.propTypes = {
-//     movies: PropTypes.array.isRequired
-// };
+ProfileView.propTypes = {
+    movies: PropTypes.array.isRequired
+};
 
 // let mapStateToProps = state => {
 //     return {
