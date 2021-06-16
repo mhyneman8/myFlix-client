@@ -6,11 +6,51 @@ import { Link } from "react-router-dom";
 
 import '../../index.scss';
 import './movie-view.scss';
+import axios from 'axios';
 
 export class MovieView extends React.Component {
     constructor() {
         super();
         this.state = {};
+    }
+
+    addFavorite(movieData) {
+        let token = localStorage.getItem('token');
+        let url = "https://myflix788.herokuapp.com/users/" + localStorage.getItem('user') +
+            "/Movies/" + movieData._id;
+
+            console.log(token);
+
+        axios
+            .post(url, {
+                headers: { Authorization: `Bearer ${token}`},
+            })
+            .then ((response) => {
+                console.log(response);
+                window.open("/users/" + localStorage.getItem("user"), "_self");
+                alert("Added to favorites!")
+            })
+            .catch (err => {
+                console.log(err.response);
+            });
+    } 
+
+    removeFavorite(movieData) {
+        let token = localStorage.getItem('token');
+        let url = "https://myflix788.herokuapp.com/users" + localStorage.getItem('user') +
+            "/Movies/remove/" + movieData._id;
+
+        axios
+            .post(url, "", {
+                headers: { Authorization: `Bearer ${user.token}`}
+            })
+            .then ((response) => {
+                console.log(response);
+                alert("Removed from favorites.")
+            })
+            .catch (err => {
+                console.log(err.response);
+            });
     }
 
     render() {
@@ -54,6 +94,10 @@ export class MovieView extends React.Component {
                         <div className="movie-description">
                             <span className="label">Description: </span>
                             <span className="value">{movieData.Description}</span>
+                        </div>
+                        <div>
+                            <Button className="add mt-3 mr-2 w-50" onClick={() => this.addFavorite(movieData)}> + Add</Button>
+                            <Button className="remove mt-3 w-50" onClick={() => this.removeFavorite(movieData)}> - Remove</Button>
                         </div>
      
                     </Col>

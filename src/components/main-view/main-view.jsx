@@ -107,8 +107,13 @@ export class MainView extends React.Component {
                                 <FormControl type="text" placeholder="Search" className="mr-sm-2" />
                                 <Button variant="outline-success">Search</Button>
                             </Form>
+                            <div>
+                                if (user) {
 
-                            <DropdownButton id="dropdown-basic-button" title="`{${user}}`" >
+                            }  
+                            </div>
+                            
+                            <DropdownButton id="dropdown-basic-button" title={`${user}`} >
                                 <Dropdown.Item as={Link} to={`/users/${this.props.user}`}>My Profile</Dropdown.Item>
                                 <Dropdown.Item className="logout" onClick={() => this.onLoggedOut()}>
                                     Logout
