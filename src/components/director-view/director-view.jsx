@@ -14,9 +14,9 @@ export class DirectorView extends React.Component {
         this.state = {};
     }
 
-    directorMovies(movie) {
+    directorMovies() {
         {movieData.map(m => {
-            if (m.Director && m.Director.Name === director.Name) {
+            if (m.DirectorData && m.DirectorData.Name === directorData.Name) {
               return (
                 <MovieCard key={m._id} movie={m} />
               );
@@ -47,8 +47,16 @@ export class DirectorView extends React.Component {
                 </div> */}
                 <div className="other-movies text-center">
                     <span className="body label" >Other Movies by {`${directorData.Name}`}:</span><br></br>
-                    
-                    <span className="value">{ directorMovies() }</span>
+                    <div>
+                    {movieData.map(m => {
+                        if (m.DirectorData && m.DirectorData.Name === directorData.Name) {
+                            return (
+                                <MovieCard key={m._id} movie={m} />
+                            );
+                        }
+                    })}
+                    </div>
+                    {/* <span className="value">{ directorMovies() }</span> */}
                 </div>
                 <div className="text-center">
                     <Button variant="primary" onClick={() => { onBackClick(null) }}>Back</Button>
