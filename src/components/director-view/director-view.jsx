@@ -1,15 +1,31 @@
 import React from 'react';
-import Button from 'react-bootstrap/Button';
 import PropTypes from 'prop-types';
-import Card from 'react-bootstrap/Card';
-import { Link } from 'react-router-dom';
+import { Button, Card, Row, Col } from 'react-bootstrap'
+import { Link, useHistory } from 'react-router-dom';
+import { MovieCard } from '../movie-card/movie-card';
 
 import '../../index.scss';
 import './director-view.scss';
 
 export class DirectorView extends React.Component {
+
+    constructor() {
+        super();
+        this.state = {};
+    }
+
+    directorMovies(movie) {
+        {movieData.map(m => {
+            if (m.Director && m.Director.Name === director.Name) {
+              return (
+                <MovieCard key={m._id} movie={m} />
+              );
+            }
+          })}
+    }
+
     render() {
-        const { directorData, onBackClick } = this.props;
+        const { directorData, movieData, onBackClick } = this.props;
 
         return (
             <div className="director-view" >
@@ -22,12 +38,17 @@ export class DirectorView extends React.Component {
                     <span className="value">{directorData.Bio}</span>
                 </div>
                 <div className="director-birth">
-                    <span className="label body">Birth: </span>
-                    <span className="value">{directorData.Birth}</span>
+                    
+                    <span className="value">{directorData.Birth} - {directorData.death}</span>
                 </div>
-                <div className="director-death">
+                {/* <div className="director-death">
                     <span className="body label">Death: </span>
                     <span className="value">{directorData.Death}</span>
+                </div> */}
+                <div className="other-movies text-center">
+                    <span className="body label" >Other Movies by {`${directorData.Name}`}:</span><br></br>
+                    
+                    <span className="value">{ directorMovies() }</span>
                 </div>
                 <div className="text-center">
                     <Button variant="primary" onClick={() => { onBackClick(null) }}>Back</Button>
@@ -36,6 +57,7 @@ export class DirectorView extends React.Component {
         );
     }
 }
+
 
 DirectorView.propTypes = {
     directorData: PropTypes.shape({
