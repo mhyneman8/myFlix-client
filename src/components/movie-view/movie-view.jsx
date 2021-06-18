@@ -18,20 +18,23 @@ export class MovieView extends React.Component {
         let token = localStorage.getItem('token');
         let url = "https://myflix788.herokuapp.com/users/" + localStorage.getItem('user') +
             "/Movies/" + movieData._id;
-
+            var config = {
+                method: 'post',
+                url: url,
+                headers: {
+                    'Authorization': `Bearer ${token}`,
+                    'Content-type': 'application/json'
+                },
+            };
             console.log(token);
-
-        axios
-            .post(url, {
-                headers: { Authorization: `Bearer ${token}`},
-            })
-            .then ((response) => {
-                console.log(response);
-                window.open("/users/" + localStorage.getItem("user"), "_self");
+            axios(config)
+        
+            .then (function (response) {
+                console.log(JSON.stringify(response.data));
                 alert("Added to favorites!")
             })
-            .catch (err => {
-                console.log(err.response);
+            .catch (function (error) {
+                console.log(error);
             });
     } 
 
