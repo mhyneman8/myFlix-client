@@ -6,16 +6,56 @@ $tertiary:#fa824c;
     background-color: $secondary;
     color: white;
     padding: 30px 40px;
+    
 }
 
 .director-name {
     color: $tertiary;
     font-size: 30px;
     text-align: center;
-    padding-bottom: 20px;
+    margin-top: 60px;
+    // padding-bottom: 20px;
+}
+
+.director-birth {
+    margin-top: 30px;
 }
 
 .body {
     font-weight: bold;
     color: $primary;
+}
+
+.bio-text {
+    width: 70%;
+    margin: 5px auto;
+}
+
+.dir-img {
+    width: 90%;
+    max-width: 190px;
+    margin: 20px auto;
+    padding: 0;
+}
+
+.director-movies {
+    max-width: 150px;
+    display: inline;
+}
+
+.director-movie-title {
+    margin: 20px auto !important;
+}
+
+.director-card {
+    display: inline;
+    width: 100px;
+    height: 145px;
+}
+
+.director-img {
+    padding: 0;
+    width: 85%;
+    max-height: 140px;
+    margin-top: 0;
 }

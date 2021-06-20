@@ -102,7 +102,7 @@ export function RegistrationView(props) {
                         {Object.keys(passwordError).map((key) => {
                             return (
                                 <div key={key}>
-                                    {usernameError[key]}
+                                    {passwordError[key]}
                                 </div>
                             );
                         })}

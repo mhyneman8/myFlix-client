@@ -2,11 +2,11 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { Row, Col, Button } from 'react-bootstrap';
 import { Link } from "react-router-dom";
-// import axios from 'axios';
+import axios from 'axios';
 
 import '../../index.scss';
 import './movie-view.scss';
-import axios from 'axios';
+
 
 export class MovieView extends React.Component {
     constructor() {
@@ -70,7 +70,6 @@ export class MovieView extends React.Component {
                 
                     <Col md={6} className="card-body">
                         <div className="movie-title pt-3">
-                            <span className="label">Title: </span>
                             <span className="value">{movieData.Title}</span>
                         </div>
                         <div className="movie-release pt-4">
@@ -99,9 +98,7 @@ export class MovieView extends React.Component {
                             <span className="value">{movieData.Description}</span>
                         </div>
                         <div>
-                            <Button className="add mt-3 mr-2 w-50" onClick={() => this.addFavorite(movieData)}> + Add</Button>
-                            <Button className="remove mt-3 w-50" onClick={() => this.removeFavorite(movieData)}> - Remove</Button>
-                        </div>
+                            <Button className="add mt-3 mr-2 w-50" onClick={() => this.addFavorite(movieData)}> + Add</Button>                        </div>
      
                     </Col>
                     <Col sm={12} className="text-center">

@@ -35,27 +35,36 @@ export function UpdateView(props) {
     const [passwordError, setPasswordError] = useState({});
     const [emailError, setEmailError] = useState({});
 
-    const handleRegister = (e) => {
+    const handleUpdate = (e) => {
         e.preventDefault();
+        let token = localStorage.getItem('token');
+        let user = localStorage.getItem('user');
         console.log(username, password, email, birthDate);
         const isValid = formValidation();
         if (isValid) {
         // Send a request to the server for Authentication
-            axios.post('https://myflix788.herokuapp.com/users', {
-                Username: username,
-                Password: password,
-                Email: email,
-                BirthDate: birthDate
-            })
-            .then(response => {
-                const data = response.data;
-                console.log(data);
-                window.open('/', '_self'); // page will open in current tab
-            })
-            .catch(e => {
-                console.log('error registering the user')
-            });
-        }
+            axios
+                .put(`https://myflix788.herokuapp.com/users/${user}`, {
+                    Username: username,
+                    Password: password,
+                    Email: email,
+                    BirthDate: birthDate
+                },
+                { headers: { Authorization: `Bearer ${token}`}}
+                )
+                .then(response => {
+                    const data = response.data;
+                    console.log(data);
+                    localStorage.setItem('user', data.Username);
+                    // console.log(data);
+                    alert(user + ' has been updated.');
+                    window.open('/', '_self');
+                })
+                .catch(e => {
+                    console.log('error updating the user')
+                    console.log(error.response.data);
+                });
+            }
     }
 
     const formValidation = () => {
@@ -83,19 +92,21 @@ export function UpdateView(props) {
         return isValid;
     };
 
+    
+
     return (
         <div>
             <Row>
                 <Col >
                     <h2 className="text-center">
-                        Register
+                        Update User Information
                     </h2>
                 </Col>
             </Row>
             <Row>
                 <Col>
                     <Form className="px-5">
-                        <Form.Group controlId="registerUsername">
+                        <Form.Group controlId="updateUsername">
                             <Form.Label className="text">
                                 Username:
                             </Form.Label>
@@ -110,7 +121,7 @@ export function UpdateView(props) {
                             );
                         })}
 
-                        <Form.Group controlId="registerPassword">
+                        <Form.Group controlId="updatePassword">
                             <Form.Label className="text">
                                 Password:
                             </Form.Label>
@@ -125,7 +136,7 @@ export function UpdateView(props) {
                             );
                         })}
 
-                        <Form.Group controlId="registerEmail">
+                        <Form.Group controlId="updateEmail">
                             <Form.Label className="text">
                                 Email:
                             </Form.Label>
@@ -140,22 +151,18 @@ export function UpdateView(props) {
                             );
                         })}
 
-                        <Form.Group controlId="registerBirthday">
+                        <Form.Group controlId="updateBirthDate">
                             <Form.Label className="text">
                                 Birthday:
                             </Form.Label>
-                            <Form.Control type='date' onChange={e => setBirthDate(e.target.value)} />
+                            <Form.Control type="date" onChange={e => setBirthDate(e.target.value)} />
                         </Form.Group>
+
                         <div className="text-center block" >
-                            <Link to={`/movies`}>
-                                <Button className="btn-primary" size="lg" type='submit' onClick={handleRegister}>Register</Button>
-                            </Link>
-                            <br></br>
-                            <Link to={`/`}>
-                                <Button size="lg" className="btn-primary">Login</Button>
-                            </Link> 
+                            {/* <Link to={'/movies'}> */}
+                                <Button className="btn-primary" size="lg" type='submit' onClick={handleUpdate}>Update Changes</Button>
+                            {/* </Link> */}
                         </div>
-                        
                     </Form>
                 </Col>
             </Row>
@@ -170,5 +177,5 @@ UpdateView.propTypes = {
         Password: PropTypes.string,
         Email: PropTypes.string
     }),
-    onRegister: PropTypes.func,
+    onUpdate: PropTypes.func,
 }

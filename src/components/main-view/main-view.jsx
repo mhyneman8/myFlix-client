@@ -93,20 +93,13 @@ export class MainView extends React.Component {
             <Router>
                  <Row>
                     <Col className="mb-5">
-                        <Navbar sticky="top" className="justify-content-center" expand="lg">
-                        <Navbar.Brand className="navbar" href="#home"><h1>myFlix</h1></Navbar.Brand>
+                        <Navbar sticky="top" className="justify-content-center" expand="sm">
+                        <Navbar.Brand className="navbar" href="/"><h1>myFlix</h1></Navbar.Brand>
                         <Navbar.Toggle aria-controls="basic-navbar-nav" />
                         <Navbar.Collapse id="basic-navbar-nav">
                             <Nav className="mr-auto">
                                 <Nav.Link className="main-view" href="/">Home</Nav.Link>
-                                <Nav.Link className="" href="#link">My Favorites</Nav.Link>
-                                {/* <Nav.Link href="/users/${user}">{`${user}`}</Nav.Link> */}
-
                             </Nav>
-                            <Form inline>
-                                <FormControl type="text" placeholder="Search" className="mr-sm-2" />
-                                {/* <Button variant="outline-success">Search</Button> */}
-                            </Form>
                             
                             <DropdownButton id="dropdown-basic-button" title={`${user}`} >
                                 <Dropdown.Item as={Link} to={`/users/${this.props.user}`}>My Profile</Dropdown.Item>
@@ -163,12 +156,12 @@ export class MainView extends React.Component {
                     <Route path="/director/:name" render={({ match, history }) => {
                         if (!user) return <Col>
                             <LoginView onLoggedIn={user => this.onLoggedIn(user)} />
-                        </Col> 
-
+                        </Col>
+                        // if (!movies) return <div className="main-view" />; 
                         if (movies.length === 0) return <div className="main-view" />;
                        
                        return <Col md={8}>
-                            <DirectorView director={movies.find(m => m.directorData.name === match.params.name).directorData} movies={movies} onBackClick={() => history.goBack()} />
+                            <DirectorView directorData={movies.find(m => m.Director.Name === match.params.name).Director} movies={movies} onBackClick={() => history.goBack()} />
                         </Col>
                     }} />
 
@@ -178,13 +171,12 @@ export class MainView extends React.Component {
                             <Col>
                                 <LoginView onLoggedIn={user => this.onLoggedIn(user)} /> 
                             </Col>
-
                         if (movies.length === 0) return <div className="main-view" />;
-
                         return <Col md={6}>
-                            <GenreView genreData={movies.find(m => m.Genre.Name === match.params.Name).Genre} movies={movies} onBackClick={() => history.goBack()} />
+                            <GenreView genreData={movies.find(m => m.Genre.Name === match.params.name).Genre} movies={movies} onBackClick={() => history.goBack()} />
                         </Col>
                     }} />
+
 
                     {/* Profile View */}
                     <Route path="/users/:username" render={({ history }) => {

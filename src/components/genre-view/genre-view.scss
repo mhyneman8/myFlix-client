@@ -5,7 +5,7 @@ $tertiary:#fa824c;
 .genre-view {
     background-color: $secondary;
     color: white;
-    padding: 30px 40px;
+    padding: 20px 40px;
 }
 
 .genre-name {
@@ -15,7 +15,34 @@ $tertiary:#fa824c;
     padding-bottom: 20px;
 }
 
+.value.genre-text {
+    padding: 30px;
+}
+
+.genre-movie-title {
+    margin: 20px auto !important;
+}
+
 .body {
     font-weight: bold;
     color: $primary;
+    // padding-left: 10px;
+    margin-left: 4px;
+}
+
+.genre-card {
+    display: inline;
+    width: 100px;
+    height: 145px;
+}
+
+.genre-movies {
+    display: inline;
+}
+
+.genre-img {
+    padding: 0;
+    width: 85%;
+    max-height: 140px;
+    margin-top: 0;
 }
