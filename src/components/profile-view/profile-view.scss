@@ -1,0 +1,67 @@
+$primary: #75b8c8;
+$secondary: #260c1a;
+$tertiary:#fa824c;
+
+.fav-card {
+    width: 120px;
+    height: 190px;
+    text-align: center;
+    margin: 6px;
+    margin-bottom: 40px;
+}
+
+.fav-movies {
+    display: inline-block;
+}
+
+.fav-movies-bg {
+    background-color: $secondary;
+}
+
+.fav-movies-title {
+    text-decoration: underline;
+}
+
+.details {
+    background-color: white;
+    padding: 30px;
+    border-radius: 5px;
+    margin: 20px;
+}
+
+#poster {
+    padding: 0;
+    width: 85%;
+    max-height: 140px;
+    margin-top: 10px;
+}
+
+#delete-btn {
+    background-color: $primary !important;
+    border: 2px solid $secondary !important;
+    color: $secondary !important;
+    width: 100px;
+    font-size: 10px !important;
+    margin-top: 15px;
+}
+#delete-btn:hover {
+    background-color: $tertiary !important;
+}
+
+#remove {
+    font-size: 10px;
+    justify-content: center;
+}
+.remove {
+    width: 65%;
+    margin: 3px auto;
+}
+
+.btn-secondary.update-btn {
+    width: 200px;
+}
+
+.btn-secondary.update-btn:hover {
+    background-color: $tertiary !important;
+}
+
