@@ -9,7 +9,6 @@ import { Link } from "react-router-dom";
 
 import '../../index.scss';
 import './profile-view.scss';
-import { update } from 'lodash-es';
 
 export class ProfileView extends React.Component {
 
@@ -23,30 +22,15 @@ export class ProfileView extends React.Component {
             favoriteMovies: [],
             movies: [],
             name: update,
-            UpdateView: false,
-            showHideUpdate: false
+            UpdateView: false
         };
         this.hideComponent = this.hideComponent.bind(this);
-    }
-
-    hideComponent(name) {
-        console.log(name);
-        if (UpdateView === true) {
-            return <Col>
-                <UpdateView movies={movies} />
-                </Col>
-        }
-
     }
 
     componentDidMount() {
         let accessToken = localStorage.getItem("token");
         this.getUser(accessToken);
     }
-
-    handleShow = () => {
-        this.setState({isActive: true});
-    };
 
     getUser(token) {
         let url = 'https://myflix788.herokuapp.com/users/' +

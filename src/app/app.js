@@ -1,5 +1,5 @@
 import React from "react";
-import Modal from '../modal/modal';
+import Modal from '../components/modal/modal';
 
 export default function App() {
     return (
