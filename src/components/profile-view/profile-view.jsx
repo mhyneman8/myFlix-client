@@ -21,31 +21,13 @@ export class ProfileView extends React.Component {
             birthDate: null,
             favoriteMovies: [],
             movies: [],
-            name: update,
-            UpdateView: false,
-            showHideUpdate: false
         };
-        this.hideComponent = this.hideComponent.bind(this);
-    }
-
-    hideComponent(name) {
-        console.log(name);
-        if (UpdateView === true) {
-            return <Col>
-                <UpdateView movies={movies} />
-                </Col>
-        }
-
     }
 
     componentDidMount() {
         let accessToken = localStorage.getItem("token");
         this.getUser(accessToken);
     }
-
-    handleShow = () => {
-        this.setState({isActive: true});
-    };
 
     getUser(token) {
         let url = 'https://myflix788.herokuapp.com/users/' +
@@ -183,7 +165,7 @@ export class ProfileView extends React.Component {
 
                                     return (
                                         <div className="fav-movies"> 
-                                            <Card className="fav-card text-center mt-2">
+                                            <Card className="fav-card text-center mt-2" key={movies._id}>
                                                 <Link to={`/movies/${movie._id}`}>
                                                     <Card.Img id="poster" src={movie.ImageUrl} />
                                                 </Link>
