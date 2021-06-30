@@ -1,5 +1,61 @@
-$color: steelblue;
+$primary: #75b8c8;
+$secondary: #260c1a;
+$tertiary:#fa824c;
 
-.my-flix {
-    color: $color;
+.app-container {
+	background-color: $primary;
+    width: 100%;
+    justify-content: center;
+    margin: 0 auto;
+    height: 100vh;
+    min-height: 100%;
 }
+
+html {
+    background-color: $primary;
+}
+
+.text {
+	color: $secondary !important;
+}
+
+.btn-primary {
+    background-color: $tertiary !important;
+    color: $secondary !important;
+    font-weight: 550 !important;
+    border: none !important;
+    width: 6.25rem;
+    margin-top: 2.5rem;
+}
+.btn-primary:hover {
+    background-color: $primary !important;
+    border: 2px solid $secondary !important;
+}
+
+.btn-secondary {
+    background-color: $secondary !important;
+    color: white !important;
+    border: none !important;
+    margin-top: 0.625rem;
+}
+
+.btn-outline-success {
+    border: none;
+    color: $tertiary !important;
+}
+
+h1 {
+    font-size: 1.5rem;
+}
+
+h2 {
+    color: $tertiary !important;
+    -webkit-text-stroke: 0.0375rem;
+    -webkit-text-stroke-color: $secondary;
+    margin: 1.875rem;
+    font-size: 2.5rem !important;
+}
+
+
+
+
