@@ -20,7 +20,7 @@ export class ProfileView extends React.Component {
             email: null,
             birthDate: null,
             favoriteMovies: [],
-            movies: [],
+            movies: []
         };
     }
 

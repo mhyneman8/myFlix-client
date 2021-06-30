@@ -26533,7 +26533,7 @@ try {
                 columnNumber: 29
               }
             }, /*#__PURE__*/_reactDefault.default.createElement(_movieCardMovieCard.MovieCard, {
-              movie: m,
+              movieData: m,
               __self: this,
               __source: {
                 fileName: _jsxFileName,
@@ -26628,7 +26628,7 @@ try {
                   columnNumber: 32
                 }
               }, /*#__PURE__*/_reactDefault.default.createElement(_movieViewMovieView.MovieView, {
-                movie: movies.find(m => m._id === match.params.movieId),
+                movieData: movies.find(m => m._id === match.params.movieId),
                 onBackClick: () => history.goBack(),
                 __self: this,
                 __source: {
@@ -47169,9 +47169,9 @@ try {
   }
   MovieCard.propTypes = {
     movie: _propTypesDefault.default.shape({
-      Title: _propTypesDefault.default.string,
-      Description: _propTypesDefault.default.string,
-      ImageUrl: _propTypesDefault.default.string
+      Title: _propTypesDefault.default.string.isRequired,
+      Description: _propTypesDefault.default.string.isRequired,
+      ImageUrl: _propTypesDefault.default.string.isRequired
     }).isRequired
   };
   helpers.postlude(module);

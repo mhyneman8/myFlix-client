@@ -126,7 +126,7 @@ export class MainView extends React.Component {
 
                         return movies.map(m => (
                             <Col md={4} className="mb-4" lg={3} key={m._id}>
-                                <MovieCard movie={m} />
+                                <MovieCard movieData={m} />
                             </Col>
                         ))
                     }} />
