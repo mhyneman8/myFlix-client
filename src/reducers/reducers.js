@@ -25,4 +25,4 @@ const moviesApp = combineReducers ({
         movies
 })
 
-export default moviesApp
+export default moviesApp;
