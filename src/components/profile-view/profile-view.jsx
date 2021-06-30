@@ -9,7 +9,6 @@ import { Link } from "react-router-dom";
 
 import '../../index.scss';
 import './profile-view.scss';
-import { update } from 'lodash-es';
 
 export class ProfileView extends React.Component {
 
