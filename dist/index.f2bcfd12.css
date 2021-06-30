@@ -1,0 +1,25 @@
+.btn-primary {
+  background-color: #fa824c !important;
+  color: #28536b !important;
+  border: none !important;
+  width: 6.25rem;
+  margin-top: 2.5rem;
+}
+.app-container {
+  background-color: #75b8c8;
+}
+
+html {
+  background-color: #75b8c8;
+}
+
+.text {
+  color: #d4dcff;
+}
+
+.navbar {
+  background-color: #28536b;
+  color: #d4dcff;
+  justify-content: center;
+}
+/*# sourceMappingURL=index.f2bcfd12.css.map */
