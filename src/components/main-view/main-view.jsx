@@ -18,6 +18,7 @@ import { DirectorView } from '../director-view/director-view';
 import { GenreView } from '../genre-view/genre-view';
 import { ProfileView } from '../profile-view/profile-view'; 
 import { UpdateView } from '../update-view/update-view';
+import Modal from '../modal/modal';
 
 import { Navbar, Nav, Row, Col, Form, FormControl, Button, Dropdown, DropdownButton } from 'react-bootstrap'
 
@@ -190,6 +191,7 @@ class MainView extends React.Component {
 
                         return <Col md={8}>
                             <ProfileView movies={movies} user={user} onBackClick={() => history.goBack()} />
+                            <Modal />
                         </Col>
                     }} />
 

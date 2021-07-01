@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import { Button, Row, Col, Form, FormControl, Card } from 'react-bootstrap';
 import { MovieCard } from '../movie-card/movie-card';
 import { UpdateView } from '../update-view/update-view';
+import Modal from '../modal/modal';
 
 import axios from 'axios';
 import { Link } from "react-router-dom";
@@ -20,32 +21,14 @@ export class ProfileView extends React.Component {
             email: null,
             birthDate: null,
             favoriteMovies: [],
-            movies: [],
-            name: update,
-            UpdateView: false,
-            showHideUpdate: false
+            movies: []
         };
-        this.hideComponent = this.hideComponent.bind(this);
-    }
-
-    hideComponent(name) {
-        console.log(name);
-        if (UpdateView === true) {
-            return <Col>
-                <UpdateView movies={movies} />
-                </Col>
-        }
-
     }
 
     componentDidMount() {
         let accessToken = localStorage.getItem("token");
         this.getUser(accessToken);
     }
-
-    handleShow = () => {
-        this.setState({isActive: true});
-    };
 
     getUser(token) {
         let url = 'https://myflix788.herokuapp.com/users/' +
@@ -143,12 +126,12 @@ export class ProfileView extends React.Component {
                             <div className="text-center">
                                 <Button className="btn-primary mt-2" onClick={() => { onBackClick() }}>Back</Button>
                             </div>
+                            <div>
+                                <Modal />
+                            </div>
                             <div className="text-center mt-2">
                                 <Link to={`/users/${this.state.Username}`}>
-                                    <Button className="btn-secondary update-btn"
-                                        onClick={() => 
-                                        this.showUpdate()
-                                        } >
+                                    <Button className="btn-secondary update-btn">
                                             Update Details
                                     </Button>
                                 </Link>                                    
