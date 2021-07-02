@@ -1,9 +1,12 @@
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import { Link } from "react-router-dom";
-import { Navbar, Row, Col, Form, Button } from 'react-bootstrap';
+import { Row, Col, Form, Button } from 'react-bootstrap';
 
 import axios from 'axios';
+
+import { connect } from 'react-redux';
+import { setUser } from '../../actions/actions';
 
 import '../../index.scss';
 import './login-view.scss';
@@ -112,3 +115,10 @@ LoginView.propTypes = {
     }),
     onLoggedIn: PropTypes.func
 };
+
+let mapStateToProps = state => {
+    return {
+        user: state.user
+    }
+}
+export default connect(mapStateToProps, { setUser })(LoginView);

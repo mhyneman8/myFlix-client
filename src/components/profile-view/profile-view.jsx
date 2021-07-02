@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { Button, Row, Col, Form, FormControl, Card, Modal } from 'react-bootstrap';
-import { MovieCard } from '../movie-card/movie-card';
+// import { MovieCard } from '../movie-card/movie-card';
 import { UpdateView } from '../update-view/update-view';
 // import Modal from '../modal/modal';
 
@@ -222,3 +222,4 @@ ProfileView.propTypes = {
 //         user: state.user
 //     }
 // }
+// export default connect(mapStateToProps, { setMovies, setUser })(ProfileView);
