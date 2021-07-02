@@ -5,6 +5,9 @@ import { Button, Row, Col, Form, FormControl, Card, Modal } from 'react-bootstra
 import { UpdateView } from '../update-view/update-view';
 // import Modal from '../modal/modal';
 
+import { connect } from 'react-redux';
+import { setMovies, setUser, updateUser } from '../../actions/actions';
+
 import axios from 'axios';
 import { Link } from "react-router-dom";
 
@@ -213,13 +216,14 @@ export class ProfileView extends React.Component {
 }
 
 ProfileView.propTypes = {
-    movies: PropTypes.array.isRequired
-};
+    movies: PropTypes.array.isRequired,
+    user: PropTypes.object.isRequired
+}
 
-// let mapStateToProps = state => {
-//     return {
-//         movies: state.movies,
-//         user: state.user
-//     }
-// }
-// export default connect(mapStateToProps, { setMovies, setUser })(ProfileView);
+let mapStateToProps = state => {
+    return {
+        movies: state.movies,
+        user: state.user
+    }
+}
+export default connect(mapStateToProps, { setMovies, setUser, updateUser })(ProfileView);
