@@ -7,12 +7,11 @@ import { connect } from 'react-redux';
 import { BrowserRouter as Router, Route, Redirect } from "react-router-dom";
 import { Link } from 'react-router-dom';
 
-import { setMovies } from '../../actions/actions';
+import { setMovies, setUser } from '../../actions/actions';
 
 import MoviesList from '../movies-list/movies-list'
 import { LoginView } from '../login-view/login-view';
 import { RegistrationView } from '../registration-view/registration-view';
-// import { MovieCard } from '../movie-card/movie-card';
 import { MovieView } from '../movie-view/movie-view';
 import { DirectorView } from '../director-view/director-view';
 import { GenreView } from '../genre-view/genre-view';
@@ -20,7 +19,7 @@ import { ProfileView } from '../profile-view/profile-view';
 import { UpdateView } from '../update-view/update-view';
 import Modal from '../modal/modal';
 
-import { Navbar, Nav, Row, Col, Form, FormControl, Button, Dropdown, DropdownButton } from 'react-bootstrap'
+import { Nav, Row, Col, Dropdown, DropdownButton } from 'react-bootstrap'
 
 import '../../index.scss';
 import './main-view.scss';
@@ -59,12 +58,6 @@ class MainView extends React.Component {
             });
     }
 
-    // setSelectedMovie(movie) {
-    //     this.setState({
-    //         selectedMovie: movie
-    //     });
-    // }
-
     onLoggedIn(authData) {
         console.log(authData);
         this.setState({
@@ -87,31 +80,37 @@ class MainView extends React.Component {
     }
 
     render() {
-        // const { movies, director, selectedMovie, user, userData, name } = this.state;
         let { movies } = this.props;
         let { user } = this.state;
 
         return (
             <Router>
-                 <Row>
-                    <Col className="mb-5">
-                        <Navbar sticky="top" className="justify-content-center" expand="sm">
-                        <Navbar.Brand className="navbar" href="/"><h1>myFlix</h1></Navbar.Brand>
-                        <Navbar.Toggle aria-controls="basic-navbar-nav" />
-                        <Navbar.Collapse id="basic-navbar-nav">
-                            <Nav className="mr-auto">
-                                <Nav.Link className="main-view" href="/">Home</Nav.Link>
-                            </Nav>
+                 <Row className="navbar mb-5">
+                    <Col>
+                        <div sticky="top" expand="sm">
+                            <h1 className="mt-2 inline" href="/">myFlix</h1>
+                    
+                        </div>
+                    
+                        {user !== null ? (
+                            <Row className="nav-login">
                             
-                            <DropdownButton id="dropdown-basic-button" title={`${user}`} >
-                                <Dropdown.Item as={Link} to={`/users/${this.props.user}`}>My Profile</Dropdown.Item>
-                                <Dropdown.Item className="logout" onClick={() => this.onLoggedOut()}>
-                                    Logout
-                                </Dropdown.Item> 
-                            </DropdownButton>
-                        
-                        </Navbar.Collapse>
-                    </Navbar>
+                                <div className="" >
+                                    <Nav.Link className="mt-4" href="/">Home</Nav.Link>
+                                </div>
+                                <div className="dropdown">
+                                    <DropdownButton className="mt-3" id="dropdown-basic-button" title={`${user}`} >
+                                        <Dropdown.Item as={Link} to={`/users/${this.props.user}`}>My Profile</Dropdown.Item>
+                                        <Dropdown.Item className="logout" onClick={() => this.onLoggedOut()}>
+                                            Logout
+                                        </Dropdown.Item> 
+                                    </DropdownButton>                                    
+                                </div>
+                           
+
+                            </Row>
+                            
+                             ) : null}
                     </Col>
                 </Row>
 
@@ -121,17 +120,12 @@ class MainView extends React.Component {
                         // login-view if user not logged in
                         if (!user) return (
                             <Col>
-                                <LoginView onLoggedIn={user => this.onLoggedIn(user)} />;
+                                <LoginView onLoggedIn={user => this.onLoggedIn(user)} />
                             </Col>)
                      
                         if (movies.length === 0) return <div className="main-view" />
 
-                        return <MoviesList movies={movies} />;
-                        // movies.map(m => (
-                        //     <Col md={4} className="mb-4" lg={3} key={m._id}>
-                        //         <MovieCard movieData={m} />
-                        //     </Col>
-                        // ))
+                        return <MoviesList movies={movies} />
                     }} />
 
                     {/* Registration View */}
@@ -191,7 +185,6 @@ class MainView extends React.Component {
 
                         return <Col md={8}>
                             <ProfileView movies={movies} user={user} onBackClick={() => history.goBack()} />
-                            <Modal />
                         </Col>
                     }} />
 
@@ -213,7 +206,8 @@ class MainView extends React.Component {
 }
 
 let mapStateToProps = state => {
-    return { movies: state.movies }
+    return { movies: state.movies,
+            user: state.user }
 }
 
-export default connect(mapStateToProps, { setMovies })(MainView);
+export default connect(mapStateToProps, { setMovies, setUser })(MainView);
