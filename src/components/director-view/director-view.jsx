@@ -9,6 +9,11 @@ import '../../index.scss';
 import './director-view.scss';
 
 export class DirectorView extends React.Component {
+    constructor() {
+        super();
+        this.state = {};
+    }
+    
     render() {
         const { directorData, onBackClick, movies, movieData } = this.props;
 
@@ -47,7 +52,9 @@ export class DirectorView extends React.Component {
                                 if (m.Director && m.Director.Name === directorData.Name) {
                                 return (
                                     <Card className="director-card text-center mt-2" key={m._id}>
-                                            <Card.Img className="director-img"  src={m.ImageUrl} />                                                                              
+                                        <Link to={`/movies/${m._id}`} >
+                                            <Card.Img className="director-img"  src={m.ImageUrl} />                                                                             
+                                        </Link>
                                     </Card>
                                 );
                             }

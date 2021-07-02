@@ -2,6 +2,7 @@ import React from 'react';
 import Button from 'react-bootstrap/Button';
 import PropTypes from 'prop-types';
 import Card from 'react-bootstrap/Card';
+import { Link } from 'react-router-dom';
 
 import '../../index.scss';
 import './genre-view.scss';
@@ -26,7 +27,9 @@ export class GenreView extends React.Component {
                                 if (m.Genre && m.Genre.Name === genreData.Name) {
                                 return (
                                     <Card className="genre-card text-center mt-2 mb-4" sm={12} md={4} lg={3}>
-                                        <Card.Img className="genre-img" key={m._id} src={m.ImageUrl} />                                                                              
+                                        <Link to={`/movies/${m._id}`} >
+                                            <Card.Img className="genre-img" key={m._id} src={m.ImageUrl} />                                                                              
+                                        </Link>
                                     </Card>
                                 );
                             }
