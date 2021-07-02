@@ -1,9 +1,9 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Button, Row, Col, Form, FormControl, Card } from 'react-bootstrap';
+import { Button, Row, Col, Form, FormControl, Card, Modal } from 'react-bootstrap';
 import { MovieCard } from '../movie-card/movie-card';
 import { UpdateView } from '../update-view/update-view';
-import Modal from '../modal/modal';
+// import Modal from '../modal/modal';
 
 import axios from 'axios';
 import { Link } from "react-router-dom";
@@ -21,13 +21,24 @@ export class ProfileView extends React.Component {
             email: null,
             birthDate: null,
             favoriteMovies: [],
-            movies: []
+            movies: [],
+            show: false
         };
+        this.handleShow = this.handleShow.bind(this);
+        this.handleClose = this.handleClose.bind(this);
     }
 
     componentDidMount() {
         let accessToken = localStorage.getItem("token");
         this.getUser(accessToken);
+    }
+
+    handleClose() {
+        this.setState({show: false})
+    }
+
+    handleShow() {
+        this.setState({show: true})
     }
 
     getUser(token) {
@@ -93,6 +104,8 @@ export class ProfileView extends React.Component {
 
     render() {
         const { movies, user, onBackClick, movie, passwordError, usernameError, emailError, birthDateError } = this.props;
+        const {show} = this.state
+        const birthDate = new Date(this.state.birthDate).toLocaleDateString();
         const favoriteMovieList = movies.filter((movie) => {
             return this.state.favoriteMovies.includes(movie._id);
         });
@@ -117,7 +130,7 @@ export class ProfileView extends React.Component {
 
                                     <Form.Group controlId="formBasicDate">
                                         <h4>Date of Birth:</h4>
-                                        <Form.Label>{this.state.birthDate}</Form.Label>
+                                        <Form.Label>{birthDate}</Form.Label>
                                     </Form.Group>                                   
                                 </div>
 
@@ -127,14 +140,29 @@ export class ProfileView extends React.Component {
                                 <Button className="btn-primary mt-2" onClick={() => { onBackClick() }}>Back</Button>
                             </div>
                             <div>
-                                <Modal />
+                                <Modal show={show} onHide={this.handleClose}>
+                                    <Modal.Header closeButton>
+                                        <Modal.Title>
+                                            <h2 className="text-center">
+                                                Update User Information
+                                            </h2>
+                                        </Modal.Title>
+                                    </Modal.Header>
+                                    <Modal.Body>{<UpdateView movies={movies} user={user} />}</Modal.Body>
+                                    <Modal.Footer>
+                                        <Button variant="secondary" onClick={this.handleClose}>
+                                            Close
+                                        </Button>
+                                        {/* <Button variant="primary" onClick={this.handleClose}>
+                                            Save Changes
+                                        </Button> */}
+                                    </Modal.Footer>
+                                </Modal>
                             </div>
                             <div className="text-center mt-2">
-                                <Link to={`/users/${this.state.Username}`}>
-                                    <Button className="btn-secondary update-btn">
+                                    <Button className="btn-secondary update-btn" onClick={this.handleShow}>
                                             Update Details
                                     </Button>
-                                </Link>                                    
                             </div>
                             <div className="text-center">
                                 <Button id="delete-btn"
@@ -166,7 +194,7 @@ export class ProfileView extends React.Component {
 
                                     return (
                                         <div className="fav-movies"> 
-                                            <Card className="fav-card text-center mt-2">
+                                            <Card className="fav-card text-center mt-2" key={movie._id}>
                                                 <Link to={`/movies/${movie._id}`}>
                                                     <Card.Img id="poster" src={movie.ImageUrl} />
                                                 </Link>

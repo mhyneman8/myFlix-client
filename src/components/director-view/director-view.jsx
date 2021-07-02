@@ -46,8 +46,8 @@ export class DirectorView extends React.Component {
                             {movies.map(m => {
                                 if (m.Director && m.Director.Name === directorData.Name) {
                                 return (
-                                    <Card className="director-card text-center mt-2">
-                                            <Card.Img className="director-img" key={m._id} src={m.ImageUrl} />                                                                              
+                                    <Card className="director-card text-center mt-2" key={m._id}>
+                                            <Card.Img className="director-img"  src={m.ImageUrl} />                                                                              
                                     </Card>
                                 );
                             }
