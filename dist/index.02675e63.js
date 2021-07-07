@@ -26461,7 +26461,7 @@ try {
           }
         }, /*#__PURE__*/_reactDefault.default.createElement(_reactBootstrap.Dropdown.Item, {
           as: _reactRouterDom.Link,
-          to: `/users/${this.state.user}`,
+          to: `/users/${user}`,
           __self: this,
           __source: {
             fileName: _jsxFileName,

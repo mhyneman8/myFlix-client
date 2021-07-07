@@ -100,7 +100,7 @@ class MainView extends React.Component {
                                 </div>
                                 <div className="dropdown">
                                     <DropdownButton className="mt-3" id="dropdown-basic-button" title={`${user}`} >
-                                        <Dropdown.Item as={Link} to={`/users/${this.state.user}`}>My Profile</Dropdown.Item>
+                                        <Dropdown.Item as={Link} to={`/users/${user}`}>My Profile</Dropdown.Item>
                                         <Dropdown.Item className="logout" onClick={() => this.onLoggedOut()}>
                                             Logout
                                         </Dropdown.Item> 
