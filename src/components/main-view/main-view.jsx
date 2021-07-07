@@ -16,8 +16,6 @@ import { MovieView } from '../movie-view/movie-view';
 import { DirectorView } from '../director-view/director-view';
 import { GenreView } from '../genre-view/genre-view';
 import { ProfileView } from '../profile-view/profile-view'; 
-// import { UpdateView } from '../update-view/update-view';
-import Modal from '../modal/modal';
 
 import { Nav, Row, Col, Dropdown, DropdownButton } from 'react-bootstrap'
 

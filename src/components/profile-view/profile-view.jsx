@@ -105,7 +105,7 @@ export class ProfileView extends React.Component {
     }
 
     render() {
-        const { movies, user, onBackClick, movie, passwordError, usernameError, emailError, birthDateError } = this.props;
+        const { movies, user, onBackClick } = this.props;
         const {show} = this.state
         const birthDate = new Date(this.state.birthDate).toLocaleDateString();
         const favoriteMovieList = movies.filter((movie) => {
@@ -155,9 +155,6 @@ export class ProfileView extends React.Component {
                                         <Button variant="secondary" onClick={this.handleClose}>
                                             Close
                                         </Button>
-                                        {/* <Button variant="primary" onClick={this.handleClose}>
-                                            Save Changes
-                                        </Button> */}
                                     </Modal.Footer>
                                 </Modal>
                             </div>
@@ -191,7 +188,10 @@ export class ProfileView extends React.Component {
                                 {favoriteMovieList.map((movie) => {
 
                                     if (favoriteMovieList.length === 0) {
-                                        <h4>You have no favorites yet.</h4>
+                                        return ( 
+                                             <h4>You have no favorites yet.</h4>
+                                        )
+                                       
                                     }
 
                                     return (
