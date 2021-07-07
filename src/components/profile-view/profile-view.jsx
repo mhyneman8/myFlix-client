@@ -1,9 +1,8 @@
 import React from 'react';
-import PropTypes from 'prop-types';
+// import PropTypes from 'prop-types';
 import { Button, Row, Col, Form, FormControl, Card, Modal } from 'react-bootstrap';
-// import { MovieCard } from '../movie-card/movie-card';
 import { UpdateView } from '../update-view/update-view';
-// import Modal from '../modal/modal';
+
 
 import { connect } from 'react-redux';
 import { setMovies, setUser, updateUser } from '../../actions/actions';
@@ -226,4 +225,4 @@ let mapStateToProps = state => {
         user: state.user
     }
 }
-export default connect(mapStateToProps, { setMovies, setUser, updateUser })(ProfileView);
+export default connect(mapStateToProps, { setMovies, setUser })(ProfileView);
