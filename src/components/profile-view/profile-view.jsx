@@ -215,10 +215,10 @@ export class ProfileView extends React.Component {
     }
 }
 
-ProfileView.propTypes = {
-    movies: PropTypes.array.isRequired,
-    user: PropTypes.object.isRequired
-}
+// ProfileView.propTypes = {
+//     movies: PropTypes.array.isRequired,
+//     user: PropTypes.object.isRequired
+// }
 
 let mapStateToProps = state => {
     return {

@@ -26320,7 +26320,7 @@ try {
   var _directorViewDirectorView = require('../director-view/director-view');
   var _genreViewGenreView = require('../genre-view/genre-view');
   var _profileViewProfileView = require('../profile-view/profile-view');
-  var _updateViewUpdateView = require('../update-view/update-view');
+  require('../update-view/update-view');
   require('../modal/modal');
   var _reactBootstrap = require('react-bootstrap');
   require('../../index.scss');
@@ -26461,7 +26461,7 @@ try {
           }
         }, /*#__PURE__*/_reactDefault.default.createElement(_reactBootstrap.Dropdown.Item, {
           as: _reactRouterDom.Link,
-          to: `/users/${this.props.user}`,
+          to: `/users/${this.state.user}`,
           __self: this,
           __source: {
             fileName: _jsxFileName,
@@ -26755,7 +26755,7 @@ try {
             columnNumber: 21
           }
         }), /*#__PURE__*/_reactDefault.default.createElement(_reactRouterDom.Route, {
-          path: "/users/:username",
+          path: "/users/:Username",
           render: ({history}) => {
             if (!user) return (
               /*#__PURE__*/_reactDefault.default.createElement(_reactBootstrap.Col, {
@@ -26813,56 +26813,6 @@ try {
           __source: {
             fileName: _jsxFileName,
             lineNumber: 179,
-            columnNumber: 21
-          }
-        }), /*#__PURE__*/_reactDefault.default.createElement(_reactRouterDom.Route, {
-          path: "/users/:Username",
-          render: ({history}) => {
-            if (!user) return (
-              /*#__PURE__*/_reactDefault.default.createElement(_reactBootstrap.Col, {
-                md: 6,
-                __self: this,
-                __source: {
-                  fileName: _jsxFileName,
-                  lineNumber: 193,
-                  columnNumber: 43
-                }
-              }, /*#__PURE__*/_reactDefault.default.createElement(_loginViewLoginView.LoginView, {
-                onLoggedIn: user => this.onLoggedIn(user),
-                __self: this,
-                __source: {
-                  fileName: _jsxFileName,
-                  lineNumber: 194,
-                  columnNumber: 29
-                }
-              }))
-            );
-            return (
-              /*#__PURE__*/_reactDefault.default.createElement(_reactBootstrap.Col, {
-                md: 8,
-                __self: this,
-                __source: {
-                  fileName: _jsxFileName,
-                  lineNumber: 197,
-                  columnNumber: 32
-                }
-              }, /*#__PURE__*/_reactDefault.default.createElement(_updateViewUpdateView.UpdateView, {
-                movies: movies,
-                user: user,
-                onBackClick: () => history.goBack(),
-                __self: this,
-                __source: {
-                  fileName: _jsxFileName,
-                  lineNumber: 198,
-                  columnNumber: 29
-                }
-              }))
-            );
-          },
-          __self: this,
-          __source: {
-            fileName: _jsxFileName,
-            lineNumber: 192,
             columnNumber: 21
           }
         })))
@@ -48170,9 +48120,6 @@ _parcelHelpers.export(exports, "SET_FILTER", function () {
 _parcelHelpers.export(exports, "SET_USER", function () {
   return SET_USER;
 });
-_parcelHelpers.export(exports, "UPDATE_USER", function () {
-  return UPDATE_USER;
-});
 _parcelHelpers.export(exports, "setMovies", function () {
   return setMovies;
 });
@@ -48182,13 +48129,9 @@ _parcelHelpers.export(exports, "setFilter", function () {
 _parcelHelpers.export(exports, "setUser", function () {
   return setUser;
 });
-_parcelHelpers.export(exports, "updateUser", function () {
-  return updateUser;
-});
 const SET_MOVIES = 'SET_MOVIES';
 const SET_FILTER = 'SET_FILTER';
 const SET_USER = 'SET_USER';
-const UPDATE_USER = 'UPDATE_USER';
 function setMovies(value) {
   return {
     type: SET_MOVIES,
@@ -48204,12 +48147,6 @@ function setFilter(value) {
 function setUser(value) {
   return {
     type: SET_USER,
-    value
-  };
-}
-function updateUser(value) {
-  return {
-    type: UPDATE_USER,
     value
   };
 }
@@ -49453,8 +49390,7 @@ try {
   });
   var _react = require('react');
   var _reactDefault = _parcelHelpers.interopDefault(_react);
-  var _propTypes = require('prop-types');
-  var _propTypesDefault = _parcelHelpers.interopDefault(_propTypes);
+  require('prop-types');
   var _reactBootstrap = require('react-bootstrap');
   var _updateViewUpdateView = require('../update-view/update-view');
   var _reactRedux = require('react-redux');
@@ -49891,10 +49827,10 @@ try {
       );
     }
   }
-  ProfileView.propTypes = {
-    movies: _propTypesDefault.default.array.isRequired,
-    user: _propTypesDefault.default.object.isRequired
-  };
+  // ProfileView.propTypes = {
+  // movies: PropTypes.array.isRequired,
+  // user: PropTypes.object.isRequired
+  // }
   let mapStateToProps = state => {
     return {
       movies: state.movies,
@@ -51128,8 +51064,6 @@ function movies(state = [], action) {
 function user(state = '', action) {
   switch (action.type) {
     case _actionsActions.SET_USER:
-      return action.value;
-    case _actionsActions.UPDATE_USER:
       return action.value;
     default:
       return state;

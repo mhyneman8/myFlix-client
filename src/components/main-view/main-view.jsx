@@ -100,7 +100,7 @@ class MainView extends React.Component {
                                 </div>
                                 <div className="dropdown">
                                     <DropdownButton className="mt-3" id="dropdown-basic-button" title={`${user}`} >
-                                        <Dropdown.Item as={Link} to={`/users/${this.props.user}`}>My Profile</Dropdown.Item>
+                                        <Dropdown.Item as={Link} to={`/users/${this.state.user}`}>My Profile</Dropdown.Item>
                                         <Dropdown.Item className="logout" onClick={() => this.onLoggedOut()}>
                                             Logout
                                         </Dropdown.Item> 
@@ -176,7 +176,7 @@ class MainView extends React.Component {
 
 
                     {/* Profile View */}
-                    <Route path="/users/:username" render={({ history }) => {
+                    <Route path="/users/:Username" render={({ history }) => {
                         if (!user) return <Col md={6}>
                             <LoginView onLoggedIn={user => this.onLoggedIn(user)} />
                         </Col>
@@ -184,11 +184,14 @@ class MainView extends React.Component {
                         if (movies.length ===0) return <div className="main-view" />;
 
                         return <Col md={8}>
-                            <ProfileView movies={movies} user={user} onBackClick={() => history.goBack()} />
+                            <ProfileView 
+                            movies={movies} 
+                            user={user} onBackClick={() => history.goBack()} 
+                            />
                         </Col>
                     }} />
 
-                    {/* Update View */}
+                    {/* Update View
                     <Route path="/users/:Username" render={({ history }) => {
                         if (!user) return <Col md={6}>
                             <LoginView onLoggedIn={user => this.onLoggedIn(user)} />
@@ -197,7 +200,7 @@ class MainView extends React.Component {
                         return <Col md={8}>
                             <UpdateView movies={movies} user={user} onBackClick={() => history.goBack()} />
                         </Col>
-                    }} />
+                    }} /> */}
 
                 </Row>
             </Router>
@@ -207,7 +210,8 @@ class MainView extends React.Component {
 
 let mapStateToProps = state => {
     return { movies: state.movies,
-            user: state.user }
+            user: state.user 
+        }
 }
 
 export default connect(mapStateToProps, { setMovies, setUser })(MainView);
