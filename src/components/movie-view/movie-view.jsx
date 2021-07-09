@@ -91,19 +91,24 @@ export class MovieView extends React.Component {
                         </div>
                         <div className="movie-cast">
                             <span className="label">Cast: </span>
-                            <span className="value">{movieData.Cast.map((cast) => cast)}</span>
+                            <span className="value mr-2"
+                            >{movieData.Cast.map((cast) => cast + " ")}</span>
                         </div>
                         <div className="movie-description">
                             <span className="label">Description: </span>
                             <span className="value">{movieData.Description}</span>
                         </div>
                         <div>
-                            <Button className="add mt-3 mr-2 w-50" onClick={() => this.addFavorite(movieData)}> + Add</Button>                        </div>
+                            <Button className="add mt-3 mr-2 w-50" onClick={() => this.addFavorite(movieData)}>
+                                + Add
+                            </Button>                        </div>
      
                     </Col>
                     <Col sm={12} className="text-center">
                         
-                        <Button className="btn-primary mb-4 justify-content-center" onClick={() => { onBackClick(null); }}>Back</Button>
+                        <Button className="btn-primary mb-4 justify-content-center" onClick={() => { onBackClick(null); }}>
+                            Back
+                        </Button>
                     </Col>
                 </Row>
 

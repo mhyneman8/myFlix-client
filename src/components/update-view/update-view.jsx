@@ -2,10 +2,8 @@ import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import { Row, Col, Form, Button } from 'react-bootstrap';
 import axios from 'axios';
-import { Link } from 'react-router-dom';
                                 
 import '../../index.scss';
-import './update-view.scss';
                                 
 export function UpdateView(props) {
     const [username, setUsername] = useState('');
@@ -38,7 +36,7 @@ export function UpdateView(props) {
                     const data = response.data;
                     console.log(data);
                     localStorage.setItem('user', data.Username);
-                    // console.log(data);
+                    
                     alert(user + ' has been updated.');
                     window.open('/', '_self');
                 })
@@ -47,9 +45,6 @@ export function UpdateView(props) {
                     console.log(error.response.data);
                 });
         }
-    }
-    const handleClose = () => {
-        this.setState({show: false})
     }
                                 
     const formValidation = () => {

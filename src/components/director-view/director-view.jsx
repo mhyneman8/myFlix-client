@@ -3,7 +3,6 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 import { Row, Col, Button, Card } from 'react-bootstrap';
-import { MovieCard } from '../movie-card/movie-card';
 
 import '../../index.scss';
 import './director-view.scss';

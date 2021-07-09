@@ -5,19 +5,19 @@ $tertiary:#fa824c;
 .director-view {
     background-color: $secondary;
     color: white;
-    padding: 30px 40px;
+    padding: 1.875rem 2.5rem;
     
 }
 
 .director-name {
     color: $tertiary;
-    font-size: 30px;
+    font-size: 1.875rem;
     text-align: center;
-    margin-top: 60px;
+    margin-top: 3.75rem;
 }
 
 .director-birth {
-    margin-top: 30px;
+    margin-top: 1.875rem;
 }
 
 .body {
@@ -27,32 +27,32 @@ $tertiary:#fa824c;
 
 .bio-text {
     width: 70%;
-    margin: 5px auto;
+    margin: 0.3125rem auto;
 }
 
 .dir-img {
     width: 90%;
-    max-width: 190px;
-    margin: 20px auto;
+    max-width: 11.875rem;
+    margin: 1.25rem auto;
     padding: 0;
 }
 
 .director-movies {
-    max-width: 150px;
+    max-width: 9.375rem;
 }
 
 .director-movie-title {
-    margin: 20px auto !important;
+    margin: 1.25rem auto !important;
 }
 
 .director-card {
-    width: 100px;
-    height: 145px;
+    width: 6.25rem;
+    height: 9.0625rem;
 }
 
 div.director-card.text-center.mt-2.card {
     display: inline !important;
-    margin: 5px;
+    margin: 0.3125rem;
     background-color: $secondary;
 }
 
@@ -60,6 +60,6 @@ div.director-card.text-center.mt-2.card {
     padding: 0;
     width: 85%;
     display: inline !important;
-    max-width: 150px;
+    max-width: 9.375rem;
     margin-top: 0;
 }

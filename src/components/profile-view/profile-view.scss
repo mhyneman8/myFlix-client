@@ -3,11 +3,11 @@ $secondary: #260c1a;
 $tertiary:#fa824c;
 
 .fav-card {
-    width: 120px;
+    width: 7.5rem;
     height: 190px;
     text-align: center;
-    margin: 6px;
-    margin-bottom: 40px;
+    margin: 0.375rem;
+    margin-bottom: 2.5rem;
 }
 
 .fav-movies {
@@ -21,41 +21,41 @@ $tertiary:#fa824c;
 
 .details {
     background-color: white;
-    padding: 30px;
+    padding: 1.875rem;
     border-radius: 5px;
-    margin: 20px;
+    margin: 1.25rem;
 }
 
 #poster {
     padding: 0;
     width: 85%;
-    max-height: 140px;
-    margin-top: 10px;
+    max-height: 8.75rem;
+    margin-top: 0.625rem;
 }
 
 #delete-btn {
     background-color: $primary !important;
     border: 2px solid $secondary !important;
     color: $secondary !important;
-    width: 100px;
-    font-size: 10px !important;
-    margin-top: 15px;
+    width: 6.25rem;
+    font-size: 0.625rem !important;
+    margin-top: 0.9375rem;
 }
 #delete-btn:hover {
     background-color: $tertiary !important;
 }
 
 #remove {
-    font-size: 10px;
+    font-size: 0.625rem;
     justify-content: center;
 }
 .remove {
     width: 65%;
-    margin: 3px auto;
+    margin: 0.1875rem auto;
 }
 
 .btn-secondary.update-btn {
-    width: 200px;
+    width: 12.5rem;
 }
 
 .btn-secondary.update-btn:hover {

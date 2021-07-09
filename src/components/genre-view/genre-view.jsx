@@ -39,10 +39,12 @@ export class GenreView extends React.Component {
                     </div> 
                 </div>
                 <div className="back">
-                    <Button variant="primary" onClick={() => { onBackClick(null) }}>Back</Button>
+                    <Button variant="primary" onClick={() => { onBackClick(null) }}>
+                        Back
+                    </Button>
                 </div>
 
-            </div> // end of genre-view
+            </div>
         );
     }
 }

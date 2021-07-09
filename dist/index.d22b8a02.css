@@ -57,7 +57,7 @@ h2 {
 }
 .btn-primary {
   width: 40%;
-  max-width: 300px;
+  max-width: 18.75rem;
 }
 
 h2 {
@@ -71,7 +71,7 @@ h2 {
 .movie-title {
   font-weight: bold;
   margin-bottom: 0.625rem;
-  font-size: 30px;
+  font-size: 1.875rem;
 }
 
 img {
@@ -86,65 +86,21 @@ img {
 .link:hover {
   color: #75b8c8;
 }
-.card-title.h5 {
-  font-weight: 500;
-  text-align: center !important;
-}
-
-div.card {
-  display: grid;
-  grid-template-rows: 1fr auto;
-}
-
-.card-body {
-  align-self: end;
-  justify-items: flex-end;
-  min-height: 23rem;
-}
-
-.card-img-top {
-  height: 18.75rem;
-  padding: 0.625rem;
-}
-
-@media all and (max-width: 500px) {
-  .card-img-top {
-    max-width: 300px;
-  }
-}
-.movie-poster {
-  display: inline;
-}
-
-.link.card-title.h5 {
-  color: #fa824c;
-  font-size: 30px;
-}
-
-.link.card-title.h5:hover {
-  color: #75b8c8;
-  text-decoration: none;
-}
-
-.text {
-  font-weight: normal;
-  color: #260c1a;
-}
 .director-view {
   background-color: #260c1a;
   color: white;
-  padding: 30px 40px;
+  padding: 1.875rem 2.5rem;
 }
 
 .director-name {
   color: #fa824c;
-  font-size: 30px;
+  font-size: 1.875rem;
   text-align: center;
-  margin-top: 60px;
+  margin-top: 3.75rem;
 }
 
 .director-birth {
-  margin-top: 30px;
+  margin-top: 1.875rem;
 }
 
 .body {
@@ -154,32 +110,32 @@ div.card {
 
 .bio-text {
   width: 70%;
-  margin: 5px auto;
+  margin: 0.3125rem auto;
 }
 
 .dir-img {
   width: 90%;
-  max-width: 190px;
-  margin: 20px auto;
+  max-width: 11.875rem;
+  margin: 1.25rem auto;
   padding: 0;
 }
 
 .director-movies {
-  max-width: 150px;
+  max-width: 9.375rem;
 }
 
 .director-movie-title {
-  margin: 20px auto !important;
+  margin: 1.25rem auto !important;
 }
 
 .director-card {
-  width: 100px;
-  height: 145px;
+  width: 6.25rem;
+  height: 9.0625rem;
 }
 
 div.director-card.text-center.mt-2.card {
   display: inline !important;
-  margin: 5px;
+  margin: 0.3125rem;
   background-color: #260c1a;
 }
 
@@ -187,24 +143,24 @@ div.director-card.text-center.mt-2.card {
   padding: 0;
   width: 85%;
   display: inline !important;
-  max-width: 150px;
+  max-width: 9.375rem;
   margin-top: 0;
 }
 .genre-view {
   background-color: #260c1a;
   color: white;
-  padding: 20px 40px;
+  padding: 1.25rem 2.5rem;
 }
 
 .genre-name {
   color: #fa824c;
-  font-size: 30px;
+  font-size: 1.875rem;
   text-align: center;
-  padding-bottom: 20px;
+  padding-bottom: 1.25rem;
 }
 
 .value.genre-text {
-  padding: 30px;
+  padding: 1.875rem;
 }
 
 .genre-movie-title {
@@ -222,8 +178,8 @@ div.director-card.text-center.mt-2.card {
 }
 
 .genre-card {
-  width: 100px;
-  height: 145px;
+  width: 6.25rem;
+  height: 9.0625rem;
 }
 
 .genre-img {
@@ -231,8 +187,8 @@ div.director-card.text-center.mt-2.card {
   display: inline;
   width: 85%;
   max-height: 140px;
-  max-width: 100px;
-  margin: 10px;
+  max-width: 6.25rem;
+  margin: 0.625rem;
 }
 
 .text-center {
@@ -243,13 +199,12 @@ div.genre-card.text-center.mt-2.mb-4.card {
   display: inline !important;
   background-color: #260c1a;
 }
-
 .fav-card {
-  width: 120px;
+  width: 7.5rem;
   height: 190px;
   text-align: center;
-  margin: 6px;
-  margin-bottom: 40px;
+  margin: 0.375rem;
+  margin-bottom: 2.5rem;
 }
 
 .fav-movies {
@@ -263,25 +218,25 @@ div.genre-card.text-center.mt-2.mb-4.card {
 
 .details {
   background-color: white;
-  padding: 30px;
+  padding: 1.875rem;
   border-radius: 5px;
-  margin: 20px;
+  margin: 1.25rem;
 }
 
 #poster {
   padding: 0;
   width: 85%;
-  max-height: 140px;
-  margin-top: 10px;
+  max-height: 8.75rem;
+  margin-top: 0.625rem;
 }
 
 #delete-btn {
   background-color: #75b8c8 !important;
   border: 2px solid #260c1a !important;
   color: #260c1a !important;
-  width: 100px;
-  font-size: 10px !important;
-  margin-top: 15px;
+  width: 6.25rem;
+  font-size: 0.625rem !important;
+  margin-top: 0.9375rem;
 }
 
 #delete-btn:hover {
@@ -289,17 +244,17 @@ div.genre-card.text-center.mt-2.mb-4.card {
 }
 
 #remove {
-  font-size: 10px;
+  font-size: 0.625rem;
   justify-content: center;
 }
 
 .remove {
   width: 65%;
-  margin: 3px auto;
+  margin: 0.1875rem auto;
 }
 
 .btn-secondary.update-btn {
-  width: 200px;
+  width: 12.5rem;
 }
 
 .btn-secondary.update-btn:hover {
@@ -350,7 +305,51 @@ div.dropdown {
 
 @media all and (max-width: 500px) {
   .card-img-top {
-    max-width: 100px !important;
+    max-width: 6.25rem !important;
   }
+}
+.card-title.h5 {
+  font-weight: 500;
+  text-align: center !important;
+}
+
+div.card {
+  display: grid;
+  grid-template-rows: 1fr auto;
+}
+
+.card-body {
+  align-self: end;
+  justify-items: flex-end;
+  min-height: 23rem;
+}
+
+.card-img-top {
+  height: 18.75rem;
+  padding: 0.625rem;
+}
+
+@media all and (max-width: 500px) {
+  .card-img-top {
+    max-width: 18.75rem;
+  }
+}
+.movie-poster {
+  display: inline;
+}
+
+.link.card-title.h5 {
+  color: #fa824c;
+  font-size: 1.875rem;
+}
+
+.link.card-title.h5:hover {
+  color: #75b8c8;
+  text-decoration: none;
+}
+
+.text {
+  font-weight: normal;
+  color: #260c1a;
 }
 /*# sourceMappingURL=index.d22b8a02.css.map */

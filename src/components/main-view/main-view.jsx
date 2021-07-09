@@ -1,6 +1,5 @@
 import React from 'react';
 import axios from 'axios';
-// import PropTypes from 'prop-types';
 
 import { connect } from 'react-redux';
 
@@ -188,17 +187,6 @@ class MainView extends React.Component {
                             />
                         </Col>
                     }} />
-
-                    {/* Update View
-                    <Route path="/users/:Username" render={({ history }) => {
-                        if (!user) return <Col md={6}>
-                            <LoginView onLoggedIn={user => this.onLoggedIn(user)} />
-                        </Col>
-
-                        return <Col md={8}>
-                            <UpdateView movies={movies} user={user} onBackClick={() => history.goBack()} />
-                        </Col>
-                    }} /> */}
 
                 </Row>
             </Router>
