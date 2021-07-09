@@ -14,7 +14,6 @@ $tertiary:#fa824c;
     font-size: 30px;
     text-align: center;
     margin-top: 60px;
-    // padding-bottom: 20px;
 }
 
 .director-birth {
@@ -40,7 +39,6 @@ $tertiary:#fa824c;
 
 .director-movies {
     max-width: 150px;
-    display: inline;
 }
 
 .director-movie-title {
@@ -48,14 +46,20 @@ $tertiary:#fa824c;
 }
 
 .director-card {
-    display: inline;
     width: 100px;
     height: 145px;
+}
+
+div.director-card.text-center.mt-2.card {
+    display: inline !important;
+    margin: 5px;
+    background-color: $secondary;
 }
 
 .director-img {
     padding: 0;
     width: 85%;
-    max-height: 140px;
+    display: inline !important;
+    max-width: 150px;
     margin-top: 0;
 }

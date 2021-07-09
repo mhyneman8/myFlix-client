@@ -20,31 +20,38 @@ $tertiary:#fa824c;
 }
 
 .genre-movie-title {
-    margin: 20px auto !important;
     color: $tertiary;
 }
 
 .body {
     font-weight: bold;
     color: $primary;
-    // padding-left: 10px;
     margin-left: 4px;
 }
 
+.back {
+    text-align: center;
+}
+
 .genre-card {
-    display: inline;
     width: 100px;
     height: 145px;
 }
 
-.genre-movies {
+.genre-img {
+    padding: 0;
+    display: inline;
+    width: 85%;
+    max-height: 140px;
+    max-width: 100px;
+    margin: 10px;
+}
+
+.text-center {
     display: inline;
 }
 
-.genre-img {
-    padding: 0;
-    width: 85%;
-    max-height: 140px;
-    margin-top: 0;
+div.genre-card.text-center.mt-2.mb-4.card {
+    display: inline !important;
+    background-color: $secondary;
 }
-

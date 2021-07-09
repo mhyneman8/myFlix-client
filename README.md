@@ -1,6 +1,6 @@
 # myFlix-client
 
-## Project Description:
+## Description:
 
 myFlix-client uses React to build a fontend single page for the client side of myFlix app. It provides users with information on their favorite movies, like director, and genre. Users can also add and delete movies from their favorites list.
 

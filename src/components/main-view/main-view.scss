@@ -46,3 +46,8 @@ div.dropdown {
     border: none;
 }
 
+@media all and (max-width: 500px) {
+    .card-img-top {
+        max-width: 100px !important;
+    }
+}

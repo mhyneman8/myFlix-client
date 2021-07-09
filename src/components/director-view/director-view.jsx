@@ -45,7 +45,7 @@ export class DirectorView extends React.Component {
                     </Col>
                 </Row>
                 <Row>
-                    <Col>
+                    <Col className="text-center">
                         <div className="director-movies text-center">
                             <h3  className="director-movie-title">{directorData.Name}'s Movies</h3>
                             {movies.map(m => {
@@ -63,7 +63,7 @@ export class DirectorView extends React.Component {
 
                     </Col>
                 </Row>
-                    <div className="text-center">
+                    <div className="back">
                         <Button variant="primary" onClick={() => { onBackClick(null) }}>Back</Button>
                     </div>
                 

@@ -143,8 +143,11 @@ export function UpdateView(props) {
                         </Form.Group>
                                 
                         <div className="text-center block" >
-                            <Button className="btn-primary" size="lg" type='submit' onClick={this.handleClose}>
-                                Update Changes
+                            <Button className="btn-primary" 
+                                size="lg" 
+                                type='submit' 
+                                onClick={handleUpdate}>
+                                    Update Changes
                             </Button>
                         </div>
                     </Form>

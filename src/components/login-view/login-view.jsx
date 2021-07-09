@@ -94,13 +94,18 @@ export function LoginView(props) {
                         })}
                     </Form.Group>
                     <div id="error" className="err"></div>
-
-                    <Button type="submit" className="btn-primary" onClick={handleSubmit}>Login</Button>
-                    
-                    <h4 className="mt-5">Don't have an account?</h4>
+                    <div className="text-center">
+                        <Button type="submit" className="btn-primary" onClick={handleSubmit}>
+                            Login
+                        </Button>
+                        
+                        <h4 className="mt-5">Don't have an account?</h4>
                         <Link to='/register'>
-                            <Button className="btn-primary mt-2">Register</Button>
-                                </Link> 
+                            <Button className="btn-primary mt-2 mb-4">
+                                Register
+                            </Button>
+                        </Link> 
+                    </div>   
                 </Form>
                 </Col>
             </Row>

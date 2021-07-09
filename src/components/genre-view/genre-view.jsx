@@ -20,15 +20,17 @@ export class GenreView extends React.Component {
                     <span className="label body">Description: </span><br></br>
                     <span className="value genre-text">{genreData.Description}</span>
                 </div>
-                <div>
-                    <h3><span className="genre-movie-title text-center">{genreData.Name} Movies</span></h3>
-                    <div className="genre-movies text-center">
+                <div className="text-center">
+                    <h3><span className="genre-movie-title">{genreData.Name} Movies</span></h3>
+                    <div className="genre-movies">
                             {movies.map(m => {
                                 if (m.Genre && m.Genre.Name === genreData.Name) {
                                 return (
                                     <Card className="genre-card text-center mt-2 mb-4" sm={12} md={4} lg={3}>
                                         <Link to={`/movies/${m._id}`} >
-                                            <Card.Img className="genre-img" key={m._id} src={m.ImageUrl} />                                                                              
+                                            <div className="text-center genre-movies">
+                                                <Card.Img className="genre-img" key={m._id} src={m.ImageUrl} /> 
+                                            </div>                                                                         
                                         </Link>
                                     </Card>
                                 );
@@ -36,7 +38,7 @@ export class GenreView extends React.Component {
                             })}
                     </div> 
                 </div>
-                <div className="text-center">
+                <div className="back">
                     <Button variant="primary" onClick={() => { onBackClick(null) }}>Back</Button>
                 </div>
 

@@ -138,8 +138,10 @@ export class ProfileView extends React.Component {
 
                             </Form>
 
-                            <div className="text-center">
-                                <Button className="btn-primary mt-2" onClick={() => { onBackClick() }}>Back</Button>
+                            <div className="back">
+                                <Button className="btn-primary mt-2" onClick={() => { onBackClick() }}>
+                                    Back
+                                </Button>
                             </div>
                             <div>
                                 <Modal show={show} onHide={this.handleClose}>
@@ -158,12 +160,12 @@ export class ProfileView extends React.Component {
                                     </Modal.Footer>
                                 </Modal>
                             </div>
-                            <div className="text-center mt-2">
+                            <div className="back mt-2">
                                     <Button className="btn-secondary update-btn" onClick={this.handleShow}>
                                             Update Details
                                     </Button>
                             </div>
-                            <div className="text-center">
+                            <div className="back">
                                 <Button id="delete-btn"
                                     onClick={() => {
                                         const confirmBox = window.confirm(
@@ -180,19 +182,14 @@ export class ProfileView extends React.Component {
                                 
                         </Col>
 
-                        <Col>
-                            <div className="text-center">
+                        <Col className="text-center">
+                            <div>
 
-                                <h3 className="text-center fav-movies-title mb-2 mt-5">Your Favorite Movies: </h3>
+                                <h3 className="text-center fav-movies-title mb-2 mt-5 d-block">
+                                    Your Favorite Movies: 
+                                </h3>
                             
                                 {favoriteMovieList.map((movie) => {
-
-                                    if (favoriteMovieList.length === 0) {
-                                        return ( 
-                                             <h4>You have no favorites yet.</h4>
-                                        )
-                                       
-                                    }
 
                                     return (
                                         <div className="fav-movies"> 
@@ -200,7 +197,9 @@ export class ProfileView extends React.Component {
                                                 <Link to={`/movies/${movie._id}`}>
                                                     <Card.Img id="poster" src={movie.ImageUrl} />
                                                 </Link>
-                                                <Button className="remove" id="remove" onClick={() => this.removeFavorite(movie)}>Remove</Button>
+                                                <Button className="remove" id="remove" onClick={() => this.removeFavorite(movie)}>
+                                                    Remove
+                                                </Button>
                                                                                 
                                             </Card>
                                         </div>
@@ -213,11 +212,6 @@ export class ProfileView extends React.Component {
         )
     }
 }
-
-// ProfileView.propTypes = {
-//     movies: PropTypes.array.isRequired,
-//     user: PropTypes.object.isRequired
-// }
 
 let mapStateToProps = state => {
     return {
