@@ -4,6 +4,8 @@
   "description": "Using React to build client side of myFlix app",
   "main": "src/index.html",
   "scripts": {
+    "start": "parcel src/index.html",
+    "build": "parcel build src/index.html",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "MHyneman",
@@ -22,6 +24,7 @@
     "redux-devtools-extension": "^2.13.9"
   },
   "devDependencies": {
-    "@parcel/transformer-sass": "^2.0.0-beta.2"
+    "@parcel/transformer-sass": "^2.0.0-beta.2",
+    "parcel-bundler": "^1.12.5"
   }
 }
