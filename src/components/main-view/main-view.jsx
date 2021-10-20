@@ -91,25 +91,30 @@ export class MainView extends React.Component {
 
         return (
             <Router>
-                 <Row>
-                    <Col className="mb-5">
-                        <Navbar sticky="top" className="justify-content-center" expand="sm">
-                        <Navbar.Brand className="navbar" href="/"><h1>myFlix</h1></Navbar.Brand>
-                        <Navbar.Toggle aria-controls="basic-navbar-nav" />
-                        <Navbar.Collapse id="basic-navbar-nav">
-                            <Nav className="mr-auto">
-                                <Nav.Link className="main-view" href="/">Home</Nav.Link>
-                            </Nav>
+                 <Row className="navbar mb-5">
+                    <Col>
+                        <div sticky="top" expand="sm">
+                            <h1 className="mt-2 inline" href="/">myFlix</h1>
+                        </div>
+                    
+                        {user !== null ? (
+                            <Row className="nav-login">
                             
-                            <DropdownButton id="dropdown-basic-button" title={`${user}`} >
-                                <Dropdown.Item as={Link} to={`/users/${this.props.user}`}>My Profile</Dropdown.Item>
-                                <Dropdown.Item className="logout" onClick={() => this.onLoggedOut()}>
-                                    Logout
-                                </Dropdown.Item> 
-                            </DropdownButton>
-                        
-                        </Navbar.Collapse>
-                    </Navbar>
+                                <div className="" >
+                                    <Nav.Link className="mt-4" href="/">Home</Nav.Link>
+                                </div>
+                                <div className="dropdown">
+                                    <DropdownButton className="mt-3" id="dropdown-basic-button" title={`${user}`} >
+                                        <Dropdown.Item as={Link} to={`/users/${user}`}>
+                                            My Profile
+                                        </Dropdown.Item>
+                                        <Dropdown.Item className="logout" onClick={() => this.onLoggedOut()}>
+                                            Logout
+                                        </Dropdown.Item> 
+                                    </DropdownButton>                                    
+                                </div>
+                            </Row>
+                        ) : null}
                     </Col>
                 </Row>
 

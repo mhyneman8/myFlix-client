@@ -9,7 +9,15 @@ $tertiary:#fa824c;
 .navbar {
 	background-color: $secondary;
 	color: $primary !important;
-	justify-content: center;
+}
+
+.nav-login {
+    float: right;
+    display: flex;
+}
+
+.inline {
+    float: left;
 }
 
 .nav-link {
