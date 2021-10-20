@@ -26886,7 +26886,7 @@ try {
   window.$RefreshSig$ = prevRefreshSig;
 }
 
-},{"react":"3b2NM","axios":"7rA65","../login-view/login-view":"6M7fu","../registration-view/registration-view":"7gvH2","../movie-card/movie-card":"7v6h3","../movie-view/movie-view":"3xBbr","@parcel/transformer-js/lib/esmodule-helpers.js":"7kyIT","../../../../../../AppData/Roaming/npm/node_modules/parcel/node_modules/@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"7belF","prop-types":"4dfy5","react-router-dom":"1PMSK","../director-view/director-view":"7HF27","../genre-view/genre-view":"6FLqj","../profile-view/profile-view":"3CncI","../update-view/update-view":"5b5oY","react-bootstrap":"4n7hB","../../index.scss":"5iJih","./main-view.scss":"3X8QW"}],"7rA65":[function(require,module,exports) {
+},{"react":"3b2NM","axios":"7rA65","../login-view/login-view":"6M7fu","../registration-view/registration-view":"7gvH2","../movie-card/movie-card":"7v6h3","../movie-view/movie-view":"3xBbr","react-bootstrap":"4n7hB","../../index.scss":"5iJih","@parcel/transformer-js/lib/esmodule-helpers.js":"7kyIT","../../../../../../AppData/Roaming/npm/node_modules/parcel/node_modules/@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"7belF"}],"7rA65":[function(require,module,exports) {
 module.exports = require('./lib/axios');
 },{"./lib/axios":"4qfhW"}],"4qfhW":[function(require,module,exports) {
 'use strict';
@@ -28897,223 +28897,150 @@ try {
   window.$RefreshSig$ = prevRefreshSig;
 }
 
-},{"react":"3b2NM","@parcel/transformer-js/lib/esmodule-helpers.js":"7kyIT","../../../../../../AppData/Roaming/npm/node_modules/parcel/node_modules/@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"7belF","prop-types":"4dfy5","react-router-dom":"1PMSK","react-bootstrap":"4n7hB","axios":"7rA65","../../index.scss":"5iJih","./login-view.scss":"3ueKO"}],"7kyIT":[function(require,module,exports) {
+},{"react":"3b2NM","react-bootstrap":"4n7hB","../../index.scss":"5iJih","@parcel/transformer-js/lib/esmodule-helpers.js":"7kyIT","../../../../../../AppData/Roaming/npm/node_modules/parcel/node_modules/@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"7belF"}],"4n7hB":[function(require,module,exports) {
 "use strict";
 
-exports.interopDefault = function (a) {
-  return a && a.__esModule ? a : {
-    default: a
-  };
-};
+var _interopRequireDefault = require("@babel/runtime/helpers/interopRequireDefault");
 
-exports.defineInteropFlag = function (a) {
-  Object.defineProperty(a, '__esModule', {
-    value: true
-  });
-};
+exports.__esModule = true;
+exports.useAccordionToggle = exports.Tooltip = exports.ToggleButtonGroup = exports.ToggleButton = exports.ToastHeader = exports.ToastBody = exports.Toast = exports.ThemeProvider = exports.Tabs = exports.TabPane = exports.Table = exports.TabContent = exports.TabContainer = exports.Tab = exports.SplitButton = exports.Spinner = exports.SafeAnchor = exports.Row = exports.ResponsiveEmbed = exports.ProgressBar = exports.PopoverContent = exports.PopoverTitle = exports.Popover = exports.Pagination = exports.PageItem = exports.OverlayTrigger = exports.Overlay = exports.NavLink = exports.NavItem = exports.NavDropdown = exports.NavbarBrand = exports.Navbar = exports.Nav = exports.ModalTitle = exports.ModalFooter = exports.ModalDialog = exports.ModalBody = exports.Modal = exports.Media = exports.ListGroupItem = exports.ListGroup = exports.Jumbotron = exports.InputGroup = exports.Figure = exports.Image = exports.Container = exports.FormText = exports.FormLabel = exports.FormGroup = exports.FormFile = exports.FormCheck = exports.FormControl = exports.Form = exports.Fade = exports.DropdownButton = exports.Dropdown = exports.Collapse = exports.Col = exports.CloseButton = exports.CarouselItem = exports.Carousel = exports.CardGroup = exports.CardImg = exports.CardDeck = exports.CardColumns = exports.Card = exports.ButtonToolbar = exports.ButtonGroup = exports.Button = exports.BreadcrumbItem = exports.Breadcrumb = exports.Badge = exports.Alert = exports.AccordionToggle = exports.AccordionCollapse = exports.AccordionContext = exports.Accordion = void 0;
 
-exports.exportAll = function (source, dest) {
-  Object.keys(source).forEach(function (key) {
-    if (key === 'default' || key === '__esModule') {
-      return;
-    } // Skip duplicate re-exports when they have the same value.
+var _Accordion = _interopRequireDefault(require("./Accordion"));
 
+exports.Accordion = _Accordion.default;
 
-    if (key in dest && dest[key] === source[key]) {
-      return;
-    }
+var _AccordionContext = _interopRequireDefault(require("./AccordionContext"));
 
-    Object.defineProperty(dest, key, {
-      enumerable: true,
-      get: function () {
-        return source[key];
-      }
-    });
-  });
-  return dest;
-};
+exports.AccordionContext = _AccordionContext.default;
 
-exports.export = function (dest, destName, get) {
-  Object.defineProperty(dest, destName, {
-    enumerable: true,
-    get: get
-  });
-};
-},{}],"7belF":[function(require,module,exports) {
-"use strict";
-var Refresh = require('react-refresh/runtime');
-function debounce(func, delay) {
-  if ("development" === 'test') {
-    return function (args) {
-      func.call(null, args);
-    };
-  } else {
-    var timeout = undefined;
-    return function (args) {
-      clearTimeout(timeout);
-      timeout = setTimeout(function () {
-        timeout = undefined;
-        func.call(null, args);
-      }, delay);
-    };
-  }
-}
-var enqueueUpdate = debounce(function () {
-  Refresh.performReactRefresh();
-}, 30);
-// Everthing below is either adapted or copied from
-// https://github.com/facebook/metro/blob/61de16bd1edd7e738dd0311c89555a644023ab2d/packages/metro/src/lib/polyfills/require.js
-// MIT License - Copyright (c) Facebook, Inc. and its affiliates.
-module.exports.prelude = function (module) {
-  window.$RefreshReg$ = function (type, id) {
-    Refresh.register(type, module.id + ' ' + id);
-  };
-  window.$RefreshSig$ = Refresh.createSignatureFunctionForTransform;
-};
-module.exports.postlude = function (module) {
-  if (isReactRefreshBoundary(module.exports)) {
-    registerExportsForReactRefresh(module);
-    if (module.hot) {
-      module.hot.dispose(function (data) {
-        if (Refresh.hasUnrecoverableErrors()) {
-          window.location.reload();
-        }
-        data.prevExports = module.exports;
-      });
-      module.hot.accept(function (getParents) {
-        var prevExports = module.hot.data.prevExports;
-        var nextExports = module.exports;
-        // Since we just executed the code for it, it's possible
-        // that the new exports make it ineligible for being a boundary.
-        var isNoLongerABoundary = !isReactRefreshBoundary(nextExports);
-        // It can also become ineligible if its exports are incompatible
-        // with the previous exports.
-        // For example, if you add/remove/change exports, we'll want
-        // to re-execute the importing modules, and force those components
-        // to re-render. Similarly, if you convert a class component
-        // to a function, we want to invalidate the boundary.
-        var didInvalidate = shouldInvalidateReactRefreshBoundary(prevExports, nextExports);
-        if (isNoLongerABoundary || didInvalidate) {
-          // We'll be conservative. The only case in which we won't do a full
-          // reload is if all parent modules are also refresh boundaries.
-          // In that case we'll add them to the current queue.
-          var parents = getParents();
-          if (parents.length === 0) {
-            // Looks like we bubbled to the root. Can't recover from that.
-            window.location.reload();
-            return;
-          }
-          return parents;
-        }
-        enqueueUpdate();
-      });
-    }
-  }
-};
-function isReactRefreshBoundary(exports) {
-  if (Refresh.isLikelyComponentType(exports)) {
-    return true;
-  }
-  if (exports == null || typeof exports !== 'object') {
-    // Exit if we can't iterate over exports.
-    return false;
-  }
-  var hasExports = false;
-  var areAllExportsComponents = true;
-  let isESM = ('__esModule' in exports);
-  for (var key in exports) {
-    hasExports = true;
-    if (key === '__esModule') {
-      continue;
-    }
-    var desc = Object.getOwnPropertyDescriptor(exports, key);
-    if (desc && desc.get && !isESM) {
-      // Don't invoke getters for CJS as they may have side effects.
-      return false;
-    }
-    var exportValue = exports[key];
-    if (!Refresh.isLikelyComponentType(exportValue)) {
-      areAllExportsComponents = false;
-    }
-  }
-  return hasExports && areAllExportsComponents;
-}
-function shouldInvalidateReactRefreshBoundary(prevExports, nextExports) {
-  var prevSignature = getRefreshBoundarySignature(prevExports);
-  var nextSignature = getRefreshBoundarySignature(nextExports);
-  if (prevSignature.length !== nextSignature.length) {
-    return true;
-  }
-  for (var i = 0; i < nextSignature.length; i++) {
-    if (prevSignature[i] !== nextSignature[i]) {
-      return true;
-    }
-  }
-  return false;
-}
-// When this signature changes, it's unsafe to stop at this refresh boundary.
-function getRefreshBoundarySignature(exports) {
-  var signature = [];
-  signature.push(Refresh.getFamilyByType(exports));
-  if (exports == null || typeof exports !== 'object') {
-    // Exit if we can't iterate over exports.
-    // (This is important for legacy environments.)
-    return signature;
-  }
-  let isESM = ('__esModule' in exports);
-  for (var key in exports) {
-    if (key === '__esModule') {
-      continue;
-    }
-    var desc = Object.getOwnPropertyDescriptor(exports, key);
-    if (desc && desc.get && !isESM) {
-      // Don't invoke getters for CJS as they may have side effects.
-      continue;
-    }
-    var exportValue = exports[key];
-    signature.push(key);
-    signature.push(Refresh.getFamilyByType(exportValue));
-  }
-  return signature;
-}
-function registerExportsForReactRefresh(module) {
-  var exports = module.exports, id = module.id;
-  Refresh.register(exports, id + ' %exports%');
-  if (exports == null || typeof exports !== 'object') {
-    // Exit if we can't iterate over exports.
-    // (This is important for legacy environments.)
-    return;
-  }
-  let isESM = ('__esModule' in exports);
-  for (var key in exports) {
-    var desc = Object.getOwnPropertyDescriptor(exports, key);
-    if (desc && desc.get && !isESM) {
-      // Don't invoke getters for CJS as they may have side effects.
-      continue;
-    }
-    var exportValue = exports[key];
-    Refresh.register(exportValue, id + ' %exports% ' + key);
-  }
-}
+var _AccordionCollapse = _interopRequireDefault(require("./AccordionCollapse"));
 
-},{"react-refresh/runtime":"2YxSG"}],"4dfy5":[function(require,module,exports) {
-/**
-* Copyright (c) 2013-present, Facebook, Inc.
-*
-* This source code is licensed under the MIT license found in the
-* LICENSE file in the root directory of this source tree.
-*/
-if ("development" !== 'production') {
-  var ReactIs = require('react-is');
-  // By explicitly using `prop-types` you are opting into new development behavior.
-  // http://fb.me/prop-types-in-prod
-  var throwOnDirectAccess = true;
-  module.exports = require('./factoryWithTypeCheckers')(ReactIs.isElement, throwOnDirectAccess);
-} else {
-  // By explicitly using `prop-types` you are opting into new production behavior.
-  // http://fb.me/prop-types-in-prod
-  module.exports = require('./factoryWithThrowingShims')();
-}
+exports.AccordionCollapse = _AccordionCollapse.default;
+
+var _AccordionToggle = _interopRequireWildcard(require("./AccordionToggle"));
+
+exports.AccordionToggle = _AccordionToggle.default;
+exports.useAccordionToggle = _AccordionToggle.useAccordionToggle;
+
+var _Alert = _interopRequireDefault(require("./Alert"));
+
+exports.Alert = _Alert.default;
+
+var _Badge = _interopRequireDefault(require("./Badge"));
+
+exports.Badge = _Badge.default;
+
+var _Breadcrumb = _interopRequireDefault(require("./Breadcrumb"));
+
+exports.Breadcrumb = _Breadcrumb.default;
+
+var _BreadcrumbItem = _interopRequireDefault(require("./BreadcrumbItem"));
+
+exports.BreadcrumbItem = _BreadcrumbItem.default;
+
+var _Button = _interopRequireDefault(require("./Button"));
+
+exports.Button = _Button.default;
+
+var _ButtonGroup = _interopRequireDefault(require("./ButtonGroup"));
+
+exports.ButtonGroup = _ButtonGroup.default;
+
+var _ButtonToolbar = _interopRequireDefault(require("./ButtonToolbar"));
+
+exports.ButtonToolbar = _ButtonToolbar.default;
+
+var _Card = _interopRequireDefault(require("./Card"));
+
+exports.Card = _Card.default;
+
+var _CardColumns = _interopRequireDefault(require("./CardColumns"));
+
+exports.CardColumns = _CardColumns.default;
+
+var _CardDeck = _interopRequireDefault(require("./CardDeck"));
+
+exports.CardDeck = _CardDeck.default;
+
+var _CardImg = _interopRequireDefault(require("./CardImg"));
+
+exports.CardImg = _CardImg.default;
+
+var _CardGroup = _interopRequireDefault(require("./CardGroup"));
+
+exports.CardGroup = _CardGroup.default;
+
+var _Carousel = _interopRequireDefault(require("./Carousel"));
+
+exports.Carousel = _Carousel.default;
+
+var _CarouselItem = _interopRequireDefault(require("./CarouselItem"));
+
+exports.CarouselItem = _CarouselItem.default;
+
+var _CloseButton = _interopRequireDefault(require("./CloseButton"));
+
+exports.CloseButton = _CloseButton.default;
+
+var _Col = _interopRequireDefault(require("./Col"));
+
+exports.Col = _Col.default;
+
+var _Collapse = _interopRequireDefault(require("./Collapse"));
+
+exports.Collapse = _Collapse.default;
+
+var _Dropdown = _interopRequireDefault(require("./Dropdown"));
+
+exports.Dropdown = _Dropdown.default;
+
+var _DropdownButton = _interopRequireDefault(require("./DropdownButton"));
+
+exports.DropdownButton = _DropdownButton.default;
+
+var _Fade = _interopRequireDefault(require("./Fade"));
+
+exports.Fade = _Fade.default;
+
+var _Form = _interopRequireDefault(require("./Form"));
+
+exports.Form = _Form.default;
+
+var _FormControl = _interopRequireDefault(require("./FormControl"));
+
+exports.FormControl = _FormControl.default;
+
+var _FormCheck = _interopRequireDefault(require("./FormCheck"));
+
+exports.FormCheck = _FormCheck.default;
+
+var _FormFile = _interopRequireDefault(require("./FormFile"));
+
+exports.FormFile = _FormFile.default;
+
+var _FormGroup = _interopRequireDefault(require("./FormGroup"));
+
+exports.FormGroup = _FormGroup.default;
+
+var _FormLabel = _interopRequireDefault(require("./FormLabel"));
+
+exports.FormLabel = _FormLabel.default;
+
+var _FormText = _interopRequireDefault(require("./FormText"));
+
+exports.FormText = _FormText.default;
+
+var _Container = _interopRequireDefault(require("./Container"));
+
+exports.Container = _Container.default;
+
+var _Image = _interopRequireDefault(require("./Image"));
+
+exports.Image = _Image.default;
+
+var _Figure = _interopRequireDefault(require("./Figure"));
+
+exports.Figure = _Figure.default;
 
 },{"react-is":"68QIU","./factoryWithTypeCheckers":"1PVBO"}],"68QIU":[function(require,module,exports) {
 "use strict";
@@ -46748,7 +46675,206 @@ Tooltip.displayName = 'Tooltip';
 var _default = Tooltip;
 exports.default = _default;
 module.exports = exports["default"];
-},{"@babel/runtime/helpers/interopRequireDefault":"4ttVj","@babel/runtime/helpers/extends":"3krLJ","@babel/runtime/helpers/objectWithoutPropertiesLoose":"3Yx9V","classnames":"5aJRc","react":"3b2NM","prop-types-extra/lib/isRequiredForA11y":"4XrEc","./ThemeProvider":"4rz1S"}],"5iJih":[function() {},{}],"3ueKO":[function() {},{}],"7gvH2":[function(require,module,exports) {
+},{"@babel/runtime/helpers/interopRequireDefault":"4ttVj","@babel/runtime/helpers/extends":"3krLJ","@babel/runtime/helpers/objectWithoutPropertiesLoose":"3Yx9V","classnames":"5aJRc","react":"3b2NM","prop-types-extra/lib/isRequiredForA11y":"4XrEc","./ThemeProvider":"4rz1S"}],"5iJih":[function() {},{}],"7kyIT":[function(require,module,exports) {
+"use strict";
+
+exports.interopDefault = function (a) {
+  return a && a.__esModule ? a : {
+    default: a
+  };
+};
+
+exports.defineInteropFlag = function (a) {
+  Object.defineProperty(a, '__esModule', {
+    value: true
+  });
+};
+
+exports.exportAll = function (source, dest) {
+  Object.keys(source).forEach(function (key) {
+    if (key === 'default' || key === '__esModule') {
+      return;
+    } // Skip duplicate re-exports when they have the same value.
+
+
+    if (key in dest && dest[key] === source[key]) {
+      return;
+    }
+
+    Object.defineProperty(dest, key, {
+      enumerable: true,
+      get: function () {
+        return source[key];
+      }
+    });
+  });
+  return dest;
+};
+
+exports.export = function (dest, destName, get) {
+  Object.defineProperty(dest, destName, {
+    enumerable: true,
+    get: get
+  });
+};
+},{}],"7belF":[function(require,module,exports) {
+"use strict";
+var Refresh = require('react-refresh/runtime');
+function debounce(func, delay) {
+  if ("development" === 'test') {
+    return function (args) {
+      func.call(null, args);
+    };
+  } else {
+    var timeout = undefined;
+    return function (args) {
+      clearTimeout(timeout);
+      timeout = setTimeout(function () {
+        timeout = undefined;
+        func.call(null, args);
+      }, delay);
+    };
+  }
+}
+var enqueueUpdate = debounce(function () {
+  Refresh.performReactRefresh();
+}, 30);
+// Everthing below is either adapted or copied from
+// https://github.com/facebook/metro/blob/61de16bd1edd7e738dd0311c89555a644023ab2d/packages/metro/src/lib/polyfills/require.js
+// MIT License - Copyright (c) Facebook, Inc. and its affiliates.
+module.exports.prelude = function (module) {
+  window.$RefreshReg$ = function (type, id) {
+    Refresh.register(type, module.id + ' ' + id);
+  };
+  window.$RefreshSig$ = Refresh.createSignatureFunctionForTransform;
+};
+module.exports.postlude = function (module) {
+  if (isReactRefreshBoundary(module.exports)) {
+    registerExportsForReactRefresh(module);
+    if (module.hot) {
+      module.hot.dispose(function (data) {
+        if (Refresh.hasUnrecoverableErrors()) {
+          window.location.reload();
+        }
+        data.prevExports = module.exports;
+      });
+      module.hot.accept(function (getParents) {
+        var prevExports = module.hot.data.prevExports;
+        var nextExports = module.exports;
+        // Since we just executed the code for it, it's possible
+        // that the new exports make it ineligible for being a boundary.
+        var isNoLongerABoundary = !isReactRefreshBoundary(nextExports);
+        // It can also become ineligible if its exports are incompatible
+        // with the previous exports.
+        // For example, if you add/remove/change exports, we'll want
+        // to re-execute the importing modules, and force those components
+        // to re-render. Similarly, if you convert a class component
+        // to a function, we want to invalidate the boundary.
+        var didInvalidate = shouldInvalidateReactRefreshBoundary(prevExports, nextExports);
+        if (isNoLongerABoundary || didInvalidate) {
+          // We'll be conservative. The only case in which we won't do a full
+          // reload is if all parent modules are also refresh boundaries.
+          // In that case we'll add them to the current queue.
+          var parents = getParents();
+          if (parents.length === 0) {
+            // Looks like we bubbled to the root. Can't recover from that.
+            window.location.reload();
+            return;
+          }
+          return parents;
+        }
+        enqueueUpdate();
+      });
+    }
+  }
+};
+function isReactRefreshBoundary(exports) {
+  if (Refresh.isLikelyComponentType(exports)) {
+    return true;
+  }
+  if (exports == null || typeof exports !== 'object') {
+    // Exit if we can't iterate over exports.
+    return false;
+  }
+  var hasExports = false;
+  var areAllExportsComponents = true;
+  let isESM = ('__esModule' in exports);
+  for (var key in exports) {
+    hasExports = true;
+    if (key === '__esModule') {
+      continue;
+    }
+    var desc = Object.getOwnPropertyDescriptor(exports, key);
+    if (desc && desc.get && !isESM) {
+      // Don't invoke getters for CJS as they may have side effects.
+      return false;
+    }
+    var exportValue = exports[key];
+    if (!Refresh.isLikelyComponentType(exportValue)) {
+      areAllExportsComponents = false;
+    }
+  }
+  return hasExports && areAllExportsComponents;
+}
+function shouldInvalidateReactRefreshBoundary(prevExports, nextExports) {
+  var prevSignature = getRefreshBoundarySignature(prevExports);
+  var nextSignature = getRefreshBoundarySignature(nextExports);
+  if (prevSignature.length !== nextSignature.length) {
+    return true;
+  }
+  for (var i = 0; i < nextSignature.length; i++) {
+    if (prevSignature[i] !== nextSignature[i]) {
+      return true;
+    }
+  }
+  return false;
+}
+// When this signature changes, it's unsafe to stop at this refresh boundary.
+function getRefreshBoundarySignature(exports) {
+  var signature = [];
+  signature.push(Refresh.getFamilyByType(exports));
+  if (exports == null || typeof exports !== 'object') {
+    // Exit if we can't iterate over exports.
+    // (This is important for legacy environments.)
+    return signature;
+  }
+  let isESM = ('__esModule' in exports);
+  for (var key in exports) {
+    if (key === '__esModule') {
+      continue;
+    }
+    var desc = Object.getOwnPropertyDescriptor(exports, key);
+    if (desc && desc.get && !isESM) {
+      // Don't invoke getters for CJS as they may have side effects.
+      continue;
+    }
+    var exportValue = exports[key];
+    signature.push(key);
+    signature.push(Refresh.getFamilyByType(exportValue));
+  }
+  return signature;
+}
+function registerExportsForReactRefresh(module) {
+  var exports = module.exports, id = module.id;
+  Refresh.register(exports, id + ' %exports%');
+  if (exports == null || typeof exports !== 'object') {
+    // Exit if we can't iterate over exports.
+    // (This is important for legacy environments.)
+    return;
+  }
+  let isESM = ('__esModule' in exports);
+  for (var key in exports) {
+    var desc = Object.getOwnPropertyDescriptor(exports, key);
+    if (desc && desc.get && !isESM) {
+      // Don't invoke getters for CJS as they may have side effects.
+      continue;
+    }
+    var exportValue = exports[key];
+    Refresh.register(exportValue, id + ' %exports% ' + key);
+  }
+}
+
+},{"react-refresh/runtime":"2YxSG"}],"7gvH2":[function(require,module,exports) {
 var helpers = require("../../../../../../AppData/Roaming/npm/node_modules/parcel/node_modules/@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
 var prevRefreshReg = window.$RefreshReg$;
 var prevRefreshSig = window.$RefreshSig$;
@@ -46764,11 +46890,7 @@ try {
   var _propTypes = require('prop-types');
   var _propTypesDefault = _parcelHelpers.interopDefault(_propTypes);
   var _reactBootstrap = require('react-bootstrap');
-  var _axios = require('axios');
-  var _axiosDefault = _parcelHelpers.interopDefault(_axios);
-  var _reactRouterDom = require('react-router-dom');
   require('../../index.scss');
-  require('./registration-view.scss');
   var _jsxFileName = "C:\\Users\\mallo\\Desktop\\Web_Dev\\myFlix-client\\src\\components\\registration-view\\registration-view.jsx", _s = $RefreshSig$();
   function RegistrationView(props) {
     _s();
@@ -46776,93 +46898,99 @@ try {
     const [password, setPassword] = _react.useState('');
     const [email, setEmail] = _react.useState('');
     const [birthDate, setBirthDate] = _react.useState('');
-    const [usernameError, setUsernameError] = _react.useState({});
-    const [passwordError, setPasswordError] = _react.useState({});
-    const [emailError, setEmailError] = _react.useState({});
-    const handleRegister = e => {
+    const handleSubmit = e => {
       e.preventDefault();
       console.log(username, password, email, birthDate);
-      const isValid = formValidation();
-      if (isValid) {
-        // Send a request to the server for Authentication
-        _axiosDefault.default.post('https://myflix788.herokuapp.com/users', {
-          Username: username,
-          Password: password,
-          Email: email,
-          BirthDate: birthDate
-        }).then(response => {
-          const data = response.data;
-          console.log(data);
-          window.open('/', '_self');
-        }).catch(e => {
-          console.log('error registering the user');
-        });
-      }
-    };
-    const formValidation = () => {
-      const usernameError = {};
-      const passwordError = {};
-      const emailError = {};
-      let isValid = true;
-      if (username.trim().length < 5) {
-        usernameError.usernameShort = "Username must be more than 5 characters.";
-        isValid = false;
-      }
-      if (password.trim().length < 1) {
-        passwordError.passwordMissing = "You must enter a password.";
-        isValid = false;
-      }
-      if (!email.includes(".") || !email.includes("@")) {
-        emailError.emailNotEmail = "Enter valid email.";
-        isValid = false;
-      }
-      setUsernameError(usernameError);
-      setPasswordError(passwordError);
-      setEmailError(emailError);
-      return isValid;
+      props.onRegister(username);
     };
     return (
       /*#__PURE__*/_reactDefault.default.createElement("div", {
         __self: this,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 69,
+          lineNumber: 19,
           columnNumber: 9
         }
       }, /*#__PURE__*/_reactDefault.default.createElement(_reactBootstrap.Row, {
         __self: this,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 70,
+          lineNumber: 20,
+          columnNumber: 13
+        }
+      }, /*#__PURE__*/_reactDefault.default.createElement(_reactBootstrap.Col, {
+        className: "mb-5",
+        __self: this,
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 21,
+          columnNumber: 17
+        }
+      }, /*#__PURE__*/_reactDefault.default.createElement(_reactBootstrap.Navbar, {
+        className: "justify-content-center",
+        __self: this,
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 22,
+          columnNumber: 21
+        }
+      }, /*#__PURE__*/_reactDefault.default.createElement(_reactBootstrap.Navbar.Brand, {
+        className: "navbar",
+        href: "#home",
+        __self: this,
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 23,
+          columnNumber: 25
+        }
+      }, /*#__PURE__*/_reactDefault.default.createElement("h1", {
+        __self: this,
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 23,
+          columnNumber: 72
+        }
+      }, "myFlix")), /*#__PURE__*/_reactDefault.default.createElement(_reactBootstrap.Navbar.Toggle, {
+        "aria-controls": "basic-navbar-nav",
+        __self: this,
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 24,
+          columnNumber: 25
+        }
+      })))), /*#__PURE__*/_reactDefault.default.createElement(_reactBootstrap.Row, {
+        __self: this,
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 28,
           columnNumber: 13
         }
       }, /*#__PURE__*/_reactDefault.default.createElement(_reactBootstrap.Col, {
         __self: this,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 71,
+          lineNumber: 29,
           columnNumber: 17
         }
       }, /*#__PURE__*/_reactDefault.default.createElement("h2", {
-        className: "text-center",
         __self: this,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 72,
+          lineNumber: 30,
           columnNumber: 21
         }
       }, "Register"))), /*#__PURE__*/_reactDefault.default.createElement(_reactBootstrap.Row, {
         __self: this,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 77,
+          lineNumber: 35,
           columnNumber: 13
         }
       }, /*#__PURE__*/_reactDefault.default.createElement(_reactBootstrap.Col, {
         __self: this,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 78,
+          lineNumber: 36,
           columnNumber: 17
         }
       }, /*#__PURE__*/_reactDefault.default.createElement(_reactBootstrap.Form, {
@@ -46870,24 +46998,24 @@ try {
         __self: this,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 79,
+          lineNumber: 37,
           columnNumber: 21
         }
       }, /*#__PURE__*/_reactDefault.default.createElement(_reactBootstrap.Form.Group, {
-        controlId: "registerUsername",
+        controlId: "formUsername",
         __self: this,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 80,
-          columnNumber: 25
+          lineNumber: 38,
+          columnNumber: 21
         }
       }, /*#__PURE__*/_reactDefault.default.createElement(_reactBootstrap.Form.Label, {
         className: "text",
         __self: this,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 81,
-          columnNumber: 29
+          lineNumber: 39,
+          columnNumber: 25
         }
       }, "Username:"), /*#__PURE__*/_reactDefault.default.createElement(_reactBootstrap.Form.Control, {
         type: "text",
@@ -46895,184 +47023,101 @@ try {
         __self: this,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 84,
-          columnNumber: 29
+          lineNumber: 42,
+          columnNumber: 25
         }
-      })), Object.keys(usernameError).map(key => {
-        return (
-          /*#__PURE__*/_reactDefault.default.createElement("div", {
-            key: key,
-            __self: this,
-            __source: {
-              fileName: _jsxFileName,
-              lineNumber: 89,
-              columnNumber: 33
-            }
-          }, usernameError[key])
-        );
-      }), /*#__PURE__*/_reactDefault.default.createElement(_reactBootstrap.Form.Group, {
-        controlId: "registerPassword",
+      })), /*#__PURE__*/_reactDefault.default.createElement(_reactBootstrap.Form.Group, {
+        controlId: "formPassword",
         __self: this,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 95,
-          columnNumber: 25
+          lineNumber: 45,
+          columnNumber: 21
         }
       }, /*#__PURE__*/_reactDefault.default.createElement(_reactBootstrap.Form.Label, {
         className: "text",
         __self: this,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 96,
-          columnNumber: 29
+          lineNumber: 46,
+          columnNumber: 25
         }
       }, "Password:"), /*#__PURE__*/_reactDefault.default.createElement(_reactBootstrap.Form.Control, {
-        type: "password",
+        type: "text",
         onChange: e => setPassword(e.target.value),
         __self: this,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 99,
-          columnNumber: 29
+          lineNumber: 49,
+          columnNumber: 25
         }
-      })), Object.keys(passwordError).map(key => {
-        return (
-          /*#__PURE__*/_reactDefault.default.createElement("div", {
-            key: key,
-            __self: this,
-            __source: {
-              fileName: _jsxFileName,
-              lineNumber: 104,
-              columnNumber: 33
-            }
-          }, passwordError[key])
-        );
-      }), /*#__PURE__*/_reactDefault.default.createElement(_reactBootstrap.Form.Group, {
-        controlId: "registerEmail",
+      })), /*#__PURE__*/_reactDefault.default.createElement(_reactBootstrap.Form.Group, {
+        controlId: "formEmail",
         __self: this,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 110,
-          columnNumber: 25
+          lineNumber: 52,
+          columnNumber: 21
         }
       }, /*#__PURE__*/_reactDefault.default.createElement(_reactBootstrap.Form.Label, {
         className: "text",
         __self: this,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 111,
-          columnNumber: 29
+          lineNumber: 53,
+          columnNumber: 25
         }
       }, "Email:"), /*#__PURE__*/_reactDefault.default.createElement(_reactBootstrap.Form.Control, {
-        type: "email",
+        type: "text",
         onChange: e => setEmail(e.target.value),
         __self: this,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 114,
-          columnNumber: 29
+          lineNumber: 56,
+          columnNumber: 25
         }
-      })), Object.keys(emailError).map(key => {
-        return (
-          /*#__PURE__*/_reactDefault.default.createElement("div", {
-            key: key,
-            __self: this,
-            __source: {
-              fileName: _jsxFileName,
-              lineNumber: 119,
-              columnNumber: 33
-            }
-          }, emailError[key])
-        );
-      }), /*#__PURE__*/_reactDefault.default.createElement(_reactBootstrap.Form.Group, {
-        controlId: "registerBirthday",
+      })), /*#__PURE__*/_reactDefault.default.createElement(_reactBootstrap.Form.Group, {
+        controlId: "formBirthday",
         __self: this,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 125,
-          columnNumber: 25
+          lineNumber: 58,
+          columnNumber: 21
         }
       }, /*#__PURE__*/_reactDefault.default.createElement(_reactBootstrap.Form.Label, {
         className: "text",
         __self: this,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 126,
-          columnNumber: 29
+          lineNumber: 59,
+          columnNumber: 25
         }
       }, "Birthday:"), /*#__PURE__*/_reactDefault.default.createElement(_reactBootstrap.Form.Control, {
-        type: "date",
+        type: "text",
         onChange: e => setBirthDate(e.target.value),
         __self: this,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 129,
-          columnNumber: 29
-        }
-      })), /*#__PURE__*/_reactDefault.default.createElement("div", {
-        className: "text-center block",
-        __self: this,
-        __source: {
-          fileName: _jsxFileName,
-          lineNumber: 131,
+          lineNumber: 62,
           columnNumber: 25
         }
-      }, /*#__PURE__*/_reactDefault.default.createElement(_reactRouterDom.Link, {
-        to: `/movies`,
-        __self: this,
-        __source: {
-          fileName: _jsxFileName,
-          lineNumber: 132,
-          columnNumber: 29
-        }
-      }, /*#__PURE__*/_reactDefault.default.createElement(_reactBootstrap.Button, {
-        className: "btn-primary",
-        size: "lg",
+      })), /*#__PURE__*/_reactDefault.default.createElement(_reactBootstrap.Button, {
+        variant: "primary",
         type: "submit",
-        onClick: handleRegister,
+        onClick: handleSubmit,
         __self: this,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 133,
-          columnNumber: 33
+          lineNumber: 65,
+          columnNumber: 21
         }
-      }, "Register")), /*#__PURE__*/_reactDefault.default.createElement("br", {
-        __self: this,
-        __source: {
-          fileName: _jsxFileName,
-          lineNumber: 135,
-          columnNumber: 29
-        }
-      }), /*#__PURE__*/_reactDefault.default.createElement(_reactRouterDom.Link, {
-        to: `/`,
-        __self: this,
-        __source: {
-          fileName: _jsxFileName,
-          lineNumber: 136,
-          columnNumber: 29
-        }
-      }, /*#__PURE__*/_reactDefault.default.createElement(_reactBootstrap.Button, {
-        size: "lg",
-        className: "btn-primary",
-        __self: this,
-        __source: {
-          fileName: _jsxFileName,
-          lineNumber: 137,
-          columnNumber: 33
-        }
-      }, "Login")))))))
+      }, "Submit")))))
     );
   }
-  _s(RegistrationView, "PRFQhqUjq+ZkC5y7RHC+1fDvbk8=");
+  _s(RegistrationView, "j5WrmW5NASvZ+e4f0tlRFo0hpcQ=");
   _c = RegistrationView;
   RegistrationView.propTypes = {
-    register: _propTypesDefault.default.shape({
-      Username: _propTypesDefault.default.string.isRequired,
-      Password: _propTypesDefault.default.string.isRequired,
-      Email: _propTypesDefault.default.string.isRequired,
-      BirthDate: _propTypesDefault.default.date
-    }),
-    onRegister: _propTypesDefault.default.func
+    onRegister: _propTypesDefault.default.func.isRequired
   };
   var _c;
   $RefreshReg$(_c, "RegistrationView");
@@ -47082,7 +47127,7 @@ try {
   window.$RefreshSig$ = prevRefreshSig;
 }
 
-},{"react":"3b2NM","prop-types":"4dfy5","@parcel/transformer-js/lib/esmodule-helpers.js":"7kyIT","../../../../../../AppData/Roaming/npm/node_modules/parcel/node_modules/@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"7belF","react-bootstrap":"4n7hB","axios":"7rA65","react-router-dom":"1PMSK","../../index.scss":"5iJih","./registration-view.scss":"22HWg"}],"5iJih":[function() {},{}],"22HWg":[function() {},{}],"7v6h3":[function(require,module,exports) {
+},{"react":"3b2NM","prop-types":"4dfy5","react-bootstrap":"4n7hB","../../index.scss":"5iJih","@parcel/transformer-js/lib/esmodule-helpers.js":"7kyIT","../../../../../../AppData/Roaming/npm/node_modules/parcel/node_modules/@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"7belF"}],"5iJih":[function() {},{}],"7v6h3":[function(require,module,exports) {
 var helpers = require("../../../../../../AppData/Roaming/npm/node_modules/parcel/node_modules/@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
 var prevRefreshReg = window.$RefreshReg$;
 var prevRefreshSig = window.$RefreshSig$;
@@ -47512,7 +47557,7 @@ try {
   window.$RefreshSig$ = prevRefreshSig;
 }
 
-},{"react":"3b2NM","prop-types":"4dfy5","@parcel/transformer-js/lib/esmodule-helpers.js":"7kyIT","../../../../../../AppData/Roaming/npm/node_modules/parcel/node_modules/@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"7belF","react-bootstrap":"4n7hB","react-router-dom":"1PMSK","axios":"7rA65","../../index.scss":"5iJih","./movie-view.scss":"4iZ2Z"}],"5iJih":[function() {},{}],"4iZ2Z":[function() {},{}],"7HF27":[function(require,module,exports) {
+},{"react":"3b2NM","prop-types":"4dfy5","react-bootstrap/Button":"1ru0l","react-bootstrap/Card":"1CZWQ","@parcel/transformer-js/lib/esmodule-helpers.js":"7kyIT","../../../../../../AppData/Roaming/npm/node_modules/parcel/node_modules/@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"7belF"}],"3xBbr":[function(require,module,exports) {
 var helpers = require("../../../../../../AppData/Roaming/npm/node_modules/parcel/node_modules/@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
 var prevRefreshReg = window.$RefreshReg$;
 var prevRefreshSig = window.$RefreshSig$;

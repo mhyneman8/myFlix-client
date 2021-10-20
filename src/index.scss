@@ -46,6 +46,8 @@ html {
 
 h1 {
     font-size: 1.5rem;
+    -webkit-text-stroke: 0.0125rem;
+    -webkit-text-stroke-color: $tertiary;
 }
 
 h2 {
@@ -56,6 +58,40 @@ h2 {
     font-size: 2.5rem !important;
 }
 
+.card-title.h5 {
+    font-weight: 500;
+    text-align: center !important;
+}
+
+.navbar-toggler-icon {
+    position: absolute;
+    right: 2.5625rem;
+    top: 1.625rem;
+    background-color: $tertiary !important;
+    border-radius: .25rem;
+}
+
+div.card {
+    display: grid;
+    grid-template-rows: 1fr auto;
+}
+
+.card-body {
+    align-self: end;
+    justify-items: flex-end;
+    min-height: 25rem; 
+    display: flex;
+    flex-direction: column;
+}
+
+.card-body button {
+    margin-top: auto;
+}
+
+.card-img-top {
+    height: 18.75rem;
+    padding: 0.625rem;
+}
 
 
 

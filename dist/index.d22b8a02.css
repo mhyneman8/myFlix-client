@@ -43,6 +43,8 @@ html {
 
 h1 {
   font-size: 1.5rem;
+  -webkit-text-stroke: 0.0125rem;
+  -webkit-text-stroke-color: #fa824c;
 }
 
 h2 {
@@ -76,7 +78,13 @@ div.card {
 .card-body {
   align-self: end;
   justify-items: flex-end;
-  min-height: 23rem;
+  min-height: 25rem;
+  display: flex;
+  flex-direction: column;
+}
+
+.card-body button {
+  margin-top: auto;
 }
 
 .card-img-top {
