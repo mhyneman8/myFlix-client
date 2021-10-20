@@ -3,18 +3,27 @@ import PropTypes from 'prop-types';
 import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
 
+import { Link } from "react-router-dom";
+
+import '../../index.scss';
+import './movie-card.scss';
+
 export class MovieCard extends React.Component {
     render() {
-        const { movieData, onMovieClick } = this.props;
+        const { movie } = this.props;
 
         return (
             <Card>
-                <Card.Img variant="top" src={movieData.ImageUrl} />
+                <Link to={`/movies/${movie._id}`}>
+                    <Card.Img variant="top" src={movie.ImageUrl} />
+                </Link>
                 <Card.Body>
-                    <Card.Title>{movieData.Title}</Card.Title>
-                    <Card.Text>{movieData.Description} </Card.Text>
-                    <Button className="btn-secondary" onClick={() => onMovieClick(movieData)}
-                        >Open</Button>
+                    <Link to={`/movies/${movie._id}`}>
+                        <Card.Title className="link" >{movie.Title}</Card.Title>
+                    </Link>
+
+                    <Card.Text className="text" >{movie.Description} </Card.Text>
+                    
                 </Card.Body>
             </Card>
         );
@@ -25,19 +34,18 @@ MovieCard.propTypes = {
     movie: PropTypes.shape({
         Title: PropTypes.string.isRequired,
         Description: PropTypes.string.isRequired,
-        ImagePath: PropTypes.string.isRequired,
-        Cast: PropTypes.string.isRequired,
-        ReleaseDate: PropTypes.number.isRequired,
-        Director: PropTypes.shape({
-            Name: PropTypes.string.isRequired,
-            Bio: PropTypes.string.isRequired,
-            Birth: PropTypes.number.isRequired,
-            Death: PropTypes.number
-        }),
-        Genre: PropTypes.shape({
-            Name: PropTypes.string.isRequired,
-            Description: PropTypes.string.isRequired
-        })
-    }).isRequired,
-    onMovieClick: PropTypes.func.isRequired
+        ImageUrl: PropTypes.string.isRequired
+        // Cast: PropTypes.string.isRequiredc,
+        // ReleaseDate: PropTypes.string.isRequired,
+        // Director: PropTypes.shape({
+        //     Name: PropTypes.string.isRequired,
+        //     Bio: PropTypes.string.isRequired,
+        //     Birth: PropTypes.string.isRequired,
+        //     Death: PropTypes.string
+        // }),
+        // Genre: PropTypes.shape({
+        //     Name: PropTypes.string.isRequired,
+        //     Description: PropTypes.string.isRequired
+        }).isRequired
+    // })
 };

@@ -17,16 +17,6 @@ html {
 
 .text {
 	color: $secondary !important;
-    font-weight: 650;
-}
-.navbar {
-	background-color: $secondary;
-	color: $primary !important;
-	justify-content: center;
-}
-
-.nav-link {
-    color: $tertiary !important;
 }
 
 .btn-primary {
@@ -37,6 +27,10 @@ html {
     width: 6.25rem;
     margin-top: 2.5rem;
 }
+.btn-primary:hover {
+    background-color: $primary !important;
+    border: 2px solid $secondary !important;
+}
 
 .btn-secondary {
     background-color: $secondary !important;
@@ -46,7 +40,7 @@ html {
 }
 
 .btn-outline-success {
-    border-color: $tertiary !important;
+    border: none;
     color: $tertiary !important;
 }
 
@@ -99,21 +93,5 @@ div.card {
     padding: 0.625rem;
 }
 
-.movie-poster {
-    display: inline;
-}
 
-.movie-view {
-    background-color: $secondary;
-    color: white;
-}
 
-.movie-title {
-    font-weight: bold;
-    margin-bottom: 0.625rem;
-}
-
-img {
-    padding: 1.25rem 0.625rem;
-    display: inline;
-}
