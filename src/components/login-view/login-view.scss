@@ -5,3 +5,38 @@ $tertiary:#fa824c;
 .text {
     font-weight: 650;
 }
+
+.welcomeHeader {
+    background-image: url(./img/movies.jpg);
+    background-position: center;
+    background-size: cover;
+    height: 15%;
+    width: 100%;
+    left: 0;
+    top: 0;
+    text-align: center;
+    position: fixed;
+}
+
+.welcomeText {
+    margin: 4% auto;
+    font-size: 70px !important;
+    padding-top: 5vh;
+    opacity: 1;
+    -webkit-text-stroke-width: 1px;
+  -webkit-text-stroke-color: #260c1a;
+}
+.center {
+    text-align: center;
+}
+
+.text {
+    margin-top: 10px;
+    display: block;
+}
+
+.input {
+    width: 70%;
+    text-align: center;
+    margin: 0 auto;
+}
