@@ -11,7 +11,11 @@ This site uses React to build the client-side for a RESTful API movie database.
   
 ## API Reference
 
-#### Get all items
+To build the project in the terminal run: 
+
+parcel src/index.html
+or
+npm start
 
 ```http
   GET /myflix788.herokuapp.com/movies
