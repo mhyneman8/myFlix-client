@@ -130,11 +130,15 @@ export function RegistrationView(props) {
                         </Form.Group>
                         <div className="text-center block" >
                             <Link to={`/movies`}>
-                                <Button className="btn-primary" size="lg" type='submit' onClick={handleRegister}>Register</Button>
+                                <Button className="btn-primary" size="lg" type='submit' onClick={handleRegister}>
+                                    Register
+                                </Button>
                             </Link>
                             <br></br>
                             <Link to={`/`}>
-                                <Button size="lg" className="btn-primary">Login</Button>
+                                <Button size="lg" className="btn-primary mb-4">
+                                    Login
+                                </Button>
                             </Link> 
                         </div>
                         

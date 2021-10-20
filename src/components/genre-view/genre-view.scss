@@ -5,44 +5,53 @@ $tertiary:#fa824c;
 .genre-view {
     background-color: $secondary;
     color: white;
-    padding: 20px 40px;
+    padding: 1.25rem 2.5rem;
 }
 
 .genre-name {
     color: $tertiary;
-    font-size: 30px;
+    font-size: 1.875rem;
     text-align: center;
-    padding-bottom: 20px;
+    padding-bottom: 1.25rem;
 }
 
 .value.genre-text {
-    padding: 30px;
+    padding: 1.875rem;
 }
 
 .genre-movie-title {
-    margin: 20px auto !important;
+    color: $tertiary;
 }
 
 .body {
     font-weight: bold;
     color: $primary;
-    // padding-left: 10px;
     margin-left: 4px;
 }
 
-.genre-card {
-    display: inline;
-    width: 100px;
-    height: 145px;
+.back {
+    text-align: center;
 }
 
-.genre-movies {
-    display: inline;
+.genre-card {
+    width: 6.25rem;
+    height: 9.0625rem;
 }
 
 .genre-img {
     padding: 0;
+    display: inline;
     width: 85%;
     max-height: 140px;
-    margin-top: 0;
+    max-width: 6.25rem;
+    margin: 0.625rem;
+}
+
+.text-center {
+    display: inline;
+}
+
+div.genre-card.text-center.mt-2.mb-4.card {
+    display: inline !important;
+    background-color: $secondary;
 }

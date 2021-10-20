@@ -1,8 +1,10 @@
 import React from 'react';
-import PropTypes from 'prop-types';
-import { Button, Row, Col, Form, FormControl, Card } from 'react-bootstrap';
-import { MovieCard } from '../movie-card/movie-card';
+import { Button, Row, Col, Form, Card, Modal } from 'react-bootstrap';
 import { UpdateView } from '../update-view/update-view';
+
+
+import { connect } from 'react-redux';
+import { setMovies, setUser } from '../../actions/actions';
 
 import axios from 'axios';
 import { Link } from "react-router-dom";
@@ -20,13 +22,24 @@ export class ProfileView extends React.Component {
             email: null,
             birthDate: null,
             favoriteMovies: [],
-            movies: []
+            movies: [],
+            show: false
         };
+        this.handleShow = this.handleShow.bind(this);
+        this.handleClose = this.handleClose.bind(this);
     }
 
     componentDidMount() {
         let accessToken = localStorage.getItem("token");
         this.getUser(accessToken);
+    }
+
+    handleClose() {
+        this.setState({show: false})
+    }
+
+    handleShow() {
+        this.setState({show: true})
     }
 
     getUser(token) {
@@ -91,106 +104,118 @@ export class ProfileView extends React.Component {
     }
 
     render() {
-        const { movies, user, onBackClick, movie, passwordError, usernameError, emailError, birthDateError } = this.props;
+        const { movies, user, onBackClick } = this.props;
+        const {show} = this.state
+        const birthDate = new Date(this.state.birthDate).toLocaleDateString();
         const favoriteMovieList = movies.filter((movie) => {
             return this.state.favoriteMovies.includes(movie._id);
         });
 
         return (
             <div className="userProfile" style={{ display: "flex" }}>
-                    <Row className="justify-content-md-center">
-                        <Col md={12}>
-                            <Form className="text-center underline mb-30">
-                                <h1><u>Profile Details</u></h1>
+                <Row className="justify-content-md-center">
+                    <Col md={12}>
+                        <Form className="text-center underline mb-30">
+                            <h1><u>Profile Details</u></h1>
 
-                                <div className="details">
-                                    <Form.Group controlId="formUsername">
-                                        <h4>Username:</h4>
-                                        <Form.Label>{this.state.username}</Form.Label>
+                            <div className="details">
+                                <Form.Group controlId="formUsername">
+                                    <h4>Username:</h4>
+                                    <Form.Label>{this.state.username}</Form.Label>
 
-                                    </Form.Group>
-                                    <Form.Group controlId="formBasicEmail">
-                                        <h4>Email:</h4>
-                                        <Form.Label>{this.state.email}</Form.Label>
-                                    </Form.Group>
+                                </Form.Group>
+                                <Form.Group controlId="formBasicEmail">
+                                    <h4>Email:</h4>
+                                    <Form.Label>{this.state.email}</Form.Label>
+                                </Form.Group>
 
-                                    <Form.Group controlId="formBasicDate">
-                                        <h4>Date of Birth:</h4>
-                                        <Form.Label>{this.state.birthDate}</Form.Label>
-                                    </Form.Group>                                   
-                                </div>
-
-                            </Form>
-
-                            <div className="text-center">
-                                <Button className="btn-primary mt-2" onClick={() => { onBackClick() }}>Back</Button>
+                                <Form.Group controlId="formBasicDate">
+                                    <h4>Date of Birth:</h4>
+                                    <Form.Label>{birthDate}</Form.Label>
+                                </Form.Group>                                   
                             </div>
-                            <div className="text-center mt-2">
-                                <Link to={`/users/${this.state.Username}`}>
-                                    <Button className="btn-secondary update-btn"
-                                        onClick={() => 
-                                        this.showUpdate()
-                                        } >
-                                            Update Details
+
+                        </Form>
+
+                        <div className="back">
+                            <Button className="btn-primary mt-2" onClick={() => { onBackClick() }}>
+                                Back
+                            </Button>
+                        </div>
+                        <div>
+                            <Modal show={show} onHide={this.handleClose}>
+                                <Modal.Header closeButton>
+                                    <Modal.Title>
+                                        <h2 className="text-center">
+                                            Update User Information
+                                        </h2>
+                                    </Modal.Title>
+                                </Modal.Header>
+                                <Modal.Body>{<UpdateView movies={movies} user={user} />}</Modal.Body>
+                                <Modal.Footer>
+                                    <Button variant="secondary" onClick={this.handleClose}>
+                                        Close
                                     </Button>
-                                </Link>                                    
-                            </div>
-                            <div className="text-center">
-                                <Button id="delete-btn"
-                                    onClick={() => {
-                                        const confirmBox = window.confirm(
-                                            "You are about to delete account, are you sure?"
-                                        )
-                                        if (confirmBox === true) {
-                                            this.handleDelete()
-                                        }
-                                    }} >
-                                        Delete Account
-                                    </Button>
+                                </Modal.Footer>
+                            </Modal>
+                        </div>
+                        <div className="back mt-2">
+                            <Button className="btn-secondary update-btn" onClick={this.handleShow}>
+                                Update Details
+                            </Button>
+                        </div>
+                        <div className="back">
+                            <Button id="delete-btn"
+                                onClick={() => {
+                                    const confirmBox = window.confirm(
+                                        "You are about to delete account, are you sure?"
+                                    )
+                                    if (confirmBox === true) {
+                                        this.handleDelete()
+                                    }
+                                }} >
+                                    Delete Account
+                            </Button>
                             </div>
                                             
                                 
-                        </Col>
+                    </Col>
 
-                        <Col>
-                            <div className="text-center">
+                    <Col className="text-center">
+                        <div>
 
-                                <h3 className="text-center fav-movies-title mb-2 mt-5">Your Favorite Movies: </h3>
-                            
-                                {favoriteMovieList.map((movie) => {
+                            <h3 className="text-center fav-movies-title mb-2 mt-5 d-block">
+                                Your Favorite Movies: 
+                            </h3>
+                        
+                            {favoriteMovieList.map((movie) => {
 
-                                    if (favoriteMovieList.length === 0) {
-                                        <h4>You have no favorites yet.</h4>
-                                    }
-
-                                    return (
-                                        <div className="fav-movies"> 
-                                            <Card className="fav-card text-center mt-2" key={movies._id}>
-                                                <Link to={`/movies/${movie._id}`}>
-                                                    <Card.Img id="poster" src={movie.ImageUrl} />
-                                                </Link>
-                                                <Button className="remove" id="remove" onClick={() => this.removeFavorite(movie)}>Remove</Button>
-                                                                                
-                                            </Card>
-                                        </div>
-                                    );
-                                })}
-                            </div>    
-                        </Col>
-                    </Row>
+                                return (
+                                    <div className="fav-movies"> 
+                                        <Card className="fav-card text-center mt-2" key={movie._id}>
+                                            <Link to={`/movies/${movie._id}`}>
+                                                <Card.Img id="poster" src={movie.ImageUrl} />
+                                            </Link>
+                                            <Button className="remove" id="remove" onClick={() => this.removeFavorite(movie)}>
+                                                Remove
+                                            </Button>
+                                                                            
+                                        </Card>
+                                    </div>
+                                );
+                            })}
+                        </div>    
+                    </Col>
+                </Row>
             </div>
         )
     }
 }
 
-ProfileView.propTypes = {
-    movies: PropTypes.array.isRequired
-};
-
-// let mapStateToProps = state => {
-//     return {
-//         movies: state.movies,
-//         user: state.user
-//     }
-// }
-
+let mapStateToProps = state => {
+    return {
+        movies: state.movies,
+        user: state.user
+    }
+}
+export default connect(mapStateToProps, { setMovies, setUser })(ProfileView);

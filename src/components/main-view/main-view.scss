@@ -41,6 +41,9 @@ a.main-view.nav-link,
 form.form-inline,
 div.dropdown {
     text-align: right !important;
+div.dropdown {
+    text-align: right !important;
+    // display: flex;
 }
 
 .logout {
@@ -53,4 +56,10 @@ div.dropdown {
 
 .navbar-toggler {
     border: none;
+}
+
+@media all and (max-width: 500px) {
+    .card-img-top {
+        max-width: 6.25rem !important;
+    }
 }

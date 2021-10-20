@@ -3,12 +3,16 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 import { Row, Col, Button, Card } from 'react-bootstrap';
-import { MovieCard } from '../movie-card/movie-card';
 
 import '../../index.scss';
 import './director-view.scss';
 
 export class DirectorView extends React.Component {
+    constructor() {
+        super();
+        this.state = {};
+    }
+    
     render() {
         const { directorData, onBackClick, movies, movieData } = this.props;
 
@@ -40,14 +44,16 @@ export class DirectorView extends React.Component {
                     </Col>
                 </Row>
                 <Row>
-                    <Col>
+                    <Col className="text-center">
                         <div className="director-movies text-center">
                             <h3  className="director-movie-title">{directorData.Name}'s Movies</h3>
                             {movies.map(m => {
                                 if (m.Director && m.Director.Name === directorData.Name) {
                                 return (
-                                    <Card className="director-card text-center mt-2">
-                                            <Card.Img className="director-img" key={m._id} src={m.ImageUrl} />                                                                              
+                                    <Card className="director-card text-center mt-2" key={m._id}>
+                                        <Link to={`/movies/${m._id}`} >
+                                            <Card.Img className="director-img"  src={m.ImageUrl} />                                                                             
+                                        </Link>
                                     </Card>
                                 );
                             }
@@ -56,10 +62,9 @@ export class DirectorView extends React.Component {
 
                     </Col>
                 </Row>
-                    <div className="text-center">
+                    <div className="back">
                         <Button variant="primary" onClick={() => { onBackClick(null) }}>Back</Button>
                     </div>
-                
             </div>
         );
     }
@@ -74,4 +79,3 @@ DirectorView.propTypes = {
         Death: PropTypes.string
     }).isRequired
 };
-

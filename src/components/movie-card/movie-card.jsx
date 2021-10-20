@@ -13,10 +13,13 @@ export class MovieCard extends React.Component {
         const { movie } = this.props;
 
         return (
-            <Card>
-                <Link to={`/movies/${movie._id}`}>
-                    <Card.Img variant="top" src={movie.ImageUrl} />
-                </Link>
+            <Card >
+                <div className="text-center">
+                    <Link to={`/movies/${movie._id}`}>
+                        <Card.Img  variant="top" src={movie.ImageUrl} />
+                    </Link>
+                </div>
+                
                 <Card.Body>
                     <Link to={`/movies/${movie._id}`}>
                         <Card.Title className="link" >{movie.Title}</Card.Title>
@@ -34,18 +37,6 @@ MovieCard.propTypes = {
     movie: PropTypes.shape({
         Title: PropTypes.string.isRequired,
         Description: PropTypes.string.isRequired,
-        ImageUrl: PropTypes.string.isRequired
-        // Cast: PropTypes.string.isRequiredc,
-        // ReleaseDate: PropTypes.string.isRequired,
-        // Director: PropTypes.shape({
-        //     Name: PropTypes.string.isRequired,
-        //     Bio: PropTypes.string.isRequired,
-        //     Birth: PropTypes.string.isRequired,
-        //     Death: PropTypes.string
-        // }),
-        // Genre: PropTypes.shape({
-        //     Name: PropTypes.string.isRequired,
-        //     Description: PropTypes.string.isRequired
-        }).isRequired
-    // })
+        ImageUrl: PropTypes.string.isRequired,
+    }).isRequired
 };

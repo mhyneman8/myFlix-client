@@ -5,9 +5,13 @@ import PropTypes from 'prop-types';
 import { BrowserRouter as Router, Route, Redirect } from "react-router-dom";
 import { Link } from 'react-router-dom';
 
+import { connect } from 'react-redux';
+
+import { setMovies, setUser } from '../../actions/actions';
+
+import { MoviesList } from '../movies-list/movies-list'
 import { LoginView } from '../login-view/login-view';
 import { RegistrationView } from '../registration-view/registration-view';
-import { MovieCard } from '../movie-card/movie-card';
 import { MovieView } from '../movie-view/movie-view';
 import { DirectorView } from '../director-view/director-view';
 import { GenreView } from '../genre-view/genre-view';
@@ -20,7 +24,11 @@ import '../../index.scss';
 import './main-view.scss';
 
 
-export class MainView extends React.Component {
+import '../../index.scss';
+import './main-view.scss';
+
+
+class MainView extends React.Component {
     constructor() {
         super();
         this.state = {
@@ -50,19 +58,11 @@ export class MainView extends React.Component {
             })
             .then(response => {
                 // Assign the result to the state
-                this.setState({
-                    movies: response.data
-                });
+                this.props.setMovies(response.data);
             })
             .catch(function (error) {
                 console.log(error);
             });
-    }
-
-    setSelectedMovie(movie) {
-        this.setState({
-            selectedMovie: movie
-        });
     }
 
     onLoggedIn(authData) {
@@ -87,7 +87,8 @@ export class MainView extends React.Component {
     }
 
     render() {
-        const { movies, director, selectedMovie, user, userData, name } = this.state;
+        let { movies } = this.props;
+        let { user } = this.state;
 
         return (
             <Router>
@@ -95,6 +96,7 @@ export class MainView extends React.Component {
                     <Col>
                         <div sticky="top" expand="sm">
                             <h1 className="mt-2 inline" href="/">myFlix</h1>
+                    
                         </div>
                     
                         {user !== null ? (
@@ -105,16 +107,14 @@ export class MainView extends React.Component {
                                 </div>
                                 <div className="dropdown">
                                     <DropdownButton className="mt-3" id="dropdown-basic-button" title={`${user}`} >
-                                        <Dropdown.Item as={Link} to={`/users/${user}`}>
-                                            My Profile
-                                        </Dropdown.Item>
+                                        <Dropdown.Item as={Link} to={`/users/${user}`}>My Profile</Dropdown.Item>
                                         <Dropdown.Item className="logout" onClick={() => this.onLoggedOut()}>
                                             Logout
                                         </Dropdown.Item> 
                                     </DropdownButton>                                    
                                 </div>
                             </Row>
-                        ) : null}
+                             ) : null}
                     </Col>
                 </Row>
 
@@ -124,16 +124,12 @@ export class MainView extends React.Component {
                         // login-view if user not logged in
                         if (!user) return (
                             <Col>
-                                <LoginView onLoggedIn={user => this.onLoggedIn(user)} />;
+                                <LoginView onLoggedIn={user => this.onLoggedIn(user)} />
                             </Col>)
                      
                         if (movies.length === 0) return <div className="main-view" />
 
-                        return movies.map(m => (
-                            <Col md={4} className="mb-4" lg={3} key={m._id}>
-                                <MovieCard movieData={m} />
-                            </Col>
-                        ))
+                        return <MoviesList movies={movies} />
                     }} />
 
                     {/* Registration View */}
@@ -184,7 +180,7 @@ export class MainView extends React.Component {
 
 
                     {/* Profile View */}
-                    <Route path="/users/:username" render={({ history }) => {
+                    <Route path="/users/:Username" render={({ history }) => {
                         if (!user) return <Col md={6}>
                             <LoginView onLoggedIn={user => this.onLoggedIn(user)} />
                         </Col>
@@ -192,18 +188,10 @@ export class MainView extends React.Component {
                         if (movies.length ===0) return <div className="main-view" />;
 
                         return <Col md={8}>
-                            <ProfileView movies={movies} user={user} onBackClick={() => history.goBack()} />
-                        </Col>
-                    }} />
-
-                    {/* Update View */}
-                    <Route path="/users/:Username" render={({ history }) => {
-                        if (!user) return <Col md={6}>
-                            <LoginView onLoggedIn={user => this.onLoggedIn(user)} />
-                        </Col>
-
-                        return <Col md={8}>
-                            <UpdateView movies={movies} user={user} onBackClick={() => history.goBack()} />
+                            <ProfileView 
+                            movies={movies} 
+                            user={user} onBackClick={() => history.goBack()} 
+                            />
                         </Col>
                     }} />
 
@@ -212,3 +200,11 @@ export class MainView extends React.Component {
         );
     }
 }
+
+let mapStateToProps = state => {
+    return { movies: state.movies,
+            user: state.user 
+        }
+}
+
+export default connect(mapStateToProps, { setMovies, setUser })(MainView);

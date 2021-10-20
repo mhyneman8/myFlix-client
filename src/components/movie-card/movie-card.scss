@@ -22,6 +22,11 @@ div.card {
     height: 18.75rem;
     padding: 0.625rem;
 }
+@media all and (max-width: 500px) {
+    .card-img-top {
+        max-width: 18.75rem;
+    }
+}
 
 .movie-poster {
     display: inline;
@@ -29,7 +34,7 @@ div.card {
 
 .link.card-title.h5 {
     color: $tertiary;
-    font-size: 30px;
+    font-size: 1.875rem;
 } 
 
 .link.card-title.h5:hover {

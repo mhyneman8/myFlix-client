@@ -1,9 +1,12 @@
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import { Link } from "react-router-dom";
-import { Navbar, Row, Col, Form, Button } from 'react-bootstrap';
+import { Row, Col, Form, Button } from 'react-bootstrap';
 
 import axios from 'axios';
+
+import { connect } from 'react-redux';
+import { setUser } from '../../actions/actions';
 
 import '../../index.scss';
 import './login-view.scss';
@@ -103,11 +106,13 @@ export function LoginView(props) {
                             Login
                         </Button>
                         
-                        <h4 className="mt-4">Don't have an account?</h4>
+                        <h4 className="mt-5">Don't have an account?</h4>
                         <Link to='/register'>
-                            <Button className="btn-primary mt-2">Register</Button>
+                            <Button className="btn-primary mt-2 mb-4">
+                                Register
+                            </Button>
                         </Link> 
-                    </div>
+                    </div>   
                 </Form>
                 </Col>
             </Row>
@@ -122,3 +127,9 @@ LoginView.propTypes = {
     }),
     onLoggedIn: PropTypes.func
 };
+let mapStateToProps = state => {
+    return {
+        user: state.user
+    }
+}
+export default connect(mapStateToProps, { setUser })(LoginView);
