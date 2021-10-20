@@ -137,7 +137,7 @@ export function UpdateView(props) {
                                 onChange={e => setBirthDate(e.target.value)} />
                         </Form.Group>
                                 
-                        <div className="text-center block" >
+                        <div className="center block" >
                             <Button className="btn-primary" 
                                 size="lg" 
                                 type='submit' 

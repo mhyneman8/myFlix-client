@@ -116,7 +116,7 @@ export class ProfileView extends React.Component {
                 <Row className="justify-content-md-center">
                     <Col md={12}>
                         <Form className="text-center underline mb-30">
-                            <h1><u>Profile Details</u></h1>
+                            <h1>Profile Details</h1>
 
                             <div className="details">
                                 <Form.Group controlId="formUsername">
@@ -146,7 +146,7 @@ export class ProfileView extends React.Component {
                             <Modal show={show} onHide={this.handleClose}>
                                 <Modal.Header closeButton>
                                     <Modal.Title>
-                                        <h2 className="text-center">
+                                        <h2 className="center">
                                             Update User Information
                                         </h2>
                                     </Modal.Title>
@@ -191,8 +191,8 @@ export class ProfileView extends React.Component {
                             {favoriteMovieList.map((movie) => {
 
                                 return (
-                                    <div className="fav-movies"> 
-                                        <Card className="fav-card text-center mt-2" key={movie._id}>
+                                    <div className="fav-movies" key={movie._id}> 
+                                        <Card className="fav-card text-center mt-2" >
                                             <Link to={`/movies/${movie._id}`}>
                                                 <Card.Img id="poster" src={movie.ImageUrl} />
                                             </Link>

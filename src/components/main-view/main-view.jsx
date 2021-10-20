@@ -2,14 +2,12 @@ import React from 'react';
 import axios from 'axios';
 import PropTypes from 'prop-types';
 
-import { BrowserRouter as Router, Route, Redirect } from "react-router-dom";
-import { Link } from 'react-router-dom';
-
+import { BrowserRouter as Router, Route, Link, Redirect } from "react-router-dom";
 import { connect } from 'react-redux';
 
 import { setMovies, setUser } from '../../actions/actions';
 
-import { MoviesList } from '../movies-list/movies-list'
+import MoviesList from '../movies-list/movies-list'
 import { LoginView } from '../login-view/login-view';
 import { RegistrationView } from '../registration-view/registration-view';
 import { MovieView } from '../movie-view/movie-view';
@@ -22,11 +20,6 @@ import { Navbar, Nav, Row, Col, Form, FormControl, Button, Dropdown, DropdownBut
 
 import '../../index.scss';
 import './main-view.scss';
-
-
-import '../../index.scss';
-import './main-view.scss';
-
 
 class MainView extends React.Component {
     constructor() {
@@ -95,19 +88,23 @@ class MainView extends React.Component {
                  <Row className="navbar mb-5">
                     <Col>
                         <div sticky="top" expand="sm">
-                            <h1 className="mt-2 inline" href="/">myFlix</h1>
-                    
+                            <h1 className="mt-2 inline" href="/">
+                                myFlix
+                            </h1>
                         </div>
                     
                         {user !== null ? (
                             <Row className="nav-login">
-                            
                                 <div className="" >
-                                    <Nav.Link className="mt-4" href="/">Home</Nav.Link>
+                                    <Nav.Link className="mt-4" href="/">
+                                        Home
+                                    </Nav.Link>
                                 </div>
                                 <div className="dropdown">
                                     <DropdownButton className="mt-3" id="dropdown-basic-button" title={`${user}`} >
-                                        <Dropdown.Item as={Link} to={`/users/${user}`}>My Profile</Dropdown.Item>
+                                        <Dropdown.Item as={Link} to={`/users/${user}`}>
+                                            My Profile
+                                        </Dropdown.Item>
                                         <Dropdown.Item className="logout" onClick={() => this.onLoggedOut()}>
                                             Logout
                                         </Dropdown.Item> 
@@ -189,8 +186,8 @@ class MainView extends React.Component {
 
                         return <Col md={8}>
                             <ProfileView 
-                            movies={movies} 
-                            user={user} onBackClick={() => history.goBack()} 
+                                movies={movies} 
+                                user={user} onBackClick={() => history.goBack()} 
                             />
                         </Col>
                     }} />

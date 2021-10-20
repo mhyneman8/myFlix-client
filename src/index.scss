@@ -45,7 +45,7 @@ html {
 }
 
 h1 {
-    font-size: 1.5rem;
+    font-size: 2.5rem;
     -webkit-text-stroke: 0.0125rem;
     -webkit-text-stroke-color: $tertiary;
 }
@@ -54,8 +54,8 @@ h2 {
     color: $tertiary !important;
     -webkit-text-stroke: 0.0375rem;
     -webkit-text-stroke-color: $secondary;
-    margin: 1.875rem;
-    font-size: 2.5rem !important;
+    margin: 0.875rem;
+    font-size: 2.7rem !important;
 }
 
 .card-title.h5 {
@@ -93,5 +93,9 @@ div.card {
     padding: 0.625rem;
 }
 
+
+.left {
+    text-align: left !important;
+}
 
 
