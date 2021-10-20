@@ -43,6 +43,8 @@ html {
 
 h1 {
   font-size: 1.5rem;
+  -webkit-text-stroke: 0.0125rem;
+  -webkit-text-stroke-color: #fa824c;
 }
 
 h2 {
@@ -57,11 +59,56 @@ h2 {
 }
 .btn-primary {
   width: 40%;
-  max-width: 18.75rem;
+  max-width: 300px;
 }
 
 h2 {
   font-weight: bold;
+}
+.card-title.h5 {
+  font-weight: 500;
+  text-align: center !important;
+}
+
+div.card {
+  display: grid;
+  grid-template-rows: 1fr auto;
+}
+
+.card-body {
+  align-self: end;
+  justify-items: flex-end;
+  min-height: 25rem;
+  display: flex;
+  flex-direction: column;
+}
+
+.card-body button {
+  margin-top: auto;
+}
+
+.card-img-top {
+  height: 18.75rem;
+  padding: 0.625rem;
+}
+
+.movie-poster {
+  display: inline;
+}
+
+.link.card-title.h5 {
+  color: #fa824c;
+  font-size: 30px;
+}
+
+.link.card-title.h5:hover {
+  color: #75b8c8;
+  text-decoration: none;
+}
+
+.text {
+  font-weight: normal;
+  color: #260c1a;
 }
 .movie-view {
   background-color: #260c1a;
@@ -71,7 +118,7 @@ h2 {
 .movie-title {
   font-weight: bold;
   margin-bottom: 0.625rem;
-  font-size: 1.875rem;
+  font-size: 30px;
 }
 
 img {
@@ -89,18 +136,18 @@ img {
 .director-view {
   background-color: #260c1a;
   color: white;
-  padding: 1.875rem 2.5rem;
+  padding: 30px 40px;
 }
 
 .director-name {
   color: #fa824c;
-  font-size: 1.875rem;
+  font-size: 30px;
   text-align: center;
-  margin-top: 3.75rem;
+  margin-top: 60px;
 }
 
 .director-birth {
-  margin-top: 1.875rem;
+  margin-top: 30px;
 }
 
 .body {
@@ -110,61 +157,56 @@ img {
 
 .bio-text {
   width: 70%;
-  margin: 0.3125rem auto;
+  margin: 5px auto;
 }
 
 .dir-img {
   width: 90%;
-  max-width: 11.875rem;
-  margin: 1.25rem auto;
+  max-width: 190px;
+  margin: 20px auto;
   padding: 0;
 }
 
 .director-movies {
-  max-width: 9.375rem;
+  max-width: 150px;
+  display: inline;
 }
 
 .director-movie-title {
-  margin: 1.25rem auto !important;
+  margin: 20px auto !important;
 }
 
 .director-card {
-  width: 6.25rem;
-  height: 9.0625rem;
-}
-
-div.director-card.text-center.mt-2.card {
-  display: inline !important;
-  margin: 0.3125rem;
-  background-color: #260c1a;
+  display: inline;
+  width: 100px;
+  height: 145px;
 }
 
 .director-img {
   padding: 0;
   width: 85%;
-  display: inline !important;
-  max-width: 9.375rem;
+  max-height: 140px;
   margin-top: 0;
 }
 .genre-view {
   background-color: #260c1a;
   color: white;
-  padding: 1.25rem 2.5rem;
+  padding: 20px 40px;
 }
 
 .genre-name {
   color: #fa824c;
-  font-size: 1.875rem;
+  font-size: 30px;
   text-align: center;
-  padding-bottom: 1.25rem;
+  padding-bottom: 20px;
 }
 
 .value.genre-text {
-  padding: 1.875rem;
+  padding: 30px;
 }
 
 .genre-movie-title {
-  color: #fa824c;
+  margin: 20px auto !important;
 }
 
 .body {
@@ -173,38 +215,29 @@ div.director-card.text-center.mt-2.card {
   margin-left: 4px;
 }
 
-.back {
-  text-align: center;
+.genre-card {
+  display: inline;
+  width: 100px;
+  height: 145px;
 }
 
-.genre-card {
-  width: 6.25rem;
-  height: 9.0625rem;
+.genre-movies {
+  display: inline;
 }
 
 .genre-img {
   padding: 0;
-  display: inline;
   width: 85%;
   max-height: 140px;
-  max-width: 6.25rem;
-  margin: 0.625rem;
+  margin-top: 0;
 }
 
-.text-center {
-  display: inline;
-}
-
-div.genre-card.text-center.mt-2.mb-4.card {
-  display: inline !important;
-  background-color: #260c1a;
-}
 .fav-card {
-  width: 7.5rem;
+  width: 120px;
   height: 190px;
   text-align: center;
-  margin: 0.375rem;
-  margin-bottom: 2.5rem;
+  margin: 6px;
+  margin-bottom: 40px;
 }
 
 .fav-movies {
@@ -213,7 +246,6 @@ div.genre-card.text-center.mt-2.mb-4.card {
 
 .fav-movies-bg {
   background-color: #260c1a;
-  text-align: center !important;
 }
 
 .fav-movies-title {
@@ -222,25 +254,25 @@ div.genre-card.text-center.mt-2.mb-4.card {
 
 .details {
   background-color: white;
-  padding: 1.875rem;
+  padding: 30px;
   border-radius: 5px;
-  margin: 1.25rem;
+  margin: 20px;
 }
 
 #poster {
   padding: 0;
   width: 85%;
-  max-height: 8.75rem;
-  margin-top: 0.625rem;
+  max-height: 140px;
+  margin-top: 10px;
 }
 
 #delete-btn {
   background-color: #75b8c8 !important;
   border: 2px solid #260c1a !important;
   color: #260c1a !important;
-  width: 6.25rem;
-  font-size: 0.625rem !important;
-  margin-top: 0.9375rem;
+  width: 100px;
+  font-size: 10px !important;
+  margin-top: 15px;
 }
 
 #delete-btn:hover {
@@ -248,17 +280,17 @@ div.genre-card.text-center.mt-2.mb-4.card {
 }
 
 #remove {
-  font-size: 0.625rem;
+  font-size: 10px;
   justify-content: center;
 }
 
 .remove {
   width: 65%;
-  margin: 0.1875rem auto;
+  margin: 3px auto;
 }
 
 .btn-secondary.update-btn {
-  width: 12.5rem;
+  width: 200px;
 }
 
 .btn-secondary.update-btn:hover {
@@ -271,15 +303,7 @@ div.genre-card.text-center.mt-2.mb-4.card {
 .navbar {
   background-color: #260c1a;
   color: #75b8c8 !important;
-}
-
-.nav-login {
-  float: right;
-  display: inline;
-}
-
-.inline {
-  float: left;
+  justify-content: center;
 }
 
 .nav-link {
@@ -291,6 +315,16 @@ div.genre-card.text-center.mt-2.mb-4.card {
   margin: 10px;
 }
 
+.navbar-toggler-icon {
+  position: absolute;
+  right: 2.5625rem;
+  top: 1.625rem;
+  background-color: #fa824c !important;
+  border-radius: 0.25rem;
+}
+
+a.main-view.nav-link,
+form.form-inline,
 div.dropdown {
   text-align: right !important;
 }
@@ -305,55 +339,5 @@ div.dropdown {
 
 .navbar-toggler {
   border: none;
-}
-
-@media all and (max-width: 500px) {
-  .card-img-top {
-    max-width: 6.25rem !important;
-  }
-}
-.card-title.h5 {
-  font-weight: 500;
-  text-align: center !important;
-}
-
-div.card {
-  display: grid;
-  grid-template-rows: 1fr auto;
-}
-
-.card-body {
-  align-self: end;
-  justify-items: flex-end;
-  min-height: 23rem;
-}
-
-.card-img-top {
-  height: 18.75rem;
-  padding: 0.625rem;
-}
-
-@media all and (max-width: 500px) {
-  .card-img-top {
-    max-width: 18.75rem;
-  }
-}
-.movie-poster {
-  display: inline;
-}
-
-.link.card-title.h5 {
-  color: #fa824c;
-  font-size: 1.875rem;
-}
-
-.link.card-title.h5:hover {
-  color: #75b8c8;
-  text-decoration: none;
-}
-
-.text {
-  font-weight: normal;
-  color: #260c1a;
 }
 /*# sourceMappingURL=index.d22b8a02.css.map */
