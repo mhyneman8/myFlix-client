@@ -2,7 +2,9 @@
 # myFlix
 ## Client-Side
 
-This site uses React to build the client-side for a RESTful API movie database.
+myFlix-client uses React to build a fontend single page for the client side of myFlix app. It provides users with information on their favorite movies, like director, and genre. Users can also add and delete movies from their favorites list.
+
+User Authentication is with a JWT-based and basic HTTP authentications.
 
 ## Authors
 
@@ -46,10 +48,25 @@ npm start
 | Tertiary Color | ![#fa824c](https://via.placeholder.com/10/fa824c?text=+) #fa824c |
 
 
+## View
+
+To view this project visit https://myflix-mh.netlify.app/
+
 ## Deployment
+To deploy this project:
 
-To deploy this project visit https://myflix-mh.netlify.app/
+Clone this repository
+git clone https://github.com/mhyneman8/myFlix-client.git
 
+Go to root directory
+
+Install dependencies
+npm install
+
+
+Run parcel src/index.html
+
+Open app page, http://localhost:1234/
   
 ## Features
 
@@ -105,37 +122,6 @@ To deploy this project visit https://myflix-mh.netlify.app/
 - React-Router-DOM
 - Redux
 - Redux-Devtools-Extension
-
-
-  
-# myFlix-client
-
-## Description:
-
-myFlix-client uses React to build a fontend single page for the client side of myFlix app. It provides users with information on their favorite movies, like director, and genre. Users can also add and delete movies from their favorites list.
-
-User Authentication is with a JWT-based and basic HTTP authentications.
-
-## How to Run:
-
-MyFlix uses Parcel for building, and Babel for transpilation. 
-
-To build the project in the terminal run parcel src/index.html
-
-Open app page, http://localhost:1234/
-
-## Dependencies:
-
-* axios,
-* bootstrap,
-* prop-types,
-* react,
-* react-bootstrap,
-* react-dom,
-* react-redux,
-* react-router-dom,
-* redux,
-* redux-devtools-extension
 
 ## DevDependencies:
 
