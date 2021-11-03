@@ -10,6 +10,10 @@ User Authentication is with a JWT-based and basic HTTP authentications.
 
 - [@MalloryHyneman](https://www.github.com/mhyneman8)
 
+
+## Live Page
+
+https://myflix-mh.netlify.app/
   
 ## API Reference
 
