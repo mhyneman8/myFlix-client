@@ -39962,7 +39962,7 @@ var MovieCard = /*#__PURE__*/function (_React$Component) {
       }, /*#__PURE__*/_react.default.createElement(_Card.default.Title, {
         className: "link"
       }, movie.Title)), /*#__PURE__*/_react.default.createElement(_Card.default.Text, {
-        className: "text"
+        className: "text truncate-overflow"
       }, movie.Description, " ")));
     }
   }]);
@@ -54303,16 +54303,20 @@ var MovieView = /*#__PURE__*/function (_React$Component) {
     _classCallCheck(this, MovieView);
 
     _this = _super.call(this);
-    _this.state = {};
+    _this.state = {
+      favoriteMovies: [],
+      movies: [],
+      favorite: 'false'
+    };
     return _this;
   }
 
   _createClass(MovieView, [{
     key: "addFavorite",
-    value: function addFavorite(movieData) {
+    value: function addFavorite(movie) {
       var token = localStorage.getItem('token');
 
-      var url = "https://myflix788.herokuapp.com/users/" + localStorage.getItem('user') + "/Movies/" + movieData._id;
+      var url = "https://myflix788.herokuapp.com/users/" + localStorage.getItem('user') + "/Movies/" + movie._id;
 
       var config = {
         method: 'post',
@@ -54332,21 +54336,36 @@ var MovieView = /*#__PURE__*/function (_React$Component) {
     }
   }, {
     key: "removeFavorite",
-    value: function removeFavorite(movieData) {
+    value: function removeFavorite(movie) {
       var token = localStorage.getItem('token');
 
-      var url = "https://myflix788.herokuapp.com/users" + localStorage.getItem('user') + "/Movies/remove/" + movieData._id;
+      var url = "https://myflix788.herokuapp.com/users" + localStorage.getItem('user') + "/Movies/remove/" + movie._id;
 
-      _axios.default.post(url, "", {
+      var config = {
+        method: 'post',
+        url: url,
         headers: {
-          Authorization: "Bearer ".concat(user.token)
+          'Authorization': "Bearer ".concat(token),
+          'Content-type': 'application/json'
         }
-      }).then(function (response) {
-        console.log(response);
-        alert("Removed from favorites.");
-      }).catch(function (err) {
-        console.log(err.response);
-      });
+      };
+      console.log('remove');
+      (0, _axios.default)(config).then(function (response) {
+        console.log(JSON.stringify(response.data));
+        alert("Removed from favorites");
+      }).catch(function (error) {
+        console.log(error);
+      }); // axios
+      //     .post(url, "", {
+      //         headers: { Authorization: `Bearer ${user.token}`}
+      //     })
+      //     .then ((response) => {
+      //         console.log(response);
+      //         alert("Removed from favorites.")
+      //     })
+      //     .catch (err => {
+      //         console.log(err.response);
+      //     });
     }
   }, {
     key: "render",
@@ -54354,8 +54373,15 @@ var MovieView = /*#__PURE__*/function (_React$Component) {
       var _this2 = this;
 
       var _this$props = this.props,
-          movieData = _this$props.movieData,
+          movies = _this$props.movies,
+          movie = _this$props.movie,
           onBackClick = _this$props.onBackClick;
+      var favoriteMovieList = movies.filter(function (movie) {
+        return _this2.state.favoriteMovies.includes(movie._id);
+      }); // const favorite = favoriteMovieList.includes(movie._id) {
+      //     return this.state.favorite = true;
+      // }
+
       return /*#__PURE__*/_react.default.createElement("div", null, /*#__PURE__*/_react.default.createElement(_reactBootstrap.Row, {
         className: "movie-view"
       }, /*#__PURE__*/_react.default.createElement(_reactBootstrap.Col, {
@@ -54364,7 +54390,7 @@ var MovieView = /*#__PURE__*/function (_React$Component) {
       }, /*#__PURE__*/_react.default.createElement("div", {
         className: "movie-poster mt-5"
       }, /*#__PURE__*/_react.default.createElement("img", {
-        src: movieData.ImageUrl
+        src: movie.ImageUrl
       }))), /*#__PURE__*/_react.default.createElement(_reactBootstrap.Col, {
         md: 6,
         className: "card-body"
@@ -54372,37 +54398,37 @@ var MovieView = /*#__PURE__*/function (_React$Component) {
         className: "movie-title pt-3"
       }, /*#__PURE__*/_react.default.createElement("span", {
         className: "value"
-      }, movieData.Title)), /*#__PURE__*/_react.default.createElement("div", {
+      }, movie.Title)), /*#__PURE__*/_react.default.createElement("div", {
         className: "movie-release pt-4"
       }, /*#__PURE__*/_react.default.createElement("span", {
         className: "label"
-      }, "Release Date: "), /*#__PURE__*/_react.default.createElement("span", {
+      }, "Year of Release: "), /*#__PURE__*/_react.default.createElement("span", {
         className: "value"
-      }, movieData.ReleaseDate)), /*#__PURE__*/_react.default.createElement("div", {
+      }, movie.ReleaseDate)), /*#__PURE__*/_react.default.createElement("div", {
         className: "movie-director"
       }, /*#__PURE__*/_react.default.createElement("span", {
         className: "label"
       }, "Director: "), /*#__PURE__*/_react.default.createElement(_reactRouterDom.Link, {
         className: "link",
-        to: "/director/".concat(movieData.Director.Name)
+        to: "/director/".concat(movie.Director.Name)
       }, /*#__PURE__*/_react.default.createElement("span", {
         className: "value"
-      }, movieData.Director.Name))), /*#__PURE__*/_react.default.createElement("div", {
+      }, movie.Director.Name))), /*#__PURE__*/_react.default.createElement("div", {
         className: "movie-genre"
       }, /*#__PURE__*/_react.default.createElement("span", {
         className: "label"
       }, "Genre: "), /*#__PURE__*/_react.default.createElement(_reactRouterDom.Link, {
         className: "link",
-        to: "/genres/".concat(movieData.Genre.Name)
+        to: "/genres/".concat(movie.Genre.Name)
       }, /*#__PURE__*/_react.default.createElement("span", {
         className: "value"
-      }, movieData.Genre.Name))), /*#__PURE__*/_react.default.createElement("div", {
+      }, movie.Genre.Name))), /*#__PURE__*/_react.default.createElement("div", {
         className: "movie-cast"
       }, /*#__PURE__*/_react.default.createElement("span", {
         className: "label"
       }, "Cast: "), /*#__PURE__*/_react.default.createElement("span", {
         className: "value mr-2"
-      }, movieData.Cast.map(function (cast) {
+      }, movie.Cast.map(function (cast) {
         return cast + " ";
       }))), /*#__PURE__*/_react.default.createElement("div", {
         className: "movie-description"
@@ -54410,12 +54436,21 @@ var MovieView = /*#__PURE__*/function (_React$Component) {
         className: "label"
       }, "Description: "), /*#__PURE__*/_react.default.createElement("span", {
         className: "value"
-      }, movieData.Description)), /*#__PURE__*/_react.default.createElement("div", null, /*#__PURE__*/_react.default.createElement(_reactBootstrap.Button, {
+      }, movie.Description)), /*#__PURE__*/_react.default.createElement("div", {
+        className: "text-center"
+      }, favoriteMovieList.includes(movie._id) ? {
+        /* { favorite = true ? */
+      }( /*#__PURE__*/_react.default.createElement(_reactBootstrap.Button, {
         className: "add mt-3 mr-2 w-50",
         onClick: function onClick() {
-          return _this2.addFavorite(movieData);
+          return _this2.removeFavorite(movie);
         }
-      }, "+ Add"), "                        ")), /*#__PURE__*/_react.default.createElement(_reactBootstrap.Col, {
+      }, "- Remove")) : /*#__PURE__*/_react.default.createElement(_reactBootstrap.Button, {
+        className: "add mt-3 mr-2 w-50",
+        onClick: function onClick() {
+          return _this2.addFavorite(movie);
+        }
+      }, "+ Add"))), /*#__PURE__*/_react.default.createElement(_reactBootstrap.Col, {
         sm: 12,
         className: "text-center"
       }, /*#__PURE__*/_react.default.createElement(_reactBootstrap.Button, {
@@ -54432,7 +54467,7 @@ var MovieView = /*#__PURE__*/function (_React$Component) {
 
 exports.MovieView = MovieView;
 MovieView.propTypes = {
-  movieData: _propTypes.default.shape({
+  movie: _propTypes.default.shape({
     Title: _propTypes.default.string.isRequired,
     Description: _propTypes.default.string.isRequired,
     ImageUrl: _propTypes.default.string.isRequired,
@@ -55074,7 +55109,7 @@ var ProfileView = /*#__PURE__*/function (_React$Component) {
       (0, _axios.default)(config).then(function (response) {
         console.log(JSON.stringify(response.data));
         alert("Movie was removed");
-        window.open('/users/:username', '_self');
+        window.location.reload(false);
       }).catch(function (error) {
         console.log(error);
       });
@@ -55413,9 +55448,10 @@ var MainView = /*#__PURE__*/function (_React$Component) {
           return /*#__PURE__*/_react.default.createElement(_reactBootstrap.Col, {
             md: 8
           }, /*#__PURE__*/_react.default.createElement(_movieView.MovieView, {
-            movieData: movies.find(function (m) {
+            movie: movies.find(function (m) {
               return m._id === match.params.movieId;
             }),
+            movies: movies,
             onBackClick: function onBackClick() {
               return history.goBack();
             }
@@ -55622,7 +55658,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "52620" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "53177" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};

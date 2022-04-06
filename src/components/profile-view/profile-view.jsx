@@ -96,7 +96,7 @@ export class ProfileView extends React.Component {
             .then (function (response) {
                 console.log(JSON.stringify(response.data));
                 alert("Movie was removed");
-                window.open('/users/:username', '_self');
+                window.location.reload(false);
             })
             .catch (function (error) {
                 console.log(error);
@@ -176,9 +176,7 @@ export class ProfileView extends React.Component {
                                 }} >
                                     Delete Account
                             </Button>
-                            </div>
-                                            
-                                
+                        </div>                 
                     </Col>
 
                     <Col className="text-center">

@@ -22,9 +22,21 @@ div.card {
     height: 18.75rem;
     padding: 0.625rem;
 }
+
+@media all and (max-width: 767px) {
+    .card-img-top {
+        height: 400px;
+        width: 300px;
+        padding-top: 40px;
+    }
+    .card-body {
+        padding: 50px;
+    }
+}
+
 @media all and (max-width: 500px) {
     .card-img-top {
-        max-width: 18.75rem;
+        // width: 300px;
     }
 }
 
@@ -45,4 +57,28 @@ div.card {
 .text {
     font-weight: normal;
     color: $secondary;
+}
+
+.truncate-overflow {
+    --max-lines: 10;
+    position: relative;
+    max-height: calc((1.35rem) * var(--max-lines));
+    overflow: hidden;
+    padding-right: 1rem;
+}
+
+.truncate-overflow::before {
+    position: absolute;
+    content: "...";
+    bottom: 0;
+    right: 13px;
+}
+
+.truncate-overflow::after {
+    content: "";
+    position: absolute;
+    right: 13px;
+    width: 1rem;
+    height: 2rem;
+    background: white;
 }

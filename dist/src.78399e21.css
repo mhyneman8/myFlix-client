@@ -26,7 +26,6 @@ html {
 
 .btn-primary:hover {
   background-color: #75b8c8 !important;
-  border: 2px solid #260c1a !important;
 }
 
 .btn-secondary {
@@ -114,9 +113,15 @@ div.card {
   padding: 0.625rem;
 }
 
-@media all and (max-width: 500px) {
+@media all and (max-width: 767px) {
   .card-img-top {
-    max-width: 18.75rem;
+    height: 400px;
+    width: 300px;
+    padding-top: 40px;
+  }
+
+  .card-body {
+    padding: 50px;
   }
 }
 .movie-poster {
@@ -137,6 +142,30 @@ div.card {
   font-weight: normal;
   color: #260c1a;
 }
+
+.truncate-overflow {
+  --max-lines: 10;
+  position: relative;
+  max-height: calc((1.35rem) * var(--max-lines));
+  overflow: hidden;
+  padding-right: 1rem;
+}
+
+.truncate-overflow::before {
+  position: absolute;
+  content: "...";
+  bottom: 0;
+  right: 13px;
+}
+
+.truncate-overflow::after {
+  content: "";
+  position: absolute;
+  right: 13px;
+  width: 1rem;
+  height: 2rem;
+  background: white;
+}
 .text {
   font-weight: 650;
 }
@@ -156,7 +185,6 @@ div.card {
 .welcomeText {
   margin: 4% auto;
   font-size: 70px !important;
-  padding-top: 5vh;
   opacity: 1;
   -webkit-text-stroke-width: 1px;
   -webkit-text-stroke-color: #260c1a;
@@ -404,7 +432,7 @@ div.genre-card.text-center.mt-2.mb-4.card {
 }
 
 #dropdown-basic-button {
-  width: 90px;
+  width: 95px;
   margin: 10px;
 }
 

@@ -25,7 +25,7 @@ export class MovieCard extends React.Component {
                         <Card.Title className="link" >{movie.Title}</Card.Title>
                     </Link>
 
-                    <Card.Text className="text" >{movie.Description} </Card.Text>
+                    <Card.Text className="text truncate-overflow" >{movie.Description} </Card.Text>
                     
                 </Card.Body>
             </Card>

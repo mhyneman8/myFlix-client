@@ -29,7 +29,7 @@ class MainView extends React.Component {
             selectedMovie: null,
             user: null,
             register: null,
-            userData: null
+            userData: null,
         };
     }
 
@@ -146,7 +146,7 @@ class MainView extends React.Component {
                         if (movies.length === 0) return <div className="main-view" />
 
                         return <Col md={8}>
-                            <MovieView movieData={movies.find(m => m._id === match.params.movieId)} onBackClick={() => history.goBack()} />
+                            <MovieView movie={movies.find(m => m._id === match.params.movieId)} movies={movies} onBackClick={() => history.goBack()} />
                         </Col>
                     }} />
 
