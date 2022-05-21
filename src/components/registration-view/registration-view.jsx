@@ -13,15 +13,36 @@ export function RegistrationView(props) {
     const [email, setEmail] = useState('');
     const [birthDate, setBirthDate] = useState('');
 
-    const [usernameError, setUsernameError] = useState({});
-    const [passwordError, setPasswordError] = useState({});
-    const [emailError, setEmailError] = useState({});
+    const [usernameError, setUsernameError] = useState('');
+    const [passwordError, setPasswordError] = useState('');
+    const [emailError, setEmailError] = useState('');
+
+
+    const formValidation = () => {
+        let isReq = true;
+
+        if ( (username.length < 5) || (!username) ){
+            setUsernameError("Username must be more than 5 characters.");
+            isReq = false;
+        }
+        if (!password) {
+            setPasswordError("You must enter a password.");
+            isReq = false;
+        } else if (password.length < 3) {
+            setPasswordError("Password must be at least 4 characters long");
+            isReq = false;
+        }
+        if (!email.includes(".") || !email.includes("@")) {
+            setEmailError("Enter valid email.");
+            isReq = false;
+        }
+        return isReq;
+    };
 
     const handleRegister = (e) => {
         e.preventDefault();
-        console.log(username, password, email, birthDate);
-        const isValid = formValidation();
-        if (isValid) {
+        const isReq = formValidation();
+        if (isReq) {
         // Send a request to the server for Authentication
             axios.post('https://myflix788.herokuapp.com/users', {
                 Username: username,
@@ -31,39 +52,16 @@ export function RegistrationView(props) {
             })
             .then(response => {
                 const data = response.data;
-                console.log(data);
-                window.open('/', '_self'); // page will open in current tab
+                alert('Registration successful, please login!');
+                // open page in current tab
+                window.open('/', '_self');
             })
             .catch(e => {
                 console.log('error registering the user')
+                alert('Unable to register user');
             });
         }
     }
-
-    const formValidation = () => {
-        const usernameError = {};
-        const passwordError = {};
-        const emailError = {};
-        let isValid = true;
-
-        if (username.trim().length < 5) {
-            usernameError.usernameShort = "Username must be more than 5 characters.";
-            isValid = false;
-        }
-        if (password.trim().length < 1) {
-            passwordError.passwordMissing = "You must enter a password.";
-            isValid = false;
-        }
-        if (!email.includes(".") || !email.includes("@")) {
-            emailError.emailNotEmail = "Enter valid email.";
-            isValid = false;
-        }
-
-        setUsernameError(usernameError);
-        setPasswordError(passwordError);
-        setEmailError(emailError);
-        return isValid;
-    };
 
     return (
         <div>
@@ -76,51 +74,30 @@ export function RegistrationView(props) {
             </Row>
             <Row>
                 <Col className='d-flex justify-content-center'>
-                    <Form className="px-5">
+                    <Form className="px-5" autoComplete='off'>
                         <Form.Group controlId="registerUsername">
                             <Form.Label className="text ml-2">
                                 Username:
                             </Form.Label>
                             <Form.Control type='text' className='rounded-pill p-4 mx-auto input' onChange={e => setUsername(e.target.value)} />
+                            {usernameError && <p style={{ color: "white" }} >{usernameError}</p> }
                         </Form.Group>
-
-                        {Object.keys(usernameError).map((key) => {
-                            return (
-                                <div key={key}>
-                                    {usernameError[key]}
-                                </div>
-                            );
-                        })}
 
                         <Form.Group controlId="registerPassword">
                             <Form.Label className="text ml-2">
                                 Password:
                             </Form.Label>
                             <Form.Control type='password' className='rounded-pill p-4 mx-auto input' onChange={e => setPassword(e.target.value)} />
+                            {passwordError && <p style={{ color: "white" }} >{passwordError}</p> }
                         </Form.Group>
-
-                        {Object.keys(passwordError).map((key) => {
-                            return (
-                                <div key={key}>
-                                    {passwordError[key]}
-                                </div>
-                            );
-                        })}
 
                         <Form.Group controlId="registerEmail">
                             <Form.Label className="text ml-2">
                                 Email:
                             </Form.Label>
-                            <Form.Control type='email' className='rounded-pill p-4 mx-auto input' onChange={e => setEmail(e.target.value)} />
+                            <Form.Control autoComplete='false' type='email' className='rounded-pill p-4 mx-auto input' onChange={e => setEmail(e.target.value)} />
+                            {emailError && <p style={{ color: "white" }} >{emailError}</p> }
                         </Form.Group>
-
-                        {Object.keys(emailError).map((key) => {
-                            return (
-                                <div key={key}>
-                                    {emailError[key]}
-                                </div>
-                            );
-                        })}
 
                         <Form.Group controlId="registerBirthday">
                             <Form.Label className="text ml-2">
