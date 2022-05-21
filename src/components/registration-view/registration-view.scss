@@ -2,11 +2,49 @@ $primary: #75b8c8;
 $secondary: #260c1a;
 $tertiary:#fa824c;
 
-.btn-primary {
-    width: 40%;
-    max-width: 18.75rem;
-}
-
 h2 {
     font-weight: bold;
+}
+
+.effect {
+    position: relative;
+    overflow: hidden;
+}
+
+.registerBtn {
+    width: 230px !important;
+    transition: all 0.2s linear 0s;
+}
+
+.effect.registerBtn {
+    transition: all 0.2s linear 0s;
+    
+    &:before {
+      content: ">";
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: absolute;
+      top: 0;
+      left: 0px;
+      height: 100%;
+      width: 60px;
+      background-color: rgba($secondary ,0.3);
+      transform: scale(0,1);
+      transform-origin: left center;
+      transition: all 0.2s linear 0s;
+    }
+    
+     &:hover {
+      text-indent: 30px;
+      
+      &:before {
+        transform: scale(1,1);
+        text-indent: 0;
+      }
+    }
+}
+
+.input {
+    width: 400px !important;
 }

@@ -68,8 +68,8 @@ export function RegistrationView(props) {
     return (
         <div>
             <Row>
-                <Col >
-                    <h2 className="text-center">
+                <Col className='d-flex justify-content-center' >
+                    <h2>
                         Register
                     </h2>
                 </Col>
@@ -78,10 +78,10 @@ export function RegistrationView(props) {
                 <Col>
                     <Form className="px-5">
                         <Form.Group controlId="registerUsername">
-                            <Form.Label className="text">
+                            <Form.Label className="text ml-2">
                                 Username:
                             </Form.Label>
-                            <Form.Control type='text' onChange={e => setUsername(e.target.value)} />
+                            <Form.Control type='text' className='rounded-pill p-4 mx-auto' onChange={e => setUsername(e.target.value)} />
                         </Form.Group>
 
                         {Object.keys(usernameError).map((key) => {
@@ -93,10 +93,10 @@ export function RegistrationView(props) {
                         })}
 
                         <Form.Group controlId="registerPassword">
-                            <Form.Label className="text">
+                            <Form.Label className="text ml-2">
                                 Password:
                             </Form.Label>
-                            <Form.Control type='password' onChange={e => setPassword(e.target.value)} />
+                            <Form.Control type='password' className='rounded-pill p-4 mx-auto' onChange={e => setPassword(e.target.value)} />
                         </Form.Group>
 
                         {Object.keys(passwordError).map((key) => {
@@ -108,10 +108,10 @@ export function RegistrationView(props) {
                         })}
 
                         <Form.Group controlId="registerEmail">
-                            <Form.Label className="text">
+                            <Form.Label className="text ml-2">
                                 Email:
                             </Form.Label>
-                            <Form.Control type='email' onChange={e => setEmail(e.target.value)} />
+                            <Form.Control type='email' className='rounded-pill p-4 mx-auto' onChange={e => setEmail(e.target.value)} />
                         </Form.Group>
 
                         {Object.keys(emailError).map((key) => {
@@ -123,20 +123,20 @@ export function RegistrationView(props) {
                         })}
 
                         <Form.Group controlId="registerBirthday">
-                            <Form.Label className="text">
+                            <Form.Label className="text ml-2">
                                 Birthday:
                             </Form.Label>
-                            <Form.Control type='date' onChange={e => setBirthDate(e.target.value)} />
+                            <Form.Control type='date' className='rounded-pill p-4 mx-auto' onChange={e => setBirthDate(e.target.value)} />
                         </Form.Group>
-                        <div className="text-center block" >
-                            <Link to={`/movies`}>
-                                <Button className="btn-primary" size="lg" type='submit' onClick={handleRegister}>
+                        <div className="center block" >
+                            <Link to={`/login`}>
+                                <Button className="btn btn-primary rounded-pill effect registerBtn" size="lg" type='submit' onClick={handleRegister}>
                                     Register
                                 </Button>
                             </Link>
                             <br></br>
                             <Link to={`/`}>
-                                <Button size="lg" className="btn-primary mb-4">
+                                <Button size="lg" className="btn btn-primary mb-4 rounded-pill effect registerBtn">
                                     Login
                                 </Button>
                             </Link> 
