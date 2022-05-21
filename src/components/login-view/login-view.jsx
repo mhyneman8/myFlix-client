@@ -66,18 +66,18 @@ export function LoginView(props) {
                 </div>
                 <div className="center">
                     <h2 className="welcomeText">Welcome Back!</h2>
-                    <h4 className="ml-5 mb-5 text">Login to see your favorite movies!</h4>
+                    <h4 className="ml-5 mb-5 text">Login to see your favorite movies</h4>
                 </div>
                 </Col>
             </Row>
             <Row>
-                <Col className="center">
+                <Col className="d-flex justify-content-center">
                     <Form className="px-5">
                     <Form.Group controlId="formUsername">
-                        <Form.Label className="text">
+                        <Form.Label className="text ml-2">
                             Username:
                         </Form.Label>
-                        <Form.Control type="text" className="input" onChange={e => setUsername(e.target.value)} />
+                        <Form.Control type="text" className="input rounded-pill p-4 mx-auto" onChange={e => setUsername(e.target.value)} />
                         {Object.keys(usernameError).map((key) => {
                             return (
                                 <div key={key} style={{ color: "red" }}>
@@ -88,10 +88,10 @@ export function LoginView(props) {
                     </Form.Group>
 
                     <Form.Group controlId="formPassword">
-                        <Form.Label className="text">
+                        <Form.Label className="text ml-2">
                             Password: 
                         </Form.Label>
-                        <Form.Control type="password" className="input" onChange={e => setPassword(e.target.value)} />
+                        <Form.Control type="password" className="input rounded-pill p-4 mx-auto" onChange={e => setPassword(e.target.value)} />
                         {Object.keys(passwordError).map((key) => {
                             return (
                                 <div key={key} style={{ color: "red" }}>
@@ -101,14 +101,14 @@ export function LoginView(props) {
                         })}
                     </Form.Group>
                     <div id="error" className="err"></div>
-                    <div className="text-center">
-                        <Button type="submit" className="btn-primary" onClick={handleSubmit}>
+                    <div className="center" >
+                        <Button type="submit" className="btn btn-primary rounded-pill effect loginBtn" onClick={handleSubmit}>
                             Login
                         </Button>
                         
                         <h4 className="mt-5">Don't have an account?</h4>
                         <Link to='/register'>
-                            <Button className="btn-primary mt-2 mb-4">
+                            <Button className="btn btn-primary rounded-pill mt-2 mb-4 effect loginBtn">
                                 Register
                             </Button>
                         </Link> 
