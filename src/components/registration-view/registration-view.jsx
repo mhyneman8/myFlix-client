@@ -20,9 +20,13 @@ export function RegistrationView(props) {
 
     const formValidation = () => {
         let isReq = true;
+        var letters = /^[A-Za-z0-9]+$/;
 
         if ( (username.length < 5) || (!username) ){
             setUsernameError("Username must be more than 5 characters.");
+            isReq = false;
+        } else if (!username.match(letters)) {
+            setUsernameError("Username cannot contain special characters")
             isReq = false;
         }
         if (!password) {
@@ -57,6 +61,7 @@ export function RegistrationView(props) {
                 window.open('/', '_self');
             })
             .catch(e => {
+                console.log(birthDate)
                 console.log('error registering the user')
                 alert('Unable to register user');
             });
@@ -106,7 +111,7 @@ export function RegistrationView(props) {
                             <Form.Control type='date' className='rounded-pill p-4 mx-auto input' onChange={e => setBirthDate(e.target.value)} />
                         </Form.Group>
                         <div className="center block" >
-                            <Link to={`/login`}>
+                            <Link to={`/`}>
                                 <Button className="btn btn-primary rounded-pill effect registerBtn" size="lg" type='submit' onClick={handleRegister}>
                                     Register
                                 </Button>
