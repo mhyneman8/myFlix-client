@@ -75,13 +75,13 @@ export function RegistrationView(props) {
                 </Col>
             </Row>
             <Row>
-                <Col>
+                <Col className='d-flex justify-content-center'>
                     <Form className="px-5">
                         <Form.Group controlId="registerUsername">
                             <Form.Label className="text ml-2">
                                 Username:
                             </Form.Label>
-                            <Form.Control type='text' className='rounded-pill p-4 mx-auto' onChange={e => setUsername(e.target.value)} />
+                            <Form.Control type='text' className='rounded-pill p-4 mx-auto input' onChange={e => setUsername(e.target.value)} />
                         </Form.Group>
 
                         {Object.keys(usernameError).map((key) => {
@@ -96,7 +96,7 @@ export function RegistrationView(props) {
                             <Form.Label className="text ml-2">
                                 Password:
                             </Form.Label>
-                            <Form.Control type='password' className='rounded-pill p-4 mx-auto' onChange={e => setPassword(e.target.value)} />
+                            <Form.Control type='password' className='rounded-pill p-4 mx-auto input' onChange={e => setPassword(e.target.value)} />
                         </Form.Group>
 
                         {Object.keys(passwordError).map((key) => {
@@ -111,7 +111,7 @@ export function RegistrationView(props) {
                             <Form.Label className="text ml-2">
                                 Email:
                             </Form.Label>
-                            <Form.Control type='email' className='rounded-pill p-4 mx-auto' onChange={e => setEmail(e.target.value)} />
+                            <Form.Control type='email' className='rounded-pill p-4 mx-auto input' onChange={e => setEmail(e.target.value)} />
                         </Form.Group>
 
                         {Object.keys(emailError).map((key) => {
@@ -126,7 +126,7 @@ export function RegistrationView(props) {
                             <Form.Label className="text ml-2">
                                 Birthday:
                             </Form.Label>
-                            <Form.Control type='date' className='rounded-pill p-4 mx-auto' onChange={e => setBirthDate(e.target.value)} />
+                            <Form.Control type='date' className='rounded-pill p-4 mx-auto input' onChange={e => setBirthDate(e.target.value)} />
                         </Form.Group>
                         <div className="center block" >
                             <Link to={`/login`}>

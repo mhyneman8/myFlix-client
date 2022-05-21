@@ -6,6 +6,15 @@ h2 {
     font-weight: bold;
 }
 
+.input {
+    width: 400px !important;
+}
+
+.text {
+    margin-top: 10px;
+    display: block;
+}
+
 .effect {
     position: relative;
     overflow: hidden;
@@ -43,8 +52,4 @@ h2 {
         text-indent: 0;
       }
     }
-}
-
-.input {
-    width: 400px !important;
 }
