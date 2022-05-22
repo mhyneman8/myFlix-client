@@ -14,6 +14,10 @@ User Authentication is with a JWT-based and basic HTTP authentications.
 
 https://myflix-mh.netlify.app/
 
+## Screenshots
+
+![Homepage Screenshot](src/img/myFlix.jpg)
+
 ## API Reference
 
 To build the project in the terminal run:
