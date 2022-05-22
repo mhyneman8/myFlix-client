@@ -72,7 +72,8 @@ export function RegistrationView(props) {
         <div>
             <Row>
                 <Col className='d-flex justify-content-center' >
-                    <h2>
+                    <div className="welcomeHeader"></div>
+                    <h2 className='welcomeText'>
                         Register
                     </h2>
                 </Col>
@@ -112,13 +113,13 @@ export function RegistrationView(props) {
                         </Form.Group>
                         <div className="center block" >
                             <Link to={`/`}>
-                                <Button className="btn btn-primary rounded-pill effect registerBtn" size="lg" type='submit' onClick={handleRegister}>
+                                <Button className="btn btn-primary rounded-pill effect registerBtn" size="md" type='submit' onClick={handleRegister}>
                                     Register
                                 </Button>
                             </Link>
                             <br></br>
                             <Link to={`/`}>
-                                <Button size="lg" className="btn btn-primary mb-4 rounded-pill effect registerBtn">
+                                <Button size="md" className="btn btn-primary mb-4 rounded-pill effect registerBtn">
                                     Login
                                 </Button>
                             </Link> 

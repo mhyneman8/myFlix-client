@@ -16,7 +16,7 @@ import { GenreView } from '../genre-view/genre-view';
 import { ProfileView } from '../profile-view/profile-view'; 
 // import { UpdateView } from '../update-view/update-view';
 
-import { Navbar, Nav, Row, Col, Form, FormControl, Button, Dropdown, DropdownButton } from 'react-bootstrap'
+import { Nav, Row, Col, Dropdown, DropdownButton } from 'react-bootstrap'
 
 import '../../index.scss';
 import './main-view.scss';
@@ -85,6 +85,7 @@ class MainView extends React.Component {
 
         return (
             <Router>
+                {user !== null ? (
                  <Row className="navbar mb-5">
                     <Col className='d-flex justify-content-between'>
                         <Nav.Link href='/'>
@@ -92,23 +93,22 @@ class MainView extends React.Component {
                                 myFlix
                             </h1>
                         </Nav.Link>
-                    
-                        {user !== null ? (
-                            <Row>
-                                {/* <div className="dropdown"> */}
-                                    <DropdownButton className="mt-3" id="dropdown-basic-button" title={`${user}`} >
-                                        <Dropdown.Item as={Link} to={`/users/${user}`}>
-                                            My Profile
-                                        </Dropdown.Item>
-                                        <Dropdown.Item className="logout" onClick={() => this.onLoggedOut()}>
-                                            Logout
-                                        </Dropdown.Item> 
-                                    </DropdownButton>                                    
-                                {/* </div> */}
-                            </Row>
-                             ) : null}
+                        <Row>
+                            {/* <div className="dropdown"> */}
+                                <DropdownButton className="mt-3" id="dropdown-basic-button" title={`${user}`} >
+                                    <Dropdown.Item as={Link} to={`/users/${user}`}>
+                                        My Profile
+                                    </Dropdown.Item>
+                                    <Dropdown.Item className="logout" onClick={() => this.onLoggedOut()}>
+                                        Logout
+                                    </Dropdown.Item> 
+                                </DropdownButton>                                    
+                            {/* </div> */}
+                        </Row>    
                     </Col>
                 </Row>
+                ) : (<div className='login-nav'></div>)
+                }
 
                 {/* Main View */}
                 <Row className="main-view justify-content-md-center">
