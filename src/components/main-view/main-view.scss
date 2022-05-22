@@ -9,23 +9,11 @@ $tertiary:#fa824c;
 .navbar {
 	background-color: $secondary;
 	color: $primary !important;
-}
-
-.nav-login {
-    float: right;
-    display: flex;
-}
-
-.inline {
-    float: left;
-}
-
-.nav-link {
-    color: $tertiary !important;
+    box-shadow: -3px 22px 29px -10px slategrey;
 }
 
 #dropdown-basic-button {
-    width: 95px;
+    width: auto;
     margin: 10px;
 }
 
@@ -41,14 +29,6 @@ a.main-view.nav-link,
 form.form-inline,
 div.dropdown {
     text-align: right !important;
-}
-
-.logout {
-    color: $secondary;
-}
-
-.logout:hover {
-    color: black;
 }
 
 .navbar-toggler {

@@ -13,19 +13,20 @@ export class MovieCard extends React.Component {
         const { movie } = this.props;
 
         return (
-            <Card >
-                <div className="text-center">
+            <Card className='movie-card d-flex justify-content-center text-center'>
                     <Link to={`/movies/${movie._id}`}>
-                        <Card.Img  variant="top" src={movie.ImageUrl} />
+                        <Card.Img className='poster pt-2'  variant="top" src={movie.ImageUrl} />
                     </Link>
-                </div>
-                
                 <Card.Body>
                     <Link to={`/movies/${movie._id}`}>
-                        <Card.Title className="link" >{movie.Title}</Card.Title>
+                        <Card.Title className="link" >
+                            {movie.Title}
+                        </Card.Title>
                     </Link>
 
-                    <Card.Text className="text truncate-overflow" >{movie.Description} </Card.Text>
+                    <Card.Text className="text truncate-overflow text-left" >
+                        {movie.Description} 
+                    </Card.Text>
                     
                 </Card.Body>
             </Card>

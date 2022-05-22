@@ -7,51 +7,29 @@ $tertiary:#fa824c;
     text-align: center !important;
 }
 
-div.card {
-    display: grid;
-    grid-template-rows: 1fr auto;
-}
-
-.card-body {
-    align-self: end;
-    justify-items: flex-end;
-    min-height: 23rem; 
-}
-
 .card-img-top {
-    height: 18.75rem;
-    padding: 0.625rem;
-}
-
-@media all and (max-width: 767px) {
-    .card-img-top {
-        height: 400px;
-        width: 300px;
-        padding-top: 40px;
-    }
-    .card-body {
-        padding: 50px;
-    }
+    width: 100%;
+    max-width: 250px;
+    min-width: 200px;
 }
 
 @media all and (max-width: 500px) {
-    .card-img-top {
-        // width: 300px;
+    .movie-card {
+    width: 80%;
+    height: auto;
+    margin: 0 auto;
     }
 }
 
-.movie-poster {
-    display: inline;
-}
-
-.link.card-title.h5 {
+.link.h5 {
     color: $tertiary;
     font-size: 1.875rem;
 } 
 
-.link.card-title.h5:hover {
+.link.h5:hover {
     color: $primary;
-    text-decoration: none;
+    text-decoration: underline;
+    text-decoration-color: $primary !important;
 }
 
 .text {

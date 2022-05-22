@@ -14,7 +14,7 @@ import { MovieView } from '../movie-view/movie-view';
 import { DirectorView } from '../director-view/director-view';
 import { GenreView } from '../genre-view/genre-view';
 import { ProfileView } from '../profile-view/profile-view'; 
-import { UpdateView } from '../update-view/update-view';
+// import { UpdateView } from '../update-view/update-view';
 
 import { Navbar, Nav, Row, Col, Form, FormControl, Button, Dropdown, DropdownButton } from 'react-bootstrap'
 
@@ -86,21 +86,16 @@ class MainView extends React.Component {
         return (
             <Router>
                  <Row className="navbar mb-5">
-                    <Col>
-                        <div sticky="top" expand="sm">
-                            <h1 className="mt-2 inline" href="/">
+                    <Col className='d-flex justify-content-between'>
+                        <Nav.Link href='/'>
+                            <h1 className="mt-2" style={{ color: 'white'}} href="/">
                                 myFlix
                             </h1>
-                        </div>
+                        </Nav.Link>
                     
                         {user !== null ? (
-                            <Row className="nav-login">
-                                <div className="" >
-                                    <Nav.Link className="mt-4" href="/">
-                                        Home
-                                    </Nav.Link>
-                                </div>
-                                <div className="dropdown">
+                            <Row>
+                                {/* <div className="dropdown"> */}
                                     <DropdownButton className="mt-3" id="dropdown-basic-button" title={`${user}`} >
                                         <Dropdown.Item as={Link} to={`/users/${user}`}>
                                             My Profile
@@ -109,7 +104,7 @@ class MainView extends React.Component {
                                             Logout
                                         </Dropdown.Item> 
                                     </DropdownButton>                                    
-                                </div>
+                                {/* </div> */}
                             </Row>
                              ) : null}
                     </Col>
