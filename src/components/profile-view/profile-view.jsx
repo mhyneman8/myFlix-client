@@ -90,11 +90,9 @@ export class ProfileView extends React.Component {
                     'Content-type': 'application/json'
                 },
             };
-            console.log(token);
             axios(config)
 
             .then (function (response) {
-                console.log(JSON.stringify(response.data));
                 alert("Movie was removed");
                 window.location.reload(false);
             })
@@ -181,13 +179,11 @@ export class ProfileView extends React.Component {
 
                     <Col className="text-center">
                         <div>
-
                             <h3 className="text-center fav-movies-title mb-2 mt-5 d-block">
                                 Your Favorite Movies: 
                             </h3>
-                        
+                            
                             {favoriteMovieList.map((movie) => {
-
                                 return (
                                     <div className="fav-movies" key={movie._id}> 
                                         <Card className="fav-card text-center mt-2" >
