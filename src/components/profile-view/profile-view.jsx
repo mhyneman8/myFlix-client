@@ -136,7 +136,7 @@ export class ProfileView extends React.Component {
                         </Form>
 
                         <div className="back">
-                            <Button className="btn-primary mt-2" onClick={() => { onBackClick() }}>
+                            <Button className="btn-primary mt-2 back" onClick={() => { onBackClick() }}>
                                 Back
                             </Button>
                         </div>
